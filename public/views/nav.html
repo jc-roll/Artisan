@@ -1,0 +1,14 @@
+<!-- The class branding is in my css and attaches the font and styles to my logo -->
+  <div class="branding" ><a ng-href="#/home">Artisan</a></div>
+
+<!-- This first ul contains my nav options ng-hide will hide this when they log in -->
+	<ul> 
+     	<li><a ng-hide="currentUser" ng-href="#/login">Login</a></li>
+     	<li><a ng-hide="currentUser" ng-href="#/register">Register</a></li>
+    </ul>
+
+<!-- My second ul contains the nav for after they log in that will show user name and logout option -->
+  	<ul  class="userinfo" ng-show="currentUser" ng-controller="RegistrationController">
+  		<li><a ng-href="#/login" ng-click="logout()">Logout</a></li>
+    	<li><span class="userinfo2"> Welcome {{ currentUser.firstname}} </span></li>
+  	</ul>
