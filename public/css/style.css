@@ -87,26 +87,40 @@ body {
   width: 100%;
   text-align: center;
   clear: both;
-  font-family: "Cooper Std";
-  font-size: 2rem;
 
 }
 .cta {
-padding-top: 5rem;
-padding-bottom: 5rem;
-
+  margin-top: 50px;
+padding-top: 4rem;
+padding-bottom: 4rem;
+font-family: "Cooper Std";
 background-color: rgba(0,0,0,.5);
+
 }
 
 .cta p {
   color: white;
+  font-size: 2rem;
 }
 
-.content {
-  background-color: #00bcd4;
+.about {
+margin-top: 3rem;
+font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;;
+
+font-weight: 700;
+background-color: white;
 
 }
 
+.about p {
+  color: #222;
+  font-size: 1rem;
+}
+.about h1 {
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;;
+  font-weight: 700;
+
+}
 
 
 h1, h2, h3, h4, h5, h6 {
