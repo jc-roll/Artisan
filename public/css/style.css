@@ -1,10 +1,5 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+
 /* Reset Styles */
 
 html, body, span, applet, object, iframe,
@@ -72,9 +67,8 @@ body {
   background-image: url("img/vehicle.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
 }
+
 .card {
   background: white;
   width: 80%;
@@ -88,37 +82,32 @@ body {
   box-shadow: 0 1px 0 rgba(.25,0,0,.25);
 }
 
-.home .cta{
-padding-bottom: 30px;
+.home {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  clear: both;
+  font-family: "Cooper Std";
+  font-size: 2rem;
+
 }
 .cta {
+padding-top: 5rem;
+padding-bottom: 5rem;
 
-
-
+background-color: rgba(0,0,0,.5);
 }
+
+.cta p {
+  color: white;
+}
+
 .content {
-  background: #00bcd4;
-  position: relative;
-}
-
-.content:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: -36px;
-  width: 100%;
-  height: 60px;
-  background: #00bcd4;
-  -webkit-transform: skewY(2.5deg);
-  -moz-transform: skewY(2.5deg);
-  -ms-transform: skewY(2.5deg);
-  -o-transform: skewY(2.5deg);
-  transform: skewY(2.5deg);
-  -webkit-backface-visibility: hidden;
-
-
+  background-color: #00bcd4;
 
 }
+
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Noteworthy;
@@ -127,12 +116,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #2D8BCF;
+  color: #E76C5A;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
-}
-
-header {
-  margin-bottom: 20px;  
 }
 
 h1 { 
@@ -160,17 +145,35 @@ input {
 }
 
 nav {
+  position: relative;
   width: 100%;
   opacity: .92;
-  background: #222;
-  height: 120px;
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  height: 90px;
 }
 
 .logo {
   text-align: center;
   float: left;
   margin-left: 20px;
+}
+.skew:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: visible;
+  background: #222;
+  width: 100%;
+  height: 250px;
+  z-index: -1;
+  -webkit-transform: skewY(-2.5deg);
+  -moz-transform: skewY(-2.5deg);
+  -ms-transform: skewY(-2.5deg);
+  -o-transform: skewY(-2.5deg);
+  transform: skewY(-2.5deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: initial;
+
 }
 
 .branding a  {
@@ -182,29 +185,19 @@ nav {
   text-decoration: none;
 }
 
-.branding a p  {
-  width: auto;
-  font-family: 'Noteworthy';
-  font-size: .7em;
-  text-align: left;
-  color: #fff;
-  text-decoration: none;
-}
-
 .branding a:hover {
-  color: orange;
+  color: #E76C5A;
 }
 
 nav ul li {
   float: right;
-  color: #145266;
+  color: white;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
   font-size: 1.1em;
 }
 
 nav ul li.user {
-  background-color: #D24244;
-  color: #EFC94C;
+
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
@@ -215,13 +208,14 @@ nav ul li.user.hello {
 nav ul li a{
   float: left;
   text-align: center;
-  margin: 10px 10px;
+  margin: 10px 0px;
   padding: 10px 15px;
   text-decoration: none;
 }
 
 nav ul li span{
   float: left;
+
   text-align: center;
   margin: 10px 10px;
   padding: 10px 15px;
@@ -229,8 +223,28 @@ nav ul li span{
 }
 
 nav li a:hover {
-  color: #E76C5A;
+  color: white;
 }
+
+nav .nav2 li a:hover {
+  color: #E76C5A;
+  background-color: white;
+}
+
+nav .nav2 li a {
+  color: white;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  font-size: .8em;
+  font-weight: 700;
+}
+
+nav .nav2 {
+  float: right;
+  clear: right;
+  text-decoration: none;
+}
+
+
 
 .userinfo {
   text-align: center;
