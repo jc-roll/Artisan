@@ -7,9 +7,8 @@ html {
 }
 /* Reset Styles */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
+html, body, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
@@ -52,14 +51,6 @@ q, blockquote {
 a img {
   border: none; }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
-  display: block; }
-
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
 
 /* Base Styles */
 
@@ -74,22 +65,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 html {
-  background-color: yellow;
-  min-height: 50%;
-  height: auto;
+
 }
 
-body  {
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 160%;
-  background-color: blue;
-  color: white;
-  line-height: 1.5rem;
-    *zoom: 1;
+body {
+  background-image: url("img/vehicle.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
-
-.card{
+.card {
   background: white;
   width: 80%;
   max-width: 1850px;
@@ -97,15 +83,46 @@ body  {
   margin-right: auto;
   padding: 10px 40px;
   text-align: center;
-  opacity: .95;
   border-radius: 4px;
   border: 1px solid #e8e8e8;
   box-shadow: 0 1px 0 rgba(.25,0,0,.25);
 }
 
+.home .cta{
+padding-bottom: 30px;
+}
+.cta {
+
+
+
+}
+.content {
+  background: #00bcd4;
+  position: relative;
+}
+
+.content:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -36px;
+  width: 100%;
+  height: 60px;
+  background: #00bcd4;
+  -webkit-transform: skewY(2.5deg);
+  -moz-transform: skewY(2.5deg);
+  -ms-transform: skewY(2.5deg);
+  -o-transform: skewY(2.5deg);
+  transform: skewY(2.5deg);
+  -webkit-backface-visibility: hidden;
+
+
+
+}
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lato', serif;
-  font-weight: 100;
+  font-family: Noteworthy;
+  font-weight: 200;
   text-shadow: 1px 1px rgb(255,255,255, 1);
 }
 
@@ -115,18 +132,17 @@ a {
 }
 
 header {
-  margin-bottom: 20px;
+  margin-bottom: 20px;  
 }
 
-h1{
+h1 { 
   font-size: 2.2rem;
   font-weight: 400;
   line-height: 100%;
   margin-bottom: 10px;
   padding-top: 10px;
-  font-weight: 700;
   font-family: Lato,appleLogo,sans-serif;
-  margin: 0 0 1rem;
+
 }
 
 input {
@@ -145,30 +161,38 @@ input {
 
 nav {
   width: 100%;
-  opacity: 5;
-  background: #444;
-  height: 60px;
+  opacity: .92;
+  background: #222;
+  height: 120px;
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
 
-.branding {
+.logo {
+  text-align: center;
   float: left;
-  margin-top: 20px;
   margin-left: 20px;
 }
 
-.branding a {
-  text-align: center;
+.branding a  {
   width: auto;
-  font-family: Selima;
-  font-size: 3.6em;
+  font-family: 'Noteworthy';
+  font-size: 1.5em;
+  text-align: left;
+  color: #fff;
+  text-decoration: none;
+}
+
+.branding a p  {
+  width: auto;
+  font-family: 'Noteworthy';
+  font-size: .7em;
   text-align: left;
   color: #fff;
   text-decoration: none;
 }
 
 .branding a:hover {
-  color: none;
+  color: orange;
 }
 
 nav ul li {
