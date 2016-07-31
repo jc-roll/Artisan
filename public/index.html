@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Artisan Furniture</title>
   <meta name="viewport" content="width=device-width, user-scalable=no">
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
+<!--   <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" href="css/style.css">
 
   <!-- firebase script -->
@@ -34,13 +34,16 @@
   <script src="js/controllers/home.js"></script>
   <script src="js/controllers/registration.js"></script>
   <script src="js/controllers/success.js"></script>
+  <script src="js/controllers/login.js"></script>
 
 
 
 </head>
   <body>
-    <script>
-  // This is called with the results from from FB.getLoginStatus().
+<script>
+  ///////////////////////////////////////////Facebook Login Options///////////////////////////////////////////////////
+  
+// This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -119,14 +122,7 @@
     });
   }
 </script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1812013779036047";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <div id="fb-root"></div>
     <header>
       <nav class="cf" ng-include="'views/nav.html'"></nav>
     </header>

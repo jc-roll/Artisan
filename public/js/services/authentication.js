@@ -24,7 +24,7 @@ myApp.factory('Authentication',
         email: user.email,
         password: user.password
       }).then(function(regUser) {
-        $location.path('/success');
+        $location.path('/home');
       }).catch(function(error) {
        $rootScope.message = error.message;
       });

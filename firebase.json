@@ -1,9 +1,11 @@
 {
-  "firebase": "Artisan",
+"hosting": {
+  "firebase": "finalproject-33408",
   "public": "public",
   "ignore": [
     "firebase.json",
     "**/.*",
     "**/node_modules/**"
   ]
+}
 }

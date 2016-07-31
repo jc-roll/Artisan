@@ -16,11 +16,13 @@ myApp.run(['$rootScope', '$location',
       }); //event info
   }]); //run
 
+
+
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
     when('/login', {
       templateUrl: 'views/login.html',
-      controller: 'RegistrationController'
+      controller: 'LogistrationController'
     }).
     when('/register', {
       templateUrl: 'views/register.html',
@@ -29,15 +31,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
     when('/home', {
       templateUrl: 'views/home.html',
       controller: 'HomeController'
-    }).
-    when('/success', {
-      templateUrl: 'views/success.html',
-      controller: 'SuccessController',
-      resolve: {
-        currentAuth: function(Authentication) {
-          return Authentication.requireAuth();
-        } //current Auth
-      } //resolve
     }).
     otherwise({
       redirectTo: '/home'
