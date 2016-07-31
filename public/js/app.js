@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp',
   ['ngRoute', 'firebase'])
 // This is my personal link to my firebaseIo 
-  .constant('FIREBASE_URL', 'https://finalproject-33408.firebaseio.com'); 
+  .constant('FIREBASE_URL', "https://finalproject-33408.firebaseio.com"); 
 
 
 

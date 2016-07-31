@@ -4,7 +4,7 @@
     novalidate>
 
     <div class="textintro">
-      <h1>Login Form</h1>
+      <h1>Login Forms</h1>
     </div>
 
     <fieldset>
@@ -26,5 +26,14 @@
     <button type="submit"1
       ng-disabled="myform.$invalid">Login</button>
     <p>or <a ng-href="#/register">Register</a></p>
+
+
+      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
+
+    <div id="status">
+</div>
+
   </form>
+
 </section>
