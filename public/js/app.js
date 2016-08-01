@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp',
   ['ngRoute', 'firebase'])
 // This is my personal link to my firebaseIo 
-  .constant('FIREBASE_URL', "https://finalproject-33408.firebaseio.com"); 
+  .constant('FIREBASE_URL', "https://finalproject-33408.firebaseio.com/"); 
 
 
 
@@ -22,7 +22,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
     when('/login', {
       templateUrl: 'views/login.html',
-      controller: 'LogistrationController'
+      controller: 'LoginController'
     }).
     when('/register', {
       templateUrl: 'views/register.html',

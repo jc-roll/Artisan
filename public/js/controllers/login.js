@@ -1,6 +1,8 @@
-myApp.controller('LoginController', ['$scope', function($scope) {
+myApp.controller('LoginController',
+  ['$scope','$rootScope', '$firebaseObject', 'FIREBASE_URL', function($scope, $rootScope, $firebaseObject, FIREBASE_URL) {
 
   ///////////////////////////////////////////Manual Login Options///////////////////////////////////////////////////
+  
   $scope.login = function() {
     Authentication.login($scope.user);
   }; //login 
@@ -9,7 +11,7 @@ myApp.controller('LoginController', ['$scope', function($scope) {
     Authentication.logout();
   }; //logout
 
-  ///////////////////////////////////////////Facebook Login Options///////////////////////////////////////////////////
+///////////////////////////////////////////Facebook Login Options///////////////////////////////////////////////////
   
 // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -70,14 +72,13 @@ myApp.controller('LoginController', ['$scope', function($scope) {
 
   };
 
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
@@ -87,8 +88,31 @@ myApp.controller('LoginController', ['$scope', function($scope) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
+          
     });
   }
 
 
-}]);
+
+  function registerFB(response) {
+      auth.$createUser({
+        email: response.email
+      }).then(function(regUser) {
+
+    var regRef = new Firebase(FIREBASE_URL + 'users/'+regUser.uid)
+    var firebaseUser = $firebaseObject(regRef);
+        firebaseUser.firstname = response.firstname;
+        firebaseUser.lastname = response.lastname;
+        firebaseUser.email = response.email;
+        firebaseUser.date = response.ServerValue.TIMESTAMP;
+        firebaseUser.$save();
+        console.log('Logged Data');
+
+      }).catch(function(error) {
+        $rootScope.message = error.message;
+      }); // //createUser
+    } // register
+
+  }]);
+
+
