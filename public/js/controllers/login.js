@@ -1,10 +1,10 @@
 myApp.controller('LoginController',
-  ['$scope','$rootScope', '$firebaseObject', 'FIREBASE_URL', function($scope, $rootScope, $firebaseObject, FIREBASE_URL) {
+  ['$scope','$rootScope', '$firebaseObject', '$firebase', 'FIREBASE_URL', function($scope, $rootScope, $firebaseObject, $firebase, FIREBASE_URL) {
 
   ///////////////////////////////////////////Manual Login Options///////////////////////////////////////////////////
   
   $scope.login = function() {
-    Authentication.login($scope.user);
+    auth.login($scope.user);
   }; //login 
 
   $scope.logout = function() {
@@ -13,6 +13,8 @@ myApp.controller('LoginController',
 
 ///////////////////////////////////////////Facebook Login Options///////////////////////////////////////////////////
   
+
+
   $scope.watchLoginChange = function() {
     var _self = this;
     FB.Event.subscribe('auth.authResponseChange', function(res) {
