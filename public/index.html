@@ -29,28 +29,13 @@
 
 
 <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBapIsFvALXS5Ysgdepi8iql2QNCxDwOFQ",
-    authDomain: "finalproject-33408.firebaseapp.com",
-    databaseURL: "https://finalproject-33408.firebaseio.com/",
-    storageBucket: "finalproject-33408.appspot.com",
-  };
-  firebase.initializeApp(config);
-</script>
-
-
 </head>
   <body>
     <header>
       <nav class="cf" ng-include="'views/nav.html'"></nav>
     </header>
 <!-- Adding the SiteContent allows the views to be visible by using ng-view -->
-      <siteContent ng-view >
-        
-
-      </siteContent>
+      <siteContent ng-view ></siteContent>
       <div id="fb-root"></div>
   </body>
 </html>
