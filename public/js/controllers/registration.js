@@ -1,5 +1,5 @@
 myApp.controller('RegistrationController',
-  ['$scope', 'Authentication',
+  ['$scope', 'Authentication', 'FIREBASE_URL',
   function($scope, Authentication) {
 
   $scope.login = function() {
@@ -9,7 +9,7 @@ myApp.controller('RegistrationController',
   $scope.logout = function() {
     Authentication.logout();
   }; //logout
-  
+
   $scope.register = function() {
     Authentication.register($scope.user);
   }; // register creates a new user and adds that information to the firebase

@@ -36,7 +36,9 @@
       <nav class="cf" ng-include="'views/nav.html'"></nav>
     </header>
 <!-- Adding the SiteContent allows the views to be visible by using ng-view -->
-      <siteContent ng-view ></siteContent>
+ <div class="userinfo" ng-show="currentUser" ng-controller="RegistrationController">
+  </div>
+    <siteContent ng-view ></siteContent>
       <div id="fb-root"></div>
   </body>
 </html>

@@ -24,7 +24,7 @@ myApp.factory('Authentication',
         email: user.email,
         password: user.password
       }).then(function(regUser) {
-        $location.path('/login');
+        $location.path('/home');
       }).catch(function(error) {
        $rootScope.message = error.message;
       });
@@ -60,7 +60,7 @@ myApp.factory('Authentication',
         ", Thanks for registering you may now log-In!";
       }).catch(function(error) {
         $rootScope.message = error.message;
-      }); // //createUser
+     }); // //createUser
     } // register
   };
 
