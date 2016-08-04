@@ -1,5 +1,6 @@
 myApp.controller("RegisterController", ["$scope", "Auth",
-  function($scope, Auth) {
+  function($scope, Auth, $firebaseObject) {
+
     $scope.createUser = function() {
       $scope.message = null;
       $scope.error = null;

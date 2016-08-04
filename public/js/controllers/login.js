@@ -1,13 +1,20 @@
-myApp.controller('LoginController', ['currentAuth', function(currentAuth) {
+myApp.controller('LoginController', ['$scope', 'Auth', 'currentAuth', 
+  function($scope, Auth, currentAuth) {
 
-  var provider = new firebase.auth.FacebookAuthProvider();
-  $scope.provider = provider;
+    var provider = new firebase.auth.FacebookAuthProvider();
+    $scope.provider = provider;
+    $scope.auth = Auth;
+
+    // any time auth state changes, add the user data to scope
+    $scope.auth.$onAuthStateChanged(function(firebaseUser) {
+      $scope.firebaseUser = firebaseUser;
+    });
+  }
 
   $scope.watchLoginChange = function() {
-    var _self = this;
     FB.Event.subscribe('auth.authResponseChange', function(res) {
       if (res.status === 'connected') {
-        _self.getUserInfo();
+        _this.getUserInfo();
         }
         else {
         }
@@ -15,19 +22,17 @@ myApp.controller('LoginController', ['currentAuth', function(currentAuth) {
     }
 
   $scope.getUserInfo = function() {
-    var _self = this;
     FB.api('/me', function(res) {
       $rootScope.$apply(function() {
-        $rootScope.user = _self.user = res;
+        $rootScope.user = _this.user = res;
       });
     });
   }
 
   $scope.logout = function() {
-    var _self = this;
     FB.logout(function(response) {
       $rootScope.$apply(function() {
-        $rootScope.user = _self.user = {};
+        $rootScope.user = _this.user = {};
       });
     });
   }

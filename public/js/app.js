@@ -1,4 +1,4 @@
-var myApp = angular.module("sampleApp", ["firebase"]);
+var myApp = angular.module("myApp", ["firebase"]);
   .constant('loginRedirectPath', '/login');
   .constant('FBURL', 'https://finalproject-33408.firebaseio.com');
 
@@ -48,33 +48,33 @@ myApp.config(['$routeProvider', function($routeProvider) {
           return Auth.$waitForSignIn();
       }]
     }
-    }).
-    when('/locations', {
-      templateUrl: 'views/locations.html',
-      controller: 'LocationsController',
-      resolve: {
-        "currentAuth": ["Auth", function(Auth) {
-          return Auth.$waitForSignIn();
-      }]
-    }
-    }).
-    when('/gallery', {
-      templateUrl: 'views/gallery.html',
-      controller: 'GalleryController',
-      resolve: {
-        "currentAuth": ["Auth", function(Auth) {
-          return Auth.$requireSignIn();
-      }]
-    }
-    }).
-    when('/profile', {
-      templateUrl: 'views/profile.html',
-      controller: 'ProfileController',
-      resolve: {
-        "currentAuth": ["Auth", function(Auth) {
-          return Auth.$requireForSignIn();
-      }]
-    }
+    // }).
+    // when('/locations', {
+    //   templateUrl: 'views/locations.html',
+    //   controller: 'LocationsController',
+    //   resolve: {
+    //     "currentAuth": ["Auth", function(Auth) {
+    //       return Auth.$waitForSignIn();
+    //   }]
+    // }
+    // }).
+    // when('/gallery', {
+    //   templateUrl: 'views/gallery.html',
+    //   controller: 'GalleryController',
+    //   resolve: {
+    //     "currentAuth": ["Auth", function(Auth) {
+    //       return Auth.$requireSignIn();
+    //   }]
+    // }
+    // }).
+    // when('/profile', {
+    //   templateUrl: 'views/profile.html',
+    //   controller: 'ProfileController',
+    //   resolve: {
+    //     "currentAuth": ["Auth", function(Auth) {
+    //       return Auth.$requireForSignIn();
+    //   }]
+    // }
     }).
     otherwise({
       redirectTo: '/home'

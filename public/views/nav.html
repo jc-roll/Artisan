@@ -8,8 +8,8 @@
 		<li><a ng-hide="firebaseUser" ng-href="#/register">SIGN-UP</a></li>
 	</ul>
 	<ul class="userinfo" ng-show="firebaseUser" ng-controller="LoginController">
-	  	<li><a ng-href="#/login" ng-click="auth.$signOut()">Logout</a></li>
-	    <li><span class="userinfo2"> Welcome {{ firebaseUser.displayName }} </span></li>
+	  	<li><a ng-href="#/home" ng-click="auth.$signOut()">Logout</a></li>
+	    <li><span class="userinfo2"> Welcome {{ firebaseUser.first }} </span></li>
 	</ul>
 </div>
 <div class="nav2">
