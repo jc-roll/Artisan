@@ -1,10 +1,4 @@
-myApp.controller('LoginController',
-  ['$scope','$rootScope', '$firebaseObject', '$firebase', 'FIREBASE_URL', function($scope, $rootScope, $firebaseObject, $firebase, FIREBASE_URL) {
-
-
-///////////////////////////////////////////Facebook Login Options///////////////////////////////////////////////////
-  
-
+myApp.controller('LoginController', ['currentAuth', function(currentAuth) {
 
   $scope.watchLoginChange = function() {
     var _self = this;
@@ -35,38 +29,38 @@ myApp.controller('LoginController',
     });
   }
 
-// function($rootScope, $location, $window) {
-// $rootScope.user = {};
-//     $window.fbAsyncInit = function() {
-//       // Executed when the SDK is loaded
-//       FB.init({
-//         appId: '1812013779036047',
-//         channelUrl: 'https://finalproject-33408.firebaseapp.com/__/auth/handler ',
-//         status: true,
-//         cookie: true,
-//         xfbml: true
-//       });
-      
-//     };
+  function($rootScope, $location, $window) {
+  $rootScope.user = {};
+      $window.fbAsyncInit = function() {
+        // Executed when the SDK is loaded
+        FB.init({
+          appId: '1812013779036047',
+          channelUrl: 'https://finalproject-33408.firebaseapp.com/__/auth/handler ',
+          status: true,
+          cookie: true,
+          xfbml: true
+        });
+        
+      };
 
-//   (function(d){
-//     // load the Facebook javascript SDK
-//     var js,
-//     id = 'facebook-jssdk',
-//     ref = d.getElementsByTagName('script')[0];
-//     if (d.getElementById(id)) {
-//       return;
-//     }
-//     js = d.createElement('script');
-//     js.id = id;
-//     js.async = true;
-//     js.src = "//connect.facebook.net/en_US/all.js";
+    (function(d){
+      // load the Facebook javascript SDK
+      var js,
+      id = 'facebook-jssdk',
+      ref = d.getElementsByTagName('script')[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement('script');
+      js.id = id;
+      js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
 
-//     ref.parentNode.insertBefore(js, ref);
+      ref.parentNode.insertBefore(js, ref);
 
-//   }(document));
+    }(document));
 
-  
+
   }]);
 
 
