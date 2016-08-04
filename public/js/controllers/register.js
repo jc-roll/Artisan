@@ -9,7 +9,7 @@ myApp.controller("RegisterController", ["$scope", "Auth",
         .then(function(firebaseUser) {
           $scope.message = "User created with uid: " + firebaseUser.uid;
         }).catch(function(error) {
-          $scope.error = error;
+          $scope.error = "Error - Login Failed";
         });
     };
 }]); // Controller

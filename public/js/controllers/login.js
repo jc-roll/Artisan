@@ -1,5 +1,8 @@
 myApp.controller('LoginController', ['currentAuth', function(currentAuth) {
 
+  var provider = new firebase.auth.FacebookAuthProvider();
+  $scope.provider = provider;
+
   $scope.watchLoginChange = function() {
     var _self = this;
     FB.Event.subscribe('auth.authResponseChange', function(res) {
