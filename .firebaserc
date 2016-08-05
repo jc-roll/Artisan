@@ -1,5 +1,6 @@
 {
   "projects": {
-    "Artisan": "finalproject-33408"
+    "Artisan": "finalproject-33408",
+    "default": "finalproject-33408"
   }
 }
