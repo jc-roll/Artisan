@@ -1,6 +1,6 @@
 myApp.controller('RegistrationController',
-  ['$scope', 'Authentication',
-  function($scope, Authentication) {
+  [ 'Authentication',
+  function(Authentication) {
   
   $scope.login = function() {
     Authentication.login($scope.user);
