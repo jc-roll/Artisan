@@ -1,27 +1,25 @@
 <section class="card">
-  <form ng-submit="authCtrl.login()">
+  <form ng-submit="login()" novalidate>
 
     <div class="textintro">
       <h1>Login Form</h1>
     </div>
 
-    <fieldset>
-      <input type="email" id="register__email" placeholder="Ex. your@email.com"
-      ng-model="authCtrl.account.email" ng-required="true">
+    <fieldset ng-app="myApp" ng-controller="LoginCtrl">
+      <input type="email" name="email" placeholder="Ex. your@email.com"
+      ng-model="user.email" ng-required="true">
       <p class="error validationerror"
       ng-show="myform.email.$invalid && myform.email.$touched">
       Must be a valid email</p>
 
-      <input type="password" id="register__password" placeholder="Password"
-      ng-model="authCtrl.account.password" ng-required="true">
+      <input type="password" name="password" placeholder="Password"
+      ng-model="user.password" ng-required="true">
       <p class="error validationerror"
-      ng-show="myform.password.$invalid && myform.email.$touched">
+      ng-show="myform.password.$invalid && myform.password.$touched">
       Password is required</p>
-
     </fieldset>
 
-    <button type="submit" value="Log In"
+    <button type="submit" class="btn"
       ng-disabled="myform.$invalid">Login</button>
-    <p>or <a ng-href="#/register">Register</a></p>
   </form>
 </section>
