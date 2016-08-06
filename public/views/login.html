@@ -6,26 +6,25 @@
     <div class="textintro">
       <h1>Login Form</h1>
     </div>
-    <div ng-app="myApp" ng-controller="RegisterController">
-      Email: <input type="text" ng-model="email">
-      Password: <input type="text" ng-model="password">
-      <br><br>
-      <button ng-click="createUser()">Create User</button>
-      <br><br>
-      <p ng-if="message">Message: <strong>{{ message }}</strong></p>
-      <p ng-if="error">Error: <strong>{{ error }}</strong></p>
-    </div>
 
-     <a ng-href="#/register">Register</a></p>
-     
-      <div id="fb-root"></div>
+    <fieldset>
+      <input type="email" name="email" placeholder="Email"
+       ng-model="user.email" ng-required="true">
+      <p class="error validationerror"
+      ng-show="myform.email.$invalid && myform.email.$touched">
+      Must be a valid email</p>
 
-      <fb:login-button show-faces="true" max-rows="1" size="large" data-auto-logout-link="true"></fb:login-button>
 
-      
+      <input type="password" name="password" placeholder="Password"
+      ng-model="user.password" ng-required="true">
+      <p class="error validationerror"
+      ng-show="myform.password.$invalid && myform.email.$touched">
+      Password is required</p>
 
-      <div id="status"></div>
+    </fieldset>
 
+    <button type="submit"1
+      ng-disabled="myform.$invalid">Login</button>
+    <p>or <a ng-href="#/register">Register</a></p>
   </form>
-
 </section>

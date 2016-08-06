@@ -3,8 +3,6 @@ var myApp = angular.module('myApp',
 // This is my personal link to my firebaseIo 
   .constant('FIREBASE_URL', 'https://finalproject-33408.firebaseio.com'); 
 
-
-
 myApp.run(['$rootScope', '$location',
   function($rootScope, $location) {
     $rootScope.$on('$routeChangeError',
