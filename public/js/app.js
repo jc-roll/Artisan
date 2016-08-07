@@ -67,6 +67,19 @@ app.config(["$routeProvider", function($routeProvider) {
       }); ;
 }]);
 
+
+app.controller('RegisterCtrl', ['$scope', function($scope) {
+
+    $scope.submit = function() {
+        firebase.auth().createUserWithEmailAndPassword($scope.email, $scope.password).then(function(status) {
+                firebase.database().ref('users/').set({
+                    firebaseUser.name: $scope.name,
+                    firebaseUser.email: $scope.email
+            })
+          })
+        }
+      }]);
+
 app.controller("LoginCtrl", ["currentAuth", "$scope", "Auth", "$route", function(currentAuth, $scope, Auth, $route) {
   // currentAuth (provided by resolve) will contain the
   // authenticated user or null if not signed in
@@ -106,7 +119,7 @@ app.controller("HomeCtrl", ["currentAuth", "$scope", "Auth", "$route", function(
 
   Auth.$onAuthStateChanged(function(firebaseUser) {
     $scope.user = firebaseUser;
-    console.log("HomeCtrl: state changed");
+    console.log(firebaseUser);
     //if user is logged out go back to login page
     if(firebaseUser === "" || firebaseUser === null){
       $route.reload();

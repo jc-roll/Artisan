@@ -1,41 +1,17 @@
 <section class="card">
-  <form ng-submit="register()" novalidate>
-
+  <form ng-submit="submit()" e>
     <div class="textintro">
       <h1>Registration Form</h1>
     </div>
-
     <fieldset>
-      <label for="firstname">First Name</label>
-      <input type="text" id="firstname" placeholder="First Name"
-      ng-model="first" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.firstname.$invalid && myform.firstname.$touched">
-      First name required</p>
-
-      <label for="lastname">Last Name</label>
-      <input type="text" id="lastname" placeholder="Last Name"
-      ng-model="last" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.lastname.$invalid && myform.lastname.$touched">
-      Last name required</p>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Ex. your@email.com"
-      ng-model="email" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.email.$invalid && myform.email.$touched">
-      Must be a valid email</p>
-
-      <label for="password">Password</label>
-      <input id="password" name="password" placeholder="Password"
-      ng-model="password" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.password.$invalid && myform.password.$touched">
-      Password is required</p>
+        <label for="name">Username</label>
+        <input type="text" id="name" ng-model="name" class="form-control">
+        <label for="email">Email</label>
+        <input type="text" id="email" ng-model="email" class="form-control">
+        <label for="password">Password</label>
+        <input type="text" id="password" ng-model="password" class="form-control">
     </fieldset>
-
-    <button type="submit" ng-click="submit()"
+    <button type="submit" class="btn" ng-click="submit()"
     ng-disabled="myform.$invalid">Register</button>
   </form>
 </section>
