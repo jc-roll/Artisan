@@ -11,17 +11,17 @@
 	</ul>
 
 	<!-- My second ul contains the nav for after they log in that will show user name and logout option -->
-	<ul  class="userinfo" ng-show="firebaseUser">
+	<ul  class="userinfo" ng-show="firebaseAuth">
 	  	<li><a ng-href="#/login" ng-click="logout()">Logout</a></li>
-	    <li><span class="userinfo2"> Welcome {{ firebaseUser.firstname}} </span></li>
+	    <li><span class="userinfo2"> Welcome {{ firebaseUser.name}} </span></li>
 	</ul>
 </div>
 
 <div class="nav2">
 	<ul> 
-		<li><a ng-show="User" ng-href="#/locations">Locations</a></li>
-		<li><a ng-show="firebaseUser" ng-href="#/gallery">Gallery</a></li>
-		<li><a ng-show="firebaseUser" ng-href="#/about">About</a></li>
-		<li><a ng-show="firebaseUser" ng-href="#/home">Home</a></li>
+		<li><a ng-hide="firebaseUser" ng-href="#/locations">Locations</a></li>
+		<li><a ng-hide="firebaseUser" ng-href="#/gallery">Gallery</a></li>
+		<li><a ng-hide="firebaseUser" ng-href="#/about">About</a></li>
+		<li><a ng-hide="firebaseUser" ng-href="#/home">Home</a></li>
 	</ul>
 </div>
