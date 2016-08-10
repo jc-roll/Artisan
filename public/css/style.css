@@ -71,12 +71,12 @@ body {
 
 .card {
   background: white;
-  width: 80%;
+  width: 90%;
+  text-align: center;
   max-width: 1850px;
+  margin-top: 5vw;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px 40px;
-  text-align: center;
   border-radius: 4px;
   border: 1px solid #e8e8e8;
   box-shadow: 0 1px 0 rgba(.25,0,0,.25);
@@ -91,37 +91,35 @@ body {
 }
 .cta {
   margin-top: 50px;
-padding-top: 4rem;
-padding-bottom: 4rem;
-font-family: "Cooper Std";
-background-color: rgba(0,0,0,.5);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  font-family: "Cooper Std";
+  background-color: rgba(0,0,0,.5);
 
 }
 
 .cta p {
   color: white;
-  font-size: 2rem;
+  font-size: 2.5em;
 }
+@media only screen and (max-width: 670px) {.cta p{font-size: .9em;}}
 
 .about {
-margin-top: 3rem;
-font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;;
-
-font-weight: 700;
-background-color: white;
-
+  margin-top: 3rem;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;;
+  font-weight: 700;
+  background-color: white;
 }
 
 .about p {
   color: #222;
   font-size: 1rem;
 }
+
 .about h1 {
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;;
   font-weight: 700;
-
 }
-
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Noteworthy;
@@ -135,28 +133,64 @@ a {
 }
 
 h1 { 
-  font-size: 2.2rem;
+  font-size: 5vw;
   font-weight: 400;
   line-height: 100%;
   margin-bottom: 10px;
   padding-top: 10px;
-  font-family: Lato,appleLogo,sans-serif;
+  font-family: 'Lato' ,appleLogo,sans-serif;
 
 }
 
-input {
-  width: 80%;
+/*input {
+  width: 50%;
   display: inline-block;
+  margin: .4em;
+  text-align: center;
   font-weight: 300;
   padding: 10px 0 5px;
   margin: 15px 10;
-  font-size: 1rem;
-  font-weight: 100;
-  color: #555;
+  font-size: 1.vm;
+  font-weight: 200;
+  color: #888;
   border: 1px solid #888;
   border-radius: 4px;
   outline: 0;
 }
+@media only screen and (min-width: 400px) {input{width:60%;}}*/
+
+.formInput {
+  padding: 10px;
+}
+
+
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            width: 40%;
+            min-width: 200px;
+            margin: .4em;
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(66, 184, 221); /* this is a light blue */
+        }
 
 nav {
   position: relative;
@@ -209,6 +243,7 @@ nav ul li {
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
   font-size: 1.1em;
 }
+@media only screen and (max-width: 400px) {nav ul li a{font-size: 5vw; margin: none;}}
 
 nav ul li.user {
 
@@ -229,7 +264,6 @@ nav ul li a{
 
 nav ul li span{
   float: left;
-
   text-align: center;
   margin: 10px 10px;
   padding: 10px 15px;
@@ -248,9 +282,11 @@ nav .nav2 li a:hover {
 nav .nav2 li a {
   color: white;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
-  font-size: .8em;
+  font-size: 1vw;
   font-weight: 700;
 }
+@media only screen and (max-width: 600px) {nav .nav2 li a{font-size: 3vw; margin-bottom: 2vw; padding-top: none;}}
+
 
 nav .nav2 {
   float: right;
@@ -274,11 +310,11 @@ nav .nav2 {
 }
 
 input.ng-invalid.ng-touched {
-  border: 1px solid #DA3637;
+  border: 2px solid #DA3637;
 }
 
 input.ng-valid.ng-touched {
-  border: 1px solid #509D12;
+  border: 2px solid #509D12;
 }
 
 .ng-invalid .btn {
@@ -287,7 +323,6 @@ input.ng-valid.ng-touched {
 
 .error {
   color: red;
-  padding-bottom: 10px;
 }
 
 

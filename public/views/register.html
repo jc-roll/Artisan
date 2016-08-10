@@ -1,17 +1,35 @@
 <section class="card">
-  <form ng-submit="submit()" e>
-    <div class="textintro">
+  <form ng-submit="submit()" name="myform" class="pure-form pure-form-aligned">
+    <div class="pure-control-group">
       <h1>Registration Form</h1>
     </div>
-    <fieldset>
-        <label for="name">Username</label>
-        <input type="text" id="name" ng-model="name" class="form-control">
-        <label for="email">Email</label>
-        <input type="text" id="email" ng-model="email" class="form-control">
-        <label for="password">Password</label>
-        <input type="text" id="password" ng-model="password" class="form-control">
-    </fieldset>
-    <button type="submit" class="btn" ng-click="submit()"
-    ng-disabled="myform.$invalid">Register</button>
+    <div class="pure-control-group">
+      <label for="name">Username:</label>
+      <input type="text" id="name" name="name" ng-model="name" placeholder="Enter Username">
+      <p class="error validationerror"
+      ng-show="myform.name.$invalid && myform.name.$touched">Last name required</p>
+    </div>
+    <div class="pure-control-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" ng-model="email" placeholder="Enter Email">
+      <p class="error validationerror"
+      ng-show="myform.email.$invalid && myform.email.$touched">Email is required</p>
+    </div>
+    <div class="pure-control-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" ng-model="password" placeholder="Enter Password">
+      <p class="error validationerror"
+      ng-show="myform.password.$invalid && myform.password.$touched">Password is required</p>
+    </div>
+    <div class="pure-control-group">
+      <label for="passwordVal">Re-Enter Password:</label>
+      <input type="password" id="passwordVal" name="passwordVal" ng-model="passwordVal" placeholder="Enter Password">
+      <p class="error validationerror"
+      ng-show="myform.passwordVal.$invalid && myform.passwordVal.$touched">Passwords need to match</p>
+    </div>
   </form>
+  <div class="error validationerror">
+    <button type="submit" class="button-secondary" ng-click="submit()"
+    ng-disabled="myform.$invalid">Sign-Up</button>
+  </div>
 </section>
