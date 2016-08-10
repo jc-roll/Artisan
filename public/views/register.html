@@ -21,19 +21,18 @@
     </div>
     <div class="pure-control-group">
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" ng-model="password" placeholder="Enter Password" ng-required="true">
+      <input type="password" id="password" name="password" ng-model="password" placeholder="Enter Password" ng-required="true" ng-minlength="6" ng-maxlength="12">
       <p class="error validationerror"
-      ng-show="myform.password.$invalid && myform.password.$touched">Password is required</p>
+      ng-show="myform.password.$invalid && myform.password.$touched">Must be atleast 6 charcters in length</p>
     </div>
     <div class="pure-control-group">
       <label for="passwordVal">Confirm Password:</label>
-      <input type="password" id="passwordVal" name="passwordVal" ng-model="passwordVal" placeholder="Enter Password" ng-pattern="(password)" ng-required="true">
+      <input type="password" id="passwordVal" name="passwordVal" ng-model="passwordVal" placeholder="Enter Password" ng-pattern="(password)" ng-required="true" ng-minlength="6" ng-maxlength="12">
       <p class="error validationerror"
-      ng-show="myform.password.$valid && myform.passwordVal.$error.pattern">Password Must Match</p>
+      ng-show="myform.password.$valid && myform.passwordVal.$error.pattern">Passwords Must Match</p>
     </div>
     <div class="pure-control-group">
       <button type="submit" class="button-success" ng-click="submit()" ng-show="myform.$valid">Sign-Up</button>
     </div>
   </form>
-
 </section>

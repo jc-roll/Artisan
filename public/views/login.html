@@ -1,17 +1,26 @@
 <section class="card">
-  <form ng-submit="login()">
+  <form 
+    ng-submit="login()"
+    name="myform" 
+    class="pure-form pure-form-aligned">
 
-    <div class="textintro">
-      <h1>Login Form</h1>
-    </div>
-
-    <fieldset>
-      <label for="email">Email</label>
-      <input type="text" id="email" ng-model="email" class="form-control">
-      <label for="password">Password</label>
-      <input type="text" id="password" ng-model="password" class="form-control">
-    </fieldset>
-
-    <button type="submit" ng-click="submit()" value="Login">Login</button>
-  </form>
+  <div class="pure-control-group">
+        <h1>Sign In</h1>
+      </div>
+      <div class="pure-control-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ng-model="email" placeholder="YourEmail@email.com" ng-required="true">
+        <p class="error validationerror"
+        ng-show="myform.email.$invalid && myform.email.$touched">Email is required</p>
+      </div>
+      <div class="pure-control-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" ng-model="password" placeholder="Enter Password" ng-required="true" ng-minlength="6" ng-maxlength="12">
+        <p class="error validationerror"
+        ng-show="myform.password.$invalid && myform.password.$touched">Must be atleast 6 charcters in length</p>
+      </div>
+      <div class="pure-control-group">
+        <button type="submit" class="button-success" ng-click="submit()" ng-show="myform.$valid">Log-In</button>
+      </div>
+    </form>
 </section>
