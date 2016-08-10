@@ -163,7 +163,6 @@ h1 {
   padding: 10px;
 }
 
-
         .button-success,
         .button-error,
         .button-warning,
@@ -174,6 +173,7 @@ h1 {
             width: 40%;
             min-width: 200px;
             margin: .4em;
+            height: 2em;
         }
 
         .button-success {
@@ -317,8 +317,9 @@ input.ng-valid.ng-touched {
   border: 2px solid #509D12;
 }
 
-.ng-invalid .btn {
-  background: gray;
+.ng-invalid  {
+
+  
 }
 
 .error {
