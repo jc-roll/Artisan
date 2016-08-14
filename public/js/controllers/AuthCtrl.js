@@ -29,7 +29,7 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$fi
     // 2. Auth Facebook
     var provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('email');
-    provider.addScope('name');
+    provider.addScope('user_friends');
 
     $scope.facebook = function () {
         // firebase.auth().signInWithRedirect(provider);
@@ -60,35 +60,36 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$fi
         });
     };
 
-    // $timeout(function () {
-    //     $scope.user = firebase.auth().currentUser;
-    //     if($scope.user) {
-    //         $scope.uid = $scope.user.uid
-    //         $scope.getUsers();
-    //     }
-    // console.log($scope.user.email);
-    //     }, 200);
+    $timeout(function () {
+        $scope.user = firebase.auth().currentUser;
+        if($scope.user) {
+            $scope.uid = $scope.user.uid
+            $scope.getUsers();
+        }
+    console.log($scope.user);
+        }, 200);
 
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         $scope.uid = user.uid;
         console.log(user.email);
         console.log('User is signed in.');
+        $scope.getData();
       } else {
         console.log('No user is signed in.');
       }
     });
 
     $scope.getData = function() {
-      var ref = firebase.database().ref('users/' + $scope.uid);
-      var currentUser = $firebaseArray(ref);
-      console.log(user.name);
+      var ref = firebase.database().ref('users');
+      $scope.data = $firebaseArray(ref);
     };
 
     $scope.getUsers = function() {
         var ref = firebase.database().ref('users/'+ $scope.name);
 
         $scope.users = $firebaseArray(ref);
+        console.log($scope.users);
         console.log($firebaseArray(ref));
     };
 
