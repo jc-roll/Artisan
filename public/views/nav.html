@@ -11,9 +11,9 @@
 	</ul>
 
 	<!-- My second ul contains the nav for after they log in that will show user name and logout option -->
-	<ul  class="userinfo" ng-show="firebaseAuth">
+	<ul  class="userinfo" >
 	  	<li><a ng-href="#/login" ng-click="logout()">Logout</a></li>
-	    <li><span class="userinfo2"> Welcome {{ firebaseUser.name}} </span></li>
+	    <li><span class="userinfo"> Welcome {{ref.name}} </span></li>
 	</ul>
 </div>
 

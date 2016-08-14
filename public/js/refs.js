@@ -1,36 +1,4 @@
-myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$cookies', '$firebaseObject', '$firebaseArray', '$firebaseAuth', function($scope, $timeout, $window, $location, $cookies, $firebaseObject, $firebaseArray, $firebaseAuth) {
-
-    // facebook sdk for grab data from Facebook prfile
-    $window.fbAsyncInit = function() {
-        FB.init({
-          appId: '1812013779036047',
-          status: true,
-          cookie: true,
-          xfbml: true,
-          version: 'v2.6'
-        });
-    };
-
-    /*------------------------------------*\
-        AUTH
-    \*------------------------------------*/
-
-    // 1. Auth with pass and email
-    $scope.submit = function() {
-        // $scope.email = 'lollipop.fly@gmail.com';
-        // $scope.password = 'kerbalcrasauders1';
-
-        firebase.auth().signInWithEmailAndPassword($scope.email, $scope.password).then(function(user) {
-            console.log(user);
-        }).catch(function(error) {
-          // Handle Errors here.
-          $scope.$applyAsync(function() {
-            $scope.errorMessage = error.message;
-          });
-        });
-    };
-
-    // 2. Auth Facebook
+ // 2. Auth Facebook
     var provider = new firebase.auth.FacebookAuthProvider();
     // Permissions
     provider.addScope('email');
@@ -66,40 +34,17 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$co
         });
     };
 
-    // If user Logged in v1
-    // $timeout(function () {
-    //     $scope.user = firebase.auth().currentUser;
-    //     if($scope.user) {
-    //         $scope.uid = $scope.user.uid
-    //         $scope.getUsers();
-    //     }
-    // console.log($scope.user);
-    //     }, 200);
 
-    // If user Logged in v2
-    // firebase.auth().onAuthStateChanged(function(user) {
-    //   if (user) {
-    //     $scope.uid = user.uid;
-    //     console.log($scope.uid);
-    //     // User is signed in.
-    //     console.log('User is signed in.');
-    //     $scope.getUsers();
-    //     // console.log(firebase.auth().currentUser);
-    //   } else {
-    //     // No user is signed in.
-    //     console.log('No user is signed in.');
-    //   }
-    // });
 
-    /*------------------------------------*\
+/*------------------------------------*\
         DATA
     \*------------------------------------*/
 
 
     // Get Data from collection json
     $scope.getData = function() {
-      var ref = firebase.database().ref('collection/');
-      $scope.data = $firebaseArray(ref);
+      var ref = firebase.database().ref('users/' + $scope.user);
+      $scope.user = $firebaseArray(ref);
       console.log($scope.data);
     };
 
@@ -110,6 +55,7 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$co
 
         $scope.users = $firebaseArray(ref);
         console.log($firebaseArray(ref));
+
     };
 
 
@@ -117,7 +63,7 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$co
     // Add new Data to Users (Перезаписывает весь json users)
     $scope.setUser = function() {
         firebase.database().ref('users/').set({
-            name: $scope.userName,
+            name: $scope.displayName,
             email: $scope.userEmail,
             uid: $scope.uid
         });
@@ -126,9 +72,9 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$co
     // Add new Data to Users (добавляет новый json users)
     $scope.pushUser = function() {
         firebase.database().ref('users/'+$scope.uid).push({
-            name: $scope.userName,
+            name: $scope.displayName,
             email: $scope.userEmail,
-            uid: $scope.uid
+            email: $scope.uid
         }).catch(function (error) {
             console.log(error);
         });
@@ -171,6 +117,79 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$co
             }
         );
     };
+}]);
 
+myApp.controller("LoginCtrl", ["currentAuth", "$scope", "Auth", "$route", function(currentAuth, $scope, Auth, $route) {
+  // currentAuth (provided by resolve) will contain the
+  // authenticated user or null if not signed in
+  $scope.auth = Auth;
+
+  $scope.login = function(){
+    Auth.$signInAnonymously().then(function(firebaseUser){
+        $scope.user = firebaseUser;
+      }).catch(function(error) {
+        $scope.error = error;
+      });
+  };
+
+  $scope.signOut = function(){
+    Auth.$signOut()
+  };
+
+  $scope.auth.$onAuthStateChanged(function(firebaseUser){
+    $scope.user = firebaseUser;
+    //$route.reload();
+    console.log("state change");
+  });
+
+  //console.log($scope.auth);
+  //console.log($scope.currentAuth);
+  //console.log(Auth.$requireSignIn());
+}]);
+
+myApp.controller("HomeCtrl", ["currentAuth", "$scope", "Auth", "$route", function(currentAuth, $scope, Auth, $route) {
+  // currentAuth (provided by resolve) will contain the
+  // authenticated user or null if not signed in
+
+  $scope.signOut = function(){
+    console.log($scope.user);
+    Auth.$signOut();
+  }
+
+  Auth.$onAuthStateChanged(function(firebaseUser) {
+    $scope.user = firebaseUser;
+    console.log(firebaseUser);
+    //if user is logged out go back to login page
+    if(firebaseUser === "" || firebaseUser === null){
+      $route.reload();
+    }
+  });
+
+  //$route.reload();
+  console.log("HomeCtrl");
+  //console.log($scope.currentAuth);
+  //console.log(Auth.$requireSignIn());
+}]);
+
+myApp.controller("AccountCtrl", ["currentAuth", "$scope", "Auth", "$route", function(currentAuth, $scope, Auth, $route) {
+  // currentAuth (provided by resolve) will contain the
+  // authenticated user or null if not signed in
+
+  $scope.auth = Auth;
+    console.log("In Account Controller: "+ currentAuth);
+
+  $scope.signOut = function(){
+    Auth.$signOut();
+    $route.reload();
+  };
+
+  $scope.auth.$onAuthStateChanged(function(firebaseUser) {
+    $scope.user = firebaseUser;
+    //$route.reload();
+    console.log("in account controller state change");
+    if(firebaseUser === "" || firebaseUser === null){
+      $route.reload();
+    }  
+  }); 
 
 }]);

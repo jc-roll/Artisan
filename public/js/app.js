@@ -31,7 +31,7 @@ myApp.config(["$routeProvider", function($routeProvider) {
     }
   }).when("/register", {
     // the rest is the same for ui-router and ngRoute...
-    controller: "RegisterCtrl",
+    controller: "AuthCtrl",
     templateUrl: "views/register.html",
     resolve: {
       // controller will not be loaded until $waitForSignIn resolves
@@ -72,27 +72,13 @@ myApp.config(["$routeProvider", function($routeProvider) {
 }]);
 
 
-myApp.controller('RegisterCtrl', ['$scope', function($scope) {
-
-    $scope.submit = function() {
-        firebase.auth().createUserWithEmailAndPassword($scope.email, $scope.password).then(function(status) {
-                firebase.database().ref('users/').set({
-                    name: $scope.name,
-                    email: $scope.email,
-                    uid: $scope.uid
-            })
-          })
-        }
-      }]);
-
-myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$cookies', '$firebaseObject', '$firebaseArray', '$firebaseAuth', function($scope, $timeout, $window, $location, $cookies, $firebaseObject, $firebaseArray, $firebaseAuth) {
+myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$firebaseObject', '$firebaseArray', '$firebaseAuth', function($scope, $timeout, $window, $location, $firebaseObject, $firebaseArray, $firebaseAuth) {
 
     // facebook sdk for grab data from Facebook prfile
     $window.fbAsyncInit = function() {
         FB.init({
-          appId: '294798217536135',
+          appId: '1812013779036047',
           status: true,
-          cookie: true,
           xfbml: true,
           version: 'v2.6'
         });
@@ -104,18 +90,20 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$co
 
     // 1. Auth with pass and email
     $scope.submit = function() {
-        // $scope.email = 'lollipop.fly@gmail.com';
-        // $scope.password = 'kerbalcrasauders1';
-
-        firebase.auth().signInWithEmailAndPassword($scope.email, $scope.password).then(function(user) {
-            console.log(user);
+        firebase.auth().createUserWithEmailAndPassword($scope.email, $scope.password).then(function(status) {
+            var userData = firebase.database().ref('users/' + $scope.uid).set({
+                    name: $scope.name,
+                    email: $scope.email,
+                    id: $scope.uid
         }).catch(function(error) {
           // Handle Errors here.
           $scope.$applyAsync(function() {
             $scope.errorMessage = error.message;
           });
+
         });
-    };
+    });
+      };
 
     // 2. Auth Facebook
     var provider = new firebase.auth.FacebookAuthProvider();
@@ -154,29 +142,30 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$co
     };
 
     // If user Logged in v1
-    // $timeout(function () {
-    //     $scope.user = firebase.auth().currentUser;
-    //     if($scope.user) {
-    //         $scope.uid = $scope.user.uid
-    //         $scope.getUsers();
-    //     }
-    // console.log($scope.user);
-    //     }, 200);
+    $timeout(function () {
+        $scope.user = firebase.auth().currentUser;
+        if($scope.user) {
+            $scope.uid = $scope.user.uid
+            $scope.getUsers();
+        }
+    console.log($scope.users);
+        }, 200);
 
-    // If user Logged in v2
-    // firebase.auth().onAuthStateChanged(function(user) {
-    //   if (user) {
-    //     $scope.uid = user.uid;
-    //     console.log($scope.uid);
-    //     // User is signed in.
-    //     console.log('User is signed in.');
-    //     $scope.getUsers();
-    //     // console.log(firebase.auth().currentUser);
-    //   } else {
-    //     // No user is signed in.
-    //     console.log('No user is signed in.');
-    //   }
-    // });
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        $scope.uid = user.uid;
+        console.log($scope.uid);
+        // User is signed in.
+        console.log('User is signed in.');
+        $scope.getData();
+        console.log(firebase.auth().currentUser);
+        console.log(currentUser);
+      } else {
+        // No user is signed in.
+        console.log('No user is signed in.');
+      }
+    });
 
     /*------------------------------------*\
         DATA
@@ -185,17 +174,17 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$co
 
     // Get Data from collection json
     $scope.getData = function() {
-      var ref = firebase.database().ref('collection/');
+      var ref = firebase.database().ref('users' + $scope.uid);
       $scope.data = $firebaseArray(ref);
-      console.log($scope.data);
     };
 
 
     // Get users form users json
     $scope.getUsers = function() {
-        var ref = firebase.database().ref('users/'+ $scope.uid);
+        var ref = firebase.database().ref('users/'+ $scope.name);
 
         $scope.users = $firebaseArray(ref);
+        console.log($scope.users);
         console.log($firebaseArray(ref));
     };
 
@@ -203,7 +192,7 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$co
 
     // Add new Data to Users (Перезаписывает весь json users)
     $scope.setUser = function() {
-        firebase.database().ref('users/').set({
+        firebase.database().ref('users/'+ $scope.name).set({
             name: $scope.userName,
             email: $scope.userEmail,
             uid: $scope.uid
@@ -215,7 +204,7 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$co
         firebase.database().ref('users/'+$scope.uid).push({
             name: $scope.userName,
             email: $scope.userEmail,
-            uid: $scope.uid
+            email: $scope.uid
         }).catch(function (error) {
             console.log(error);
         });
