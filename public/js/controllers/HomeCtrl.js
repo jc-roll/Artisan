@@ -9,7 +9,7 @@ myApp.controller("HomeCtrl", ["currentAuth", "$scope", "Auth", "$route", functio
 
   Auth.$onAuthStateChanged(function(firebaseUser) {
     $scope.user = firebaseUser;
-    console.log(firebaseUser);
+    console.log(firebaseUser.email);
     //if user is logged out go back to login page
     if(firebaseUser === "" || firebaseUser === null){
       $route.reload();
@@ -18,6 +18,12 @@ myApp.controller("HomeCtrl", ["currentAuth", "$scope", "Auth", "$route", functio
 
   //$route.reload();
   console.log("HomeCtrl");
-  //console.log($scope.currentAuth);
-  //console.log(Auth.$requireSignIn());
+  console.log($scope.currentAuth);
+  console.log(Auth.$requireSignIn());
+  console.log($scope.email);
+    console.log($scope.users);
+      console.log($scope.password);
+        console.log($scope);
+
+        
 }]);

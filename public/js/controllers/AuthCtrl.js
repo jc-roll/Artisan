@@ -66,13 +66,13 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$fi
             $scope.uid = $scope.user.uid
             $scope.getUsers();
         }
-    console.log($scope.user);
+    console.log($scope.user.email);
         }, 200);
 
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         $scope.uid = user.uid;
-        console.log(user.email);
+        firebaseUser = $scope.uid;
         console.log('User is signed in.');
         $scope.getData();
       } else {
@@ -82,19 +82,18 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$fi
 
     $scope.getData = function() {
       var ref = firebase.database().ref('users');
-      $scope.data = $firebaseArray(ref);
+      $scope.users = $firebaseArray(ref);
     };
 
     $scope.getUsers = function() {
-        var ref = firebase.database().ref('users/'+ $scope.name);
+        var ref = firebase.database().ref('users/'+ $scope.uid);
 
         $scope.users = $firebaseArray(ref);
-        console.log($scope.users);
-        console.log($firebaseArray(ref));
+        console.log($scope.user);
     };
 
     $scope.setUser = function() {
-        firebase.database().ref('users/'+ $scope.name).set({
+        firebase.database().ref('users/'+ $scope.uid).set({
             name: $scope.userName,
             email: $scope.userEmail,
             uid: $scope.uid

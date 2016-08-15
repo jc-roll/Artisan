@@ -43,12 +43,12 @@ myApp.config(["$routeProvider", function($routeProvider) {
         return Auth.$waitForSignIn();
       }]
     }
-  }).when("/account", {
-    controller: "AccountCtrl",
-    templateUrl: "views/account.html",
+  }).when("/nav", {
+    controller: "AuthCtrl",
+    templateUrl: "views/nav.html",
     resolve: {
       "currentAuth": ["Auth", function(Auth) {
-        return Auth.$requireSignIn();
+        return Auth.$waitForSignIn();
       }]
     }
   }).otherwise({ 
@@ -56,9 +56,6 @@ myApp.config(["$routeProvider", function($routeProvider) {
       }); ;
 }]);
 
-
-
-// let's create a re-usable factory that generates the $firebaseAuth instance
 myApp.factory("Auth", ["$firebaseAuth",
   function($firebaseAuth) {
     return $firebaseAuth();

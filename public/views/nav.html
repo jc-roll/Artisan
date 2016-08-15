@@ -11,9 +11,9 @@
 	</ul>
 
 	<!-- My second ul contains the nav for after they log in that will show user name and logout option -->
-	<ul  class="userinfo" ng-show="currentUser">
+	<ul >
 	  	<li><a ng-href="#/login" ng-click="logout()">Logout</a></li>
-	    <li><span class="userinfo2"> Welcome {{currentUser.email}} </span></li>
+	    <li ng-controller="AuthCtrl"> Welcome {{$scope.user.email}} </li>
 	</ul>
 </div>
 
