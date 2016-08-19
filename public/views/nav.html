@@ -5,23 +5,25 @@
 	</div>
 
 	<!-- This first ul contains my nav options ng-hide will hide this when they log in -->
-	<ul> 
-		<li><a ng-hide="firebaseUser" ng-href="#/login">Login</a></li>
-		<li><a ng-hide="firebaseUser" ng-href="#/register">Register</a></li>
+	<ul ng-hide="currentUser"> 
+		<li><a ng-href="#/login">Login</a></li>
+		<li><a ng-href="#/register">Register</a></li>
 	</ul>
 
 	<!-- My second ul contains the nav for after they log in that will show user name and logout option -->
-	<ul >
-	  	<li><a ng-href="#/login" ng-click="logout()">Logout</a></li>
-	    <li ng-controller="AuthCtrl"> Welcome {{$scope.user.email}} </li>
+	<ul ng-app="myApp" >
+	  	<li>
+  			{{ curentUser.name }}  <a href="#/home" ng-click="authObj.$logOut()">Sign out</a>
+		</li>
+	    <li><span> Welcome {{currentUser.email}} </span></li>
 	</ul>
 </div>
 
 <div class="nav2">
 	<ul> 
-		<li><a ng-hide="firebaseUser" ng-href="#/locations">Locations</a></li>
-		<li><a ng-hide="firebaseUser" ng-href="#/gallery">Gallery</a></li>
-		<li><a ng-hide="firebaseUser" ng-href="#/about">About</a></li>
-		<li><a ng-hide="firebaseUser" ng-href="#/home">Home</a></li>
+		<li><a ng-show="currentUser" ng-href="#/locations">Locations</a></li>
+		<li><a ng-hide="currentUser" ng-href="#/gallery">Gallery</a></li>
+		<li><a ng-hide="currentUser" ng-href="#/about">About</a></li>
+		<li><a ng-show="currentUser" ng-href="#/home">Home</a></li>
 	</ul>
 </div>

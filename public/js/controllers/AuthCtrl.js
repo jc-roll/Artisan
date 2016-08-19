@@ -1,5 +1,5 @@
-myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$firebaseObject', '$firebaseArray', '$firebaseAuth', function($scope, $timeout, $window, $location, $firebaseObject, $firebaseArray, $firebaseAuth) {
-
+myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$location', '$firebaseObject', '$firebaseArray', '$firebaseAuth', function($scope, $rootScope, $timeout, $window, $location, $firebaseObject, $firebaseArray, $firebaseAuth) {
+    
     // facebook sdk for grab data from Facebook prfile
     $window.fbAsyncInit = function() {
         FB.init({
@@ -10,10 +10,27 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$fi
         });
     };
 
-    // 1. Auth with pass and email
+
+
+    $firebaseAuth().$onAuthStateChanged(function(user) {
+      if (user) {
+        $rootScope.currentUser = user;
+        console.log('User is signed in.');
+      } else {
+        console.log('No user is signed in.');
+      };
+    });
+
+
+
+    // Auth with pass and email
+
+    var ref = firebase.database().ref();
+    var userRef = ref.child('users/'+ $scope.uid);
+
     $scope.submit = function() {
-        firebase.auth().createUserWithEmailAndPassword($scope.email, $scope.password).then(function(status) {
-            var userData = firebase.database().ref('users/' + $scope.uid).set({
+        $firebaseAuth().$createUserWithEmailAndPassword($scope.email, $scope.password).then(function(firebaseUser) {
+            userRef.set({
                     name: $scope.name,
                     email: $scope.email,
                     id: $scope.uid
@@ -21,65 +38,14 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$fi
           $scope.$applyAsync(function() {
             $scope.errorMessage = error.message;
           });
-
         });
     });
-      };
-
-    // 2. Auth Facebook
-    var provider = new firebase.auth.FacebookAuthProvider();
-    provider.addScope('email');
-    provider.addScope('user_friends');
-
-    $scope.facebook = function () {
-        // firebase.auth().signInWithRedirect(provider);
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-          var token = result.credential.accessToken;
-          console.log(token);
-          // The signed-in user info.
-          var user = result.user;
-          // ...
-        }).catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // The email of the user's account used.
-          var email = error.email;
-          // The firebase.auth.AuthCredential type that was used.
-          var credential = error.credential;
-          // ...
-        });
     };
+      
+        
 
-    $scope.logOut = function () {
-        firebase.auth().signOut().then(function() {
-            console.log('Sign-out successful.');
-        }, function(error) {
-            console.log('An error happened.');
-        });
-    };
-
-    $timeout(function () {
-        $scope.user = firebase.auth().currentUser;
-        if($scope.user) {
-            $scope.uid = $scope.user.uid
-            $scope.getUsers();
-        }
-    console.log($scope.user.email);
-        }, 200);
-
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        $scope.uid = user.uid;
-        firebaseUser = $scope.uid;
-        console.log('User is signed in.');
-        $scope.getData();
-      } else {
-        console.log('No user is signed in.');
-      }
-    });
-
+   
+    
     $scope.getData = function() {
       var ref = firebase.database().ref('users');
       $scope.users = $firebaseArray(ref);
@@ -128,6 +94,40 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$fi
         firebase.database().ref('users/'+ $scope.uid +"/" + user.$id).remove();
     };
 
+ // 2. Auth Facebook
+    var provider = new firebase.auth.FacebookAuthProvider();
+    provider.addScope('email');
+    provider.addScope('user_friends');
+
+    $scope.facebook = function () {
+        // firebase.auth().signInWithRedirect(provider);
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+          var token = result.credential.accessToken;
+          console.log(token);
+          // The signed-in user info.
+          var user = result.user;
+          // ...
+        }).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+          // ...
+        });
+    };
+
+    $scope.logOut = function () {
+        firebase.auth().signOut().then(function() {
+            console.log('Sign-out successful.');
+        }, function(error) {
+            console.log('An error happened.');
+        });
+    };
+
 
     /*------------------------------------*\
         Facebook SDK
@@ -145,3 +145,4 @@ myApp.controller('AuthCtrl', ['$scope', '$timeout', '$window', '$location', '$fi
         );
     };
 }]);
+
