@@ -51,5 +51,5 @@ myApp.config(["$routeProvider", function($routeProvider) {
 myApp.factory("Auth", ["$firebaseAuth",
   function($firebaseAuth) {
     return $firebaseAuth();
-  }
-]);
+
+}]);

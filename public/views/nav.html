@@ -5,25 +5,23 @@
 	</div>
 
 	<!-- This first ul contains my nav options ng-hide will hide this when they log in -->
-	<ul ng-hide="currentUser"> 
+	<ul ng-show="currentUser"> 
 		<li><a ng-href="#/login">Login</a></li>
 		<li><a ng-href="#/register">Register</a></li>
 	</ul>
 
 	<!-- My second ul contains the nav for after they log in that will show user name and logout option -->
-	<ul ng-app="myApp" >
-	  	<li>
-  			{{ curentUser.name }}  <a href="#/home" ng-click="authObj.$logOut()">Sign out</a>
-		</li>
-	    <li><span> Welcome {{currentUser.email}} </span></li>
+	<ul ng-app="myApp" ng-show="currentUser">
+	  	<li><a href="#/home" ng-click="signOut()">Sign out</a></li>
+	    <li><span>{{user.name}}</span></li>
 	</ul>
 </div>
 
 <div class="nav2">
 	<ul> 
-		<li><a ng-show="currentUser" ng-href="#/locations">Locations</a></li>
-		<li><a ng-hide="currentUser" ng-href="#/gallery">Gallery</a></li>
-		<li><a ng-hide="currentUser" ng-href="#/about">About</a></li>
-		<li><a ng-show="currentUser" ng-href="#/home">Home</a></li>
+		<li><a ng-href="#/locations">Locations</a></li>
+		<li><a ng-href="#/gallery">Gallery</a></li>
+		<li><a ng-href="#/about">About</a></li>
+		<li><a ng-href="#/home">Home</a></li>
 	</ul>
 </div>
