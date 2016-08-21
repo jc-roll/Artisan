@@ -1,5 +1,6 @@
-myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', 'currentAuth', '$location', '$firebaseObject', '$firebaseArray', '$firebaseAuth', function($scope, $rootScope, $timeout, $window, currentAuth, $location, $firebaseObject, $firebaseArray, $firebaseAuth) {
-     // // facebook sdk for grab data from Facebook prfile
+myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$location', '$firebaseObject', '$firebaseArray', '$firebaseAuth', function($scope, $rootScope, $timeout, $window, $location, $firebaseObject, $firebaseArray, $firebaseAuth) {
+    
+    // // facebook sdk for grab data from Facebook prfile
     // $window.fbAsyncInit = function() {
     //     FB.init({
     //       appId: '1812013779036047',
@@ -10,14 +11,6 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', 'cu
     // };
 
   $scope.authObj = $firebaseAuth();
-
-  var firebaseUser = $scope.authObj.$getAuth();
-
-  if (firebaseUser) {
-    console.log("Signed in as:", firebaseUser.uid);
-  } else {
-    console.log("Signed out");
-  }
 
   $scope.authObj.$onAuthStateChanged(function(firebaseUser) {
     if (firebaseUser) {
@@ -43,17 +36,26 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', 'cu
     });
   };
 
+
   $scope.submit = function() {
     $scope.authObj.$createUserWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
         console.log("User " + firebaseUser.uid + " created successfully!");
       }).catch(function(error) {
         console.error("Error: ", error);
       });
+
+        var ref = firebase.database().ref();
+        var userData = ref.child('users');
+        $rootScope.userData = userData;
+
+          $firebaseArray(userData).$add($scope.user).then(function(firebaseUser) {
+            console.log("UserData Added to users in firebase");
+          }).catch(function(error) {
+            console.error("UserData Failed to add");
+          });
   };
 
-
-
-
+$scope.userData = userData;
 
 
 

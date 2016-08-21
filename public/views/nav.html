@@ -7,8 +7,9 @@
 		<li><a ng-href="#/login">Login</a></li>
 		<li><a ng-href="#/register">Register</a></li>
 	</ul>
-	<ul ng-show="firebaseUser" class="userinfo">
-	  <li>Welcome {{ firebaseUser.first }} | <a href="#/home" ng-click="authObj.$signOut()">Sign out</a></li>
+	<ul>
+		<li><a href="#/home" ng-click="authObj.$signOut()">Sign out</a></li>
+	  <li class="userinfo" ng-if="userData">Welcome {{ userData.first }}</li> 
 	</ul>
 </div>
 
