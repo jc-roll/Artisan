@@ -28,7 +28,7 @@ myApp.config(["$routeProvider", function($routeProvider) {
       }]
     }
   }).when("/home", {
-    controller: "HomeCtrl",
+    controller: "AuthCtrl",
     templateUrl: "views/home.html",
     resolve: {
       "currentAuth": ["Auth", function(Auth) {
@@ -45,7 +45,7 @@ myApp.config(["$routeProvider", function($routeProvider) {
     }
   }).otherwise({ 
         redirectTo: '/home' 
-      }); ;
+      }); 
 }]);
 
 myApp.factory("Auth", ["$firebaseAuth",

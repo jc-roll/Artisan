@@ -3,17 +3,12 @@
 	<div class="logo">
 	  <div class="branding" ><a ng-href="#/home">LOGO</a></div>
 	</div>
-
-	<!-- This first ul contains my nav options ng-hide will hide this when they log in -->
-	<ul ng-show="currentUser"> 
+	<ul ng-hide="firebaseUser"> 
 		<li><a ng-href="#/login">Login</a></li>
 		<li><a ng-href="#/register">Register</a></li>
 	</ul>
-
-	<!-- My second ul contains the nav for after they log in that will show user name and logout option -->
-	<ul ng-app="myApp" ng-show="currentUser">
-	  	<li><a href="#/home" ng-click="signOut()">Sign out</a></li>
-	    <li><span>{{user.name}}</span></li>
+	<ul ng-show="firebaseUser" class="userinfo">
+	  <li>Welcome {{ firebaseUser.first }} | <a href="#/home" ng-click="authObj.$signOut()">Sign out</a></li>
 	</ul>
 </div>
 
