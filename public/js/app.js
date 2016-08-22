@@ -27,17 +27,17 @@ myApp.config(["$routeProvider", function($routeProvider) {
         return Auth.$waitForSignIn();
       }]
     }
-  }).when("/home", {
-    controller: "AuthCtrl",
-    templateUrl: "views/home.html",
+  }).when("/locations", {
+    controller: "HomeCtrl",
+    templateUrl: "views/locations.html",
     resolve: {
       "currentAuth": ["Auth", function(Auth) {
         return Auth.$waitForSignIn();
       }]
     }
-  }).when("/nav", {
+  }).when("/home", {
     controller: "AuthCtrl",
-    templateUrl: "views/nav.html",
+    templateUrl: "views/home.html",
     resolve: {
       "currentAuth": ["Auth", function(Auth) {
         return Auth.$waitForSignIn();

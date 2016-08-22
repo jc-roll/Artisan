@@ -1,4 +1,4 @@
-myApp.controller("HomeCtrl", ["currentAuth", "$scope", "$route", function(currentAuth, $scope, $route) {
+myApp.controller("HomeCtrl", ["$scope", "$route", function($scope, $route) {
 
 var ref = firebase.database().ref();
 

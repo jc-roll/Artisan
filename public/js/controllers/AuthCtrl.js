@@ -46,7 +46,6 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
 
         var ref = firebase.database().ref();
         var userData = ref.child('users');
-        $rootScope.userData = userData;
 
           $firebaseArray(userData).$add($scope.user).then(function(firebaseUser) {
             console.log("UserData Added to users in firebase");
@@ -55,7 +54,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
           });
   };
 
-$scope.userData = userData;
+
 
 
 

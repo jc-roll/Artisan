@@ -66,10 +66,12 @@ html {
 body {
   background-image: url("img/vehicle.jpg");
   background-size: cover;
+  height: 100%;
   background-repeat: no-repeat;
 }
 
-.card {
+@media only screen and (max-width: 670px) {.card{width: 100%}}
+.card { 
   background: rgba(255, 255, 255, .95);
   width: 70%;
   color: #222;
@@ -83,26 +85,50 @@ body {
   border: 1px solid #e8e8e8;
   box-shadow: 0 1px 0 rgba(.25,0,0,.25);
 }
-@media only screen and (max-width: 670px) {.card{width: 100%}}
+
+.card-location {
+  background: rgba(255, 255, 255, .95);
+  width: 70%;
+  color: #222;
+  padding-bottom: 1em;
+  max-width: 1850px;
+  margin-top: 5vw;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 0 rgba(.25,0,0,.25);
+}
+
+.card-location li {
+  font-size: 1.6vw;
+  padding-left: 1.6em;
+  margin: 1px;
+}
+.card-location h1 {
+  padding-left: 1em;
+}
+
+.location{
+  margin-bottom: 2em;
+  margin-top: 2em;
+
+}
+
+
 
 .home {
   position: relative;
   width: 100%;
   text-align: center;
   clear: both;
-
 }
 .cta {
-
   font-size: 5vw;
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-family: "Cooper Std";
-
-
 }
-
-
 .cta p {
   padding:10px;
   background: #222;
@@ -114,7 +140,10 @@ body {
 @media only screen and (max-width: 670px) {.cta p{font-size: .9em;}}
 
 .about {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   margin-top: 3rem;
+  margin-bottom: 3rem;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;;
   font-weight: 700;
   background-color: white;
@@ -123,11 +152,6 @@ body {
 .about p {
   color: #222;
   font-size: 1rem;
-}
-
-.about h1 {
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;;
-  font-weight: 700;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -143,7 +167,7 @@ a {
 }
 
 h1 { 
-  font-size: 5vw;
+  font-size: 3vw;
   font-weight: 400;
   line-height: 100%;
   margin-bottom: 10px;
@@ -155,7 +179,6 @@ h1 {
 .formInput {
   padding: 10px;
 }
-
         .button-success,
         .button-error,
         .button-warning,
@@ -189,7 +212,7 @@ h1 {
 nav {
   position: relative;
   width: 100%;
-  opacity: .92;
+  opacity: .95;
   height: 90px;
 }
 
@@ -216,6 +239,13 @@ nav {
   -webkit-backface-visibility: hidden;
   backface-visibility: initial;
 
+}
+.line {
+    margin-top: 22px;
+  height: 5px;
+  width: 100%;
+  background-color: #222;
+  opacity: .92;
 }
 
 .branding a  {
@@ -288,8 +318,53 @@ nav .nav2 {
   text-decoration: none;
 }
 
+footer {
+  height:160px;
+  width:100%;
+  background:#222;
+  opacity: .92;
+}
+
+footer .getYear {
+  color: #444;
+  text-align: center;
+}
+footer ul li {
+  float: right;
+  color: white;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  font-size: 1.1em;
+  text-decoration: none;
+  margin: 10px 0px;
+  padding: 10px 15px;
+}
+@media only screen and (max-width: 400px) {footer ul li a{font-size: 5vw; margin: none;}}
+
+footer ul li a{
+  text-align: center;
+  margin: 10px 0px;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+footer .nav2 li a:active {
+  color: #E76C5A;
+  background-color: white;
+}
+.active {background:red;}
+footer .nav2 li a {
+  color: white;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  font-size: 1vw;
+  font-weight: 700;
+}
+@media only screen and (max-width: 600px) {footer .nav2 li a{font-size: 3vw; margin-bottom: 2vw; padding-top: none;}}
 
 
+footer .nav2 {
+  float: right;
+  text-decoration: none;
+}
 .userinfo {
   text-align: center;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
@@ -311,15 +386,9 @@ input.ng-valid.ng-touched {
   border: 2px solid #509D12;
 }
 
-.ng-invalid  {
-
-  
-}
-
 .error {
   color: red;
 }
-
 
 textarea{
   height: 50px;
