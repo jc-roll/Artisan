@@ -1,23 +1,28 @@
 <!-- The class branding is in my css and attaches the font and styles to my logo -->
 <div class="skew">
-	<div class="logo">
-	  <div class="branding"  ng-href="#/home">Artisan</div>
+	<div class="container">
+		<div class="logo">
+		  <div class="branding"  ng-href="#/home"></div>
+		</div>
+		<div class="nav1">
+			<ul> 
+				<li ng-hide="currentUser"><a ng-href="#/login">Login</a></li>
+				<li ng-hide="currentUser"><a ng-href="#/register">Register</a></li>
+			</ul>
+
+			<ul>
+				<li ng-show="currentUser"><a href="#/home" ng-click="authObj.$signOut()">Sign out</a></li>
+			  	<li ng-show="currentUser">Welcome, {{ currentUser.first }}</li> 
+			</ul>
+		</div>
 	</div>
-	<ul ng-hide="firebaseUser"> 
-		<li><a ng-href="#/login">Login</a></li>
-		<li><a ng-href="#/register">Register</a></li>
-	</ul>
-	<ul>
-		<li><a href="#/home" ng-click="authObj.$signOut()">Sign out</a></li>
-	  <li class="userinfo" ng-if="userData">Welcome {{ userData.first }}</li> 
-	</ul>
 </div>
 
 <div class="nav2">
 	<ul> 
 		<li><a ng-href="#/locations">Locations</a></li>
 		<li><a ng-href="#/gallery">Gallery</a></li>
-		<li><a ng-href="#/about">About</a></li>
+		<li><a ng-href="#/faqs">FAQ's</a></li>
 		<li><a ng-href="#/home">Home</a></li>
 	</ul>
 </div>

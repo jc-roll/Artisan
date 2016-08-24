@@ -48,8 +48,8 @@
 </head>
   <body class="position" ng-app = "myApp">
       <nav class="cf" ng-controller="AuthCtrl" ng-include="'views/nav.html'"></nav>
-      <div class="logo"  ng-href="#/home">Artisan</div>
       <div class="line"></div>
       <div ng-view></div>
+      <footer class="cf" ng-controller="HomeCtrl" ng-include="'views/footer.html'"></footer>
   </body>
 </html>

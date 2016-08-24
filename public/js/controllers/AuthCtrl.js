@@ -29,21 +29,38 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
 
 
   $scope.submit = function() {
-    $scope.authObj.$createUserWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
+    $scope.authObj.$createUserWithEmailAndPassword($scope.user.email, $scope.user.password)
+    .then(function(firebaseUser) {
+
+       // var ref = firebase.database().ref();
+        // var userData = ref.child('users/' + firebaseUser.uid);
+        // var newUser = $firebaseObject(userData)
+
+        // var purchaseHistory = ref.child('users/' + firebaseUser.uid '/purchases');
+        // var boughtItmes = $firebaseArray(purchaseHistory)
+        
         console.log("User " + firebaseUser.uid + " created successfully!");
-      }).catch(function(error) {
-        console.error("Error: ", error);
-      });
-
         var ref = firebase.database().ref();
-        var userData = ref.child('users');
+        var userData = ref.child('users/' + firebaseUser.uid);
 
-          $firebaseArray(userData).$add($scope.user).then(function(firebaseUser) {
-            console.log("UserData Added to users in firebase");
-          }).catch(function(error) {
-            console.error("UserData Failed to add");
-          });
+        var newUser = $firebaseObject(userData);
+        newUser.email = $scope.user.email;
+        newUser.first = $scope.user.first;
+        newUser.last = $scope.user.last;
+        newUser.$save()
+        .then(function(data) {
+          console.log("UserData Added to users in firebase", newUser);
+          $rootScope.currentUser = newUser;
+          console.log($rootScope.currentUser);
+        }).catch(function(error) {
+          console.error("UserData Failed to add");
+        });
+
+    }).catch(function(error) {
+      console.error("Error: ", error);
+    }); 
   };
+
 
   // This is called with the results from from FB.getLoginStatus().
     function statusChangeCallback(response) {

@@ -37,7 +37,7 @@
       <button type="submit" class="button-success" ng-show="myform.$valid">Sign-Up</button>
 
       <div id="fb-root"></div>
-<script>
+<!-- <script>
   // This is called with the results from from FB.getLoginStatus().
     function statusChangeCallback(response) {
       console.log('statusChangeCallback');
@@ -103,15 +103,17 @@
         statusChangeCallback(response);
       });
     }
-</script>
+</script> -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState()" data-auto-logout-link="
+<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState()" data-auto-logout-link="
 true" >
-</fb:login-button>
+</fb:login-button> -->
+
+<pre> {{ currentUser | json }}</pre>
 
 <div id="status">
+
 </div>
     </div>
   </form>
-  <footer class="cf" ng-controller="HomeCtrl" ng-include="'views/footer.html'"></footer>
 </section>
