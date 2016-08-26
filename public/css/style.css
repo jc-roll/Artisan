@@ -189,6 +189,7 @@ margin: 0em;
   padding-right: 1em;
 }
 
+
  body .card-location .Coral button {
   color: #fff;
   overflow: hidden;
@@ -457,8 +458,8 @@ h1 {
 nav {
   position: relative;
   width: 100%;
-  opacity: .95;
-  background-color: #222;
+  opacity: .92;
+  background-color: #000;
   background-image: url("img/LogoWebSVG.png");
   background-repeat: no-repeat;
   background-position: top 5px left 5px;
@@ -488,7 +489,7 @@ nav {
 }
 
 .btnA {
-  border: 5px solid white;
+  
   color: white;
   text-align: center;
   display: inline-block;
@@ -497,23 +498,25 @@ nav {
   letter-spacing: 0.1rem;
   padding: .25rem;
   margin-top: 1rem;
+  max-width: 100px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  width: 40%;
+  width: 20%;
 }
 
 .btnA::before {
   content: "";
-  background-color: rgba(0,0,0,.7);
-  box-shadow: 10px 10px #909, 
-              15px 15px #0f0,
-              20px 20px #f00;
+  background-color: rgba(0,0,0,.8);
+  box-shadow: 5px 5px 2px #fff, 
+              10px 10px #000,
+              15px 15px 2px #fff, 
+              20px 20px #000;
   position: absolute;
   left: 0.25rem;
   top: 0.25rem;
-  height: 95%;
-  width: 95%;
+  height: 100%;
+  width: 100%;
   z-index: -1;
   transition: all 0.4s ease;
 }
@@ -654,11 +657,7 @@ footer .getYear {
           rgba(0,0,0,.7), 
             rgba(0,0,0,.6), 
               rgba(0,0,0,.5), 
-                rgba(0,0,0,.4), 
-                  rgba(0,0,0,.3), 
-                    rgba(0,0,0,.2),
-                      rgba(0,0,0,.1),
-
+         
     rgba(0,0,0,0));
 }
 @media only screen and (max-width: 670px) {.cta p {
