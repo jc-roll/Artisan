@@ -77,7 +77,6 @@ body {
   color: #222;
   text-align: center;
   padding-bottom: 1em;
-  padding-left: 1em;
   max-width: 1850px;
   margin-top: 3em;
   margin-left: auto;
@@ -90,24 +89,57 @@ body {
 .card h1 {
   font-size: 2em;
 }
-.card .pure-control-group label {
+.card .pure-control-group {
   text-align: left;
 }
-@media only screen and (max-width: 600px) {.card .pure-control-group label {
+@media only screen and (max-width: 600px) {.card .pure-control-group {
   text-align: center;
+  width:85%;
+  margin: auto;
   }}
+
+.card-faq {
+  background: rgba(255, 255, 255, .95);
+  width: 80%;
+  color: #222;
+  padding-top: 1em;
+  margin-top: 3em;
+  margin-bottom: 6em;
+  max-width: 1850px;
+  font-size: .8em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 0 rgba(.25,0,0,.25);
+}
+
+.card-faq li {
+  font-size: .5em;
+}
+@media only screen and (max-width: 1000px) {.card-faq li {font-size: .8em}}
+.card-faq h1 {
+  padding-left: 1em;
+  padding-right: 1em;
+}
 
 .card-location {
   background: rgba(0, 0, 0, .92);
   width: 80%;
   color: white;
-  margin-bottom: 5em;
-  margin-top: 5em;
+  margin-bottom: 3em;
+  margin-top: 3em;
   max-width: 1850px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 4px;
   box-shadow: 0 1px 0 rgba(.25,0,0,.25);
+  position:relative;
+}
+@media only screen and (max-width: 470px) {.card-location {width: 100%;}}
+.card-location h1{
+margin: 0em;
+
 }
 
 .card-location .location1 {
@@ -115,7 +147,7 @@ body {
   background-repeat: no-repeat ;
   background-position: right 0px;
   background-size: contain;
-  padding-bottom: 10px;
+  background-size: 60%;
 }
 
 .card-location .location2 {
@@ -123,7 +155,8 @@ body {
   background-repeat: no-repeat ;
   background-position: right 0px;
   background-size: contain;
-  padding-bottom: 10px;
+  background-size: 60%;
+
 }
 
 .card-location .location3 {
@@ -131,28 +164,176 @@ body {
   background-repeat: no-repeat ;
   background-position: right 0px;
   background-size: contain;
-  padding-bottom: 10px;
+  background-size: 60%;
 }
 
 .card-location .location1 li {
-  font-size: .6em;
+  font-size: .55em;
 }
 
 .card-location .location2 li {
-  font-size: .6em;
+  font-size: .55em;
 }
 
 .card-location .location3 li {
-  font-size: .6em;
+  font-size: .55em;
 }
 
-.card-location li {
-  font-size: .4em;
-}
-@media only screen and (max-width: 1000px) {.card-location li {font-size: .8em}}
+
+@media only screen and (max-width: 470px) {.card-location .location1 li {font-size: .7em}}
+@media only screen and (max-width: 470px) {.card-location .location2 li {font-size: .7em}}
+@media only screen and (max-width: 470px) {.card-location .location3 li {font-size: .7em}}
+
 .card-location h1 {
   padding-left: 1em;
   padding-right: 1em;
+}
+
+ body .card-location .Coral button {
+  color: #fff;
+  overflow: hidden;
+  font-size: .6em;
+  border-radius: 5px;
+  padding: 3px;
+  border: 3px solid #fff;
+  background: #222;
+  transition: all 8s ease;
+  position: absolute;
+  bottom: .2em;
+  right: 24em;  
+}
+
+.card-location .Coral button span {
+  position: absolute;
+  content: '';
+  top: 2.05em;
+  left: 25%;
+  width: 20em;
+  height: 20em;
+  margin-left: -10em;
+  border-radius: 42.5%;
+  transform-origin: 50% 50%;
+  transition: all 1s ease, top 1.5s ease;
+}
+.card-location .Coral button .Coralwave1 {
+  background: #ffb733;
+  animation: smallwave 3s infinite linear;
+}
+.card-location .Coral button .Coralwave2 {
+  background: #f97890;
+  animation: smallwave 4s infinite linear;
+}
+.card-location .Coral button .Coralwave3 {
+  background: #4ab3e1;
+  animation: smallwave 5s infinite linear;
+}
+.card-location .Coral button:hover {
+  transition: all 1s ease;
+}
+.card-location .Coral button:hover span {
+  top: 0.5em;
+  transition: all 1s ease, top 1.5s ease;
+}
+
+@-moz-keyframes wave {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.975);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@-webkit-keyframes wave {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.975);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@-o-keyframes wave {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.975);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@keyframes wave {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.975);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@-moz-keyframes smallwave {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.95);
+    opacity: 0.25;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.8;
+  }
+}
+@-webkit-keyframes smallwave {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.95);
+    opacity: 0.25;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.8;
+  }
+}
+@-o-keyframes smallwave {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.95);
+    opacity: 0.25;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.8;
+  }
+}
+@keyframes smallwave {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.95);
+    opacity: 0.25;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.8;
+  }
 }
 
 .home {
@@ -162,7 +343,6 @@ body {
   clear: both;
 }
 
-@media only screen and (max-width: 670px) {.cta p{font-size: .9em;}}
 
 .about {
   width: 100%;
@@ -184,7 +364,7 @@ body {
   width: 40%;
   margin-left: 30%
 }
-@media only screen and (max-width: 370px) {.about{
+@media only screen and (max-width: 470px) {.about{
   padding-bottom: 150px;
   background-size: 45%;
 
@@ -197,7 +377,7 @@ body {
   font-weight: 700;
   font-size: .7em;
 }
-@media only screen and (max-width: 370px) {.about .center {
+@media only screen and (max-width: 470px) {.about .center {
   width:80%;
   margin-left:10%;
 
@@ -313,9 +493,9 @@ nav {
   text-align: center;
   display: inline-block;
   font-family: 'trebuchet ms';
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   letter-spacing: 0.1rem;
-  padding: .4rem;
+  padding: .25rem;
   margin-top: 1rem;
   position: relative;
   text-decoration: none;
@@ -326,10 +506,9 @@ nav {
 .btnA::before {
   content: "";
   background-color: rgba(0,0,0,.7);
-  box-shadow: 10px 10px 10px #F1C40F, 
-              -20px -20px 10px #E26A6A,
-              -20px 10px 10px #00FF00,
-              10px -20px 10px #00FF00;
+  box-shadow: 10px 10px #909, 
+              15px 15px #0f0,
+              20px 20px #f00;
   position: absolute;
   left: 0.25rem;
   top: 0.25rem;
@@ -426,6 +605,7 @@ footer {
   position: fixed;
   bottom: 0px;
   left: 0px;
+  margin-top: 4em;
   height:50px;
   width:100%;
   color: white;
@@ -445,12 +625,15 @@ footer .getYear {
   justify-content: center;
   text-align: center;
   margin-top: 1rem;
+  margin-bottom: 4em;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  font-family: "Cooper Std";
+  font-family: 'Cooper Std';
 }
+
 .cta p {
   font-size: 2em;
+  font-weight: 700;
   text-align: center;
   padding:10px;
   width: 100%;
@@ -487,9 +670,7 @@ font-size: 1.3em;
 @media only screen and (max-width: 470px) {.cta p {
 font-size: 1em;
 }}
-@media only screen and (max-width: 400px) {.cta p {
-font-size: .8em;
-}}
+
 
 
 .userinfo {

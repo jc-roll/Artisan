@@ -4,39 +4,43 @@
       <h1>Registration Form</h1>
     </div>
       <div class="pure-control-group">
-      <label>Enter First Name:</label>
-      <input type="text" name="first" ng-model="user.first" placeholder="First Name" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.first.$invalid && myform.first.$touched">Last name required</p>
-    </div>
-    <div class="pure-control-group">
-      <label>Enter Last Name:</label>
-      <input type="text" name="last" ng-model="user.last" placeholder="Last Name" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.last.$invalid && myform.last.$touched">Last name required</p>
-    </div>
-    <div class="pure-control-group">
-      <label>Email:</label>
-      <input type="email" name="email" ng-model="user.email" placeholder="YourEmail@email.com" ng-required="true">
-      <p class="error validationerror"
-      ng-show="myform.email.$invalid && myform.email.$touched">Email is required</p>
-    </div>
-    <div class="pure-control-group">
-      <label>Password:</label>
-      <input type="password" name="password" ng-model="user.password" placeholder="Enter Password" ng-required="true" ng-minlength="6" ng-maxlength="12">
-      <p class="error validationerror"
-      ng-show="myform.password.$invalid && myform.password.$touched">Must be atleast 6 charcters in length</p>
-    </div>
-    <div class="pure-control-group">
-      <label>Confirm Password:</label>
-      <input type="password" name="passwordVal" ng-model="user.passwordVal" placeholder="Enter Password" ng-pattern="(password)" ng-required="true" ng-minlength="6" ng-maxlength="12">
-      <p class="error validationerror"
-      ng-show="myform.password.$valid && myform.passwordVal.$error.pattern">Passwords Must Match</p>
-    </div>
-    <div class="pure-control-group">
-      <button type="submit" class="button-success" ng-show="myform.$valid">Sign-Up</button>
-
-      <div id="fb-root"></div>
+        <label>Enter First Name:</label>
+        <input type="text" name="first" ng-model="user.first" placeholder="First Name" ng-required="true">
+        <p class="error validationerror"
+        ng-show="myform.first.$invalid && myform.first.$touched">Last name required</p>
+      </div>
+      <div class="pure-control-group">
+        <label>Enter Last Name:</label>
+        <input type="text" name="last" ng-model="user.last" placeholder="Last Name" ng-required="true">
+        <p class="error validationerror"
+        ng-show="myform.last.$invalid && myform.last.$touched">Last name required</p>
+      </div>
+      <div class="pure-control-group">
+        <label>Enter Email:</label>
+        <input type="email" name="email" ng-model="user.email" placeholder="YourEmail@email.com" ng-required="true">
+        <p class="error validationerror"
+        ng-show="myform.email.$invalid && myform.email.$touched">Email is required</p>
+      </div>
+      <div class="pure-control-group">
+        <label>Password:</label>
+        <input type="password" name="password" ng-model="user.password" placeholder="Enter Password" ng-required="true" ng-minlength="6" ng-maxlength="12">
+        <p class="error validationerror"
+        ng-show="myform.password.$invalid && myform.password.$touched">Must be atleast 6 charcters in length</p>
+      </div>
+      <div class="pure-control-group">
+        <label>Confirm Password:</label>
+        <input type="password" name="passwordVal" ng-model="user.passwordVal" placeholder="Enter Password" ng-pattern="(password)" ng-required="true" ng-minlength="6" ng-maxlength="12">
+        <p class="error validationerror"
+        ng-show="myform.password.$valid && myform.passwordVal.$error.pattern">Passwords Must Match</p>
+      </div>
+      <div class="pure-control-group">
+        <button type="submit" class="button-success" ng-show="myform.$valid">Sign-Up</button>
+        <div id="fb-root"></div>
+        <pre> {{ currentUser | json }}</pre>
+        <div id="status"></div>
+      </div>
+    </form>
+</section>
 <!-- <script>
   // This is called with the results from from FB.getLoginStatus().
     function statusChangeCallback(response) {
@@ -109,11 +113,4 @@
 true" >
 </fb:login-button> -->
 
-<pre> {{ currentUser | json }}</pre>
 
-<div id="status">
-
-</div>
-    </div>
-  </form>
-</section>
