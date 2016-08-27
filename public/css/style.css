@@ -79,6 +79,7 @@ body {
   padding-bottom: 1em;
   max-width: 1850px;
   margin-top: 3em;
+  margin-bottom: 3em;
   margin-left: auto;
   margin-right: auto;
   border-radius: 4px;
@@ -89,9 +90,7 @@ body {
 .card h1 {
   font-size: 2em;
 }
-.card .pure-control-group {
-  text-align: left;
-}
+
 @media only screen and (max-width: 600px) {.card .pure-control-group {
   text-align: center;
   width:85%;
@@ -367,7 +366,7 @@ margin: 0em;
   margin-left: 30%
 }
 @media only screen and (max-width: 470px) {.about{
-  padding-bottom: 200px;
+  padding-bottom: 180px;
   background-size: 45%;
 
 }}
@@ -432,7 +431,7 @@ h1 {
         .button-secondary {
             color: white;
             border-radius: 4px;
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 1px 1px rgba(0, 0, 0,);
             width: 40%;
             max-width: 400px;
             min-width: 200px;
@@ -441,11 +440,13 @@ h1 {
         }
 
         .button-success {
-            background: rgb(28, 184, 65); /* this is a green */
+            background: rgb(10, 184, 10); /* this is a green */
+              box-shadow: 3px 3px 2px #292;
         }
 
         .button-error {
-            background: rgb(202, 60, 60); /* this is a maroon */
+            background: rgb(202, 120, 120); /* this is a maroon */
+              box-shadow: 3px 3px 2px #922;
         }
 
         .button-warning {
@@ -556,8 +557,8 @@ nav ul li {
   }}
 
 
-nav ul li.user {
-
+nav .nav1 ul li .user{
+  font-size: .5em;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
@@ -622,11 +623,17 @@ footer {
  
 }
 
-@media only screen and (max-width: 470px) {footer { 
-    background-position: bottom 40% right 5%;
-    background-size: 38%;
+@media only screen and (max-width: 800px) {footer { 
+    background-position: bottom 50% right 5%;
+    background-size: 40%;
   }}
 
+
+
+footer .footer-locations .loc:last-child {
+   margin-right: 300px;
+
+}
 footer .footer-locations li {
    font-size: .6em;
 
@@ -696,8 +703,6 @@ font-size: 1.3em;
 @media only screen and (max-width: 470px) {.cta p {
 font-size: 1em;
 }}
-
-
 
 .userinfo {
   text-align: center;

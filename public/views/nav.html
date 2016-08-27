@@ -14,8 +14,8 @@
 			</ul>
 
 			<ul>
-				<li ng-show="currentUser"><a href="#/home" ng-click="authObj.$signOut()">Sign out</a></li>
-			  	<li ng-show="currentUser">Welcome, {{ currentUser.first }}</li> 
+				<li ng-show="currentUser"><a href="#/login" ng-click="authObj.$signOut()">Sign out</a></li>
+			  	<li class="user" ng-show="currentUser">Welcome, {{ currentUser.first }}</li> 
 			</ul>
 		</div>
 	</div>

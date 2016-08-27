@@ -67,6 +67,13 @@ myApp.config(["$routeProvider", function($routeProvider) {
         return Auth.$waitForSignIn();
       }]
     }
+  }).when("/nav", {
+    controller: "AuthCtrl",
+    resolve: {
+      "currentAuth": ["Auth", function(Auth) {
+        return Auth.$waitForSignIn();
+      }]
+    }
   }).otherwise({ 
         redirectTo: '/home' 
       }); 

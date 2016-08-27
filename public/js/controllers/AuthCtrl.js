@@ -6,8 +6,13 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
   $scope.authObj.$onAuthStateChanged(function(firebaseUser) {
     if (firebaseUser) {
       console.log("Signed in as:", firebaseUser.uid);
+        var ref = firebase.database().ref();
+        var userData = ref.child('users/' + firebaseUser.uid);
+        var getData = $firebaseObject(userData);
+        $rootScope.currentUser = getData;
     } else {
       console.log("Signed out");
+
     }
   });
 
@@ -18,15 +23,6 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
       console.error("Authentication failed:", error);
     });
   };
-
-  $scope.facebook = function() {
-    $scope.authObj.$signInWithPopup("facebook").then(function(result) {
-      console.log("Signed in as:", result.user.uid);
-    }).catch(function(error) {
-      console.error("Authentication failed:", error);
-    });
-  };
-
 
   $scope.submit = function() {
     $scope.authObj.$createUserWithEmailAndPassword($scope.user.email, $scope.user.password)
@@ -47,6 +43,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
         newUser.email = $scope.user.email;
         newUser.first = $scope.user.first;
         newUser.last = $scope.user.last;
+        newUser.password = $scope.user.password;
         newUser.$save()
         .then(function(data) {
           console.log("UserData Added to users in firebase", newUser);
@@ -59,8 +56,19 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
     }).catch(function(error) {
       console.error("Error: ", error);
     }); 
-  };
+  }
 
+
+  $scope.facebook = function() {
+    $scope.authObj.$signInWithPopup("facebook").then(function(result) {
+      console.log('Welcome!  Fetching your information.... ');
+      console.log("Signed in as:", result.user.uid);
+    }).catch(function(error) {
+      console.error("Authentication failed:", error);
+    });
+  }
+
+}]);  
 
   // This is called with the results from from FB.getLoginStatus().
     function statusChangeCallback(response) {
@@ -71,8 +79,9 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
       // Full docs on the response object can be found in the documentation
       // for FB.getLoginStatus().
       if (response.status === 'connected') {
-        // Logged into your app and Facebook.
-        testAPI();
+        var uid = response.authResponse.userID;
+        var accessToken = response.authResponse.accessToken;
+        console.log('Good to see you, ' + response.name + '.');
       } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
         document.getElementById('status').innerHTML = 'Please log ' +
@@ -85,60 +94,77 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
       }
     }
 
-    // This function is called when someone finishes with the Login
-    // Button.  See the onlogin handler attached to it in the sample
-    // code below.
     function checkLoginState() {
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
       });
     }
+ 
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1812013779036047',
+          cookie     : true,  // enable cookies to allow the server to access 
+          xfbml      : true,  // parse social plugins on this page
+          version    : 'v2.5' // use graph api version 2.5
+        })
+      }
+     
 
-    window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1812013779036047',
-      cookie     : true,  // enable cookies to allow the server to access 
-                          // the session
-      xfbml      : true,  // parse social plugins on this page
-      version    : 'v2.5' // use graph api version 2.5
-    });
+      
+          
+  // $scope.submit = function() {
+  //   $scope.authObj.$createUserWithEmailAndPassword($scope.user.email, $scope.user.password)
+  //   .then(function(firebaseUser) {
 
-    // Now that we've initialized the JavaScript SDK, we call 
-    // FB.getLoginStatus().  This function gets the state of the
-    // person visiting this page and can return one of three states to
-    // the callback you provide.  They can be:
-    //
-    // 1. Logged into your app ('connected')
-    // 2. Logged into Facebook, but not your app ('not_authorized')
-    // 3. Not logged into Facebook and can't tell if they are logged into
-    //    your app or not.
-    //
-    // These three cases are handled in the callback function.
+  //      // var ref = firebase.database().ref();
+  //       // var userData = ref.child('users/' + firebaseUser.uid);
+  //       // var newUser = $firebaseObject(userData)
 
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
+  //       // var purchaseHistory = ref.child('users/' + firebaseUser.uid '/purchases');
+  //       // var boughtItmes = $firebaseArray(purchaseHistory)
+        
+  //       console.log("User " + firebaseUser.uid + " created successfully!");
+  //       var ref = firebase.database().ref();
+  //       var userData = ref.child('users/' + firebaseUser.uid);
 
-    };
+  //       var newUser = $firebaseObject(userData);
+  //       newUser.email = $scope.user.email;
+  //       newUser.first = $scope.user.first;
+  //       newUser.last = $scope.user.last;
+  //       newUser.password = $scope.user.password;
+  //       newUser.$save()
+  //       .then(function(data) {
+  //         console.log("UserData Added to users in firebase", newUser);
+  //         $rootScope.currentUser = newUser;
+  //         console.log($rootScope.currentUser);
+  //       }).catch(function(error) {
+  //         console.error("UserData Failed to add");
+  //       });
 
-    // Load the SDK asynchronously
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+  //   }).catch(function(error) {
+  //     console.error("Error: ", error);
+  //   }); 
+  // };
 
-    // Here we run a very simple test of the Graph API after login is
-    // successful.  See statusChangeCallback() for when this call is made.
-    function testAPI() {
-      console.log('Welcome!  Fetching your information.... ');
-      FB.api('/me', function(response) {
-        console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML =
-          'Thanks for logging in, ' + response.name + '!';
-      });
-    }
-
-}]);
+  //       FB.login(function(response) {
+  //         if (response.authResponse) {
+  //           console.log('Welcome!  Fetching your information.... ');
+  //             FB.api('/me', function(response) {
+  //               var ref = firebase.database().ref();
+  //               var userData = ref.child('users/' + response.uid);
+  //               var newUser = $firebaseObject(userData);
+  //               newUser.email = email;
+  //               newUser.first = first_name;
+  //               newUser.last = last_name;
+  //               newUser.password = password;
+  //               newUser.$save()
+  //               }).then(function(data) {
+  //                 console.log("UserData Added to users in firebase", newUser);
+  //                 $rootScope.currentUser = newUser;
+  //                 console.log($rootScope.currentUser);
+  //               } else if (response.authResponse === null) {
+  //                 } else {
+  //                 })
+  //               }
+  //             })
+  
