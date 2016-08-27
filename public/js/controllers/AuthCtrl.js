@@ -111,9 +111,6 @@ $scope.getID = function() {
                         xfbml      : true,  // parse social plugins on this page
                         version    : 'v2.5' // use graph api version 2.5
                       })
-                      FB.getLoginStatus(function(response) {
-                        statusChangeCallback(response);
-                      })
 
                     }// END OF <WINDOW>
 
@@ -125,15 +122,20 @@ $scope.getID = function() {
           console.log('Welcome!  Fetching your information.... ');
           FB.api('/me', 'get', { access_token: token, fields: 'id,name,email,last_name,first_name' },
             function(response) {
+            var ref = firebase.database().ref();
+                var userData = ref.child('users/' + response.id);
+                var newUser = $firebaseObject(userData);
+                newUser.email = response.email;
+                newUser.first = response.first_name;
+                newUser.last = response.last_name;
+                newUser.$save() 
             console.log(response);
-            
           });
           } else {
             console.log('User cancelled login or did not fully authorize.');
           }
         });
       }
-
     statusChangeCallback = function(response) {
       console.log('Checking facebook status');
       console.log(response);
@@ -157,55 +159,55 @@ $scope.getID = function() {
 
    }]);    
 
-myApp.factory('facebookService', function($q) {
-    return {
-        getName: function() {
-            var deferred = $q.defer();
-            FB.api('/me', {fields: 'name'}, function(response) {
-                if (!response || response.error) {deferred.reject('Error occured');
-                } else {deferred.resolve(response);
-                }
-            });
-                return deferred.promise;
-        },
-        getFirstName: function() {
-            var deferred = $q.defer();
-            FB.api('/me', {fields: 'first_name'}, function(response) {
-                if (!response || response.error) {deferred.reject('Error occured');
-                } else {deferred.resolve(response);
-                }
-            });
-                return deferred.promise;
-        },
-        getLastName: function() {
-            var deferred = $q.defer();
-            FB.api('/me', {fields: 'last_name'}, function(response) {
-                if (!response || response.error) {deferred.reject('Error occured');
-                } else {deferred.resolve(response);
-                }
-            });
-                return deferred.promise;
-        },
-        getEmail: function() {
-            var deferred = $q.defer();
-            FB.api('/me', {fields: 'email'}, function(response) {
-                if (!response || response.error) {deferred.reject('Error occured');
-                } else {deferred.resolve(response);
-                }
-            });
-                return deferred.promise;
-        },
-        getID: function() {
-            var deferred = $q.defer();
-            FB.api('/me', {fields: 'id'}, function(response) {
-                if (!response || response.error) {deferred.reject('Error occured');
-                } else {deferred.resolve(response);
-                }
-            });
-                return deferred.promise;
-        }
-    }
-});
+// myApp.factory('facebookService', function($q) {
+//     return {
+//         getName: function() {
+//             var deferred = $q.defer();
+//             FB.api('/me', {fields: 'name'}, function(response) {
+//                 if (!response || response.error) {deferred.reject('Error occured');
+//                 } else {deferred.resolve(response);
+//                 }
+//             });
+//                 return deferred.promise;
+//         },
+//         getFirstName: function() {
+//             var deferred = $q.defer();
+//             FB.api('/me', {fields: 'first_name'}, function(response) {
+//                 if (!response || response.error) {deferred.reject('Error occured');
+//                 } else {deferred.resolve(response);
+//                 }
+//             });
+//                 return deferred.promise;
+//         },
+//         getLastName: function() {
+//             var deferred = $q.defer();
+//             FB.api('/me', {fields: 'last_name'}, function(response) {
+//                 if (!response || response.error) {deferred.reject('Error occured');
+//                 } else {deferred.resolve(response);
+//                 }
+//             });
+//                 return deferred.promise;
+//         },
+//         getEmail: function() {
+//             var deferred = $q.defer();
+//             FB.api('/me', {fields: 'email'}, function(response) {
+//                 if (!response || response.error) {deferred.reject('Error occured');
+//                 } else {deferred.resolve(response);
+//                 }
+//             });
+//                 return deferred.promise;
+//         },
+//         getID: function() {
+//             var deferred = $q.defer();
+//             FB.api('/me', {fields: 'id'}, function(response) {
+//                 if (!response || response.error) {deferred.reject('Error occured');
+//                 } else {deferred.resolve(response);
+//                 }
+//             });
+//                 return deferred.promise;
+//         }
+//     }
+// });
       
           
   // $scope.submit = function() {
