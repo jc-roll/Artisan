@@ -59,7 +59,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
   }
 
 
-}]);  
+
 
 //--------------------- facebook Scope the data ------------------------
 
@@ -102,9 +102,60 @@ $scope.getID = function() {
 
 
 
-//--------------------- facebook Factory ------------------------
+//--------------------- facebook Key functions ------------------------
 
+                    window.fbAsyncInit = function() {
+                      FB.init({
+                        appId      : '1812013779036047',
+                        cookie     : true,  // enable cookies to allow the server to access 
+                        xfbml      : true,  // parse social plugins on this page
+                        version    : 'v2.5' // use graph api version 2.5
+                      })
+                      FB.getLoginStatus(function(response) {
+                        statusChangeCallback(response);
+                      })
 
+                    }// END OF <WINDOW>
+
+    facebookLogin = function() {
+      FB.login(function(response) {
+        var token = response.authResponse.accessToken;
+        var uid = response.authResponse.userID;
+        if (response.authResponse) {
+          console.log('Welcome!  Fetching your information.... ');
+          FB.api('/me', 'get', { access_token: token, fields: 'id,name,email,last_name,first_name' },
+            function(response) {
+            console.log(response);
+            
+          });
+          } else {
+            console.log('User cancelled login or did not fully authorize.');
+          }
+        });
+      }
+
+    statusChangeCallback = function(response) {
+      console.log('Checking facebook status');
+      console.log(response);
+      facebookLogin();
+      if (response.status === 'connected') {
+      } else if (response.status === 'not_authorized') {
+        document.getElementById('status').innerHTML = 'Please log ' +
+          'into this app.';
+      } else {
+        document.getElementById('status').innerHTML = 'Please log ' +
+          'into Facebook.';
+      }
+    }
+
+      checkLoginState = function() {
+          FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+          });
+        }
+ 
+
+   }]);    
 
 myApp.factory('facebookService', function($q) {
     return {
@@ -116,7 +167,7 @@ myApp.factory('facebookService', function($q) {
                 }
             });
                 return deferred.promise;
-        }
+        },
         getFirstName: function() {
             var deferred = $q.defer();
             FB.api('/me', {fields: 'first_name'}, function(response) {
@@ -125,7 +176,7 @@ myApp.factory('facebookService', function($q) {
                 }
             });
                 return deferred.promise;
-        }
+        },
         getLastName: function() {
             var deferred = $q.defer();
             FB.api('/me', {fields: 'last_name'}, function(response) {
@@ -134,7 +185,7 @@ myApp.factory('facebookService', function($q) {
                 }
             });
                 return deferred.promise;
-        }
+        },
         getEmail: function() {
             var deferred = $q.defer();
             FB.api('/me', {fields: 'email'}, function(response) {
@@ -143,7 +194,7 @@ myApp.factory('facebookService', function($q) {
                 }
             });
                 return deferred.promise;
-        }
+        },
         getID: function() {
             var deferred = $q.defer();
             FB.api('/me', {fields: 'id'}, function(response) {
@@ -155,63 +206,6 @@ myApp.factory('facebookService', function($q) {
         }
     }
 });
-//--------------------- facebook key functions ------------------------
-
-
-                    window.fbAsyncInit = function() {
-                      FB.init({
-                        appId      : '1812013779036047',
-                        status     : true, 
-                        cookie     : true,  // enable cookies to allow the server to access 
-                        xfbml      : true,  // parse social plugins on this page
-                        version    : 'v2.5' // use graph api version 2.5
-                      })
-                      FB.getLoginStatus(function(response) {
-                        statusChangeCallback(response);
-                      })
-
-                    }// END OF <WINDOW>
-
-    function facebookLogin() {
-      FB.login(function(response) {
-        var token = response.authResponse.accessToken;
-        var uid = response.authResponse.userID;
-        if (response.authResponse) {
-          console.log('Welcome!  Fetching your information.... ');
-          FB.api('/me', 'get', { access_token: token, fields: 'id,name,gender,email,last_name' }, 
-            function(response) {
-            console.log(response);
-          });
-          } else {
-            console.log('User cancelled login or did not fully authorize.');
-          }
-        });
-      }
-
-    function statusChangeCallback(response) {
-      console.log('Checking facebook status');
-      console.log(response);
-      if (response.status === 'connected') {
-      } else if (response.status === 'not_authorized') {
-        document.getElementById('status').innerHTML = 'Please log ' +
-          'into this app.';
-      } else {
-        document.getElementById('status').innerHTML = 'Please log ' +
-          'into Facebook.';
-      }
-    }
-
-
-
-    function checkLoginState() {
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
-    }
- 
-
-     
-
       
           
   // $scope.submit = function() {
