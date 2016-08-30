@@ -12,19 +12,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
         $rootScope.currentUser = getData;
     } else {
       console.log(" Signed out ");
-
-    }.then(function(result) {
-      if (result) {
-        console.log("Signed in as:", result.user.uid);
-          var ref = firebase.database().ref();
-          var userData = ref.child('users/' + result.user.uid);
-          var getData = $firebaseObject(userData);
-          $rootScope.currentUser = getData;
-      } else {
-        console.log("Signed out of facebook");
-      }
-
-    })
+    }
   });
 
   $scope.login = function() {
@@ -75,22 +63,24 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
 //FACEBOOK 
 
 
+
+
+   $scope.authObj = $firebaseAuth();
+
+    $scope.authObj.$onAuthStateChanged(function(result) {
+      if (result) {
+        console.log("Signed in as:", result.user.uid);
+          var ref = firebase.database().ref();
+          var userData = ref.child('users/' + result.user.uid);
+          var getData = $firebaseObject(userData);
+          $rootScope.currentUser = getData;
+      } else {
+        console.log("Signed out of facebook");
+      }
+    });
+
 $scope.facebookSubmit = function() {
-
-   // $scope.authObj = $firebaseAuth();
-
-   //  $scope.authObj.$onAuthStateChanged(function(result) {
-   //    if (result) {
-   //      console.log("Signed in as:", result.user.uid);
-   //        var ref = firebase.database().ref();
-   //        var userData = ref.child('users/' + result.user.uid);
-   //        var getData = $firebaseObject(userData);
-   //        $rootScope.currentUser = getData;
-   //    } else {
-   //      console.log("Signed out of facebook");
-   //    }
-   //  });
-
+  
   // Create an instance of the Facebook provider object
   var provider = new firebase.auth.FacebookAuthProvider();
   provider.addScope('public_profile,email');
@@ -129,7 +119,8 @@ $scope.facebookSubmit = function() {
       var credentialERR = error.credential;
       console.log("Token ERROR =" + credentialERR);
     });
-    
+  })
+ } 
 }]);
 
 
