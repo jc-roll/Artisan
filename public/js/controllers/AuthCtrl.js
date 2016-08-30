@@ -77,19 +77,19 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
 
 $scope.facebookSubmit = function() {
 
-   $scope.authObj = $firebaseAuth();
+   // $scope.authObj = $firebaseAuth();
 
-    $scope.authObj.$onAuthStateChanged(function(result) {
-      if (result) {
-        console.log("Signed in as:", result.user.uid);
-          var ref = firebase.database().ref();
-          var userData = ref.child('users/' + result.user.uid);
-          var getData = $firebaseObject(userData);
-          $rootScope.currentUser = getData;
-      } else {
-        console.log("Signed out of facebook");
-      }
-    });
+   //  $scope.authObj.$onAuthStateChanged(function(result) {
+   //    if (result) {
+   //      console.log("Signed in as:", result.user.uid);
+   //        var ref = firebase.database().ref();
+   //        var userData = ref.child('users/' + result.user.uid);
+   //        var getData = $firebaseObject(userData);
+   //        $rootScope.currentUser = getData;
+   //    } else {
+   //      console.log("Signed out of facebook");
+   //    }
+   //  });
 
   // Create an instance of the Facebook provider object
   var provider = new firebase.auth.FacebookAuthProvider();
@@ -104,14 +104,19 @@ $scope.facebookSubmit = function() {
     var user = result.user;
     console.log("User = " + user);
     console.log("UserID = " + result.user.uid + " created successfully!");
+
       var ref = firebase.database().ref();
-      var userData = ref.child('users/' + firebaseUser.uid);
+      var userData = ref.child('users/' + result.user.uid);
 
       var newUser = $firebaseObject(userData);
         newUser.email = result.email;
         newUser.first = result.first_name;
         newUser.last = response.last_name;
         newUser.$save()
+        .then(function(data) {
+          console.log("UserData Added to users in firebase", newUser);
+          $rootScope.currentUser = newUser;
+          console.log($rootScope.currentUser);
 
     }).catch(function(error) {
       // Handle Errors here.
@@ -123,35 +128,10 @@ $scope.facebookSubmit = function() {
       // The firebase.auth.AuthCredential type that was used.
       var credentialERR = error.credential;
       console.log("Token ERROR =" + credentialERR);
-
     });
     
 }]);
- $scope.submit = function() {
-    $scope.authObj.$createUserWithEmailAndPassword($scope.user.email, $scope.user.password)
-    .then(function(firebaseUser) {        
-        console.log("User " + firebaseUser.uid + " created successfully!");
-        var ref = firebase.database().ref();
-        var userData = ref.child('users/' + firebaseUser.uid);
 
-        var newUser = $firebaseObject(userData);
-        newUser.email = $scope.user.email;
-        newUser.first = $scope.user.first;
-        newUser.last = $scope.user.last;
-        newUser.password = $scope.user.password;
-        newUser.$save()
-        .then(function(data) {
-          console.log("UserData Added to users in firebase", newUser);
-          $rootScope.currentUser = newUser;
-          console.log($rootScope.currentUser);
-        }).catch(function(error) {
-          console.error("UserData Failed to add");
-        });
-
-    }).catch(function(error) {
-      console.error("Error: ", error);
-    }); 
-  }
 
 
 
