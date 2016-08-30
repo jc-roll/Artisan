@@ -59,61 +59,46 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
   }
 
 
-      window.fbAsyncInit = function() {
-                      FB.init({
-                        appId      : '1812013779036047',
-                        cookie     : true,  // enable cookies to allow the server to access 
-                        xfbml      : true,  // parse social plugins on this page
-                        version    : 'v2.5' // use graph api version 2.5
-                      })
-                       FB.getLoginStatus(function(response) {
-                        checkLoginState(response);
-         
-                          });
-
-                       
-
-                    }// END OF <WINDOW>
 
 
+//FACEBOOK 
 
-    facebookLogin = function() {
-      var facebook = new firebase.auth.FacebookAuthProvider();
-      $scope.authObj.$signInWithPopup(facebook).then(function(response) {
-        var token = response.authResponse.accessToken;
-        var uid = response.authResponse.userID;
-        if (response.authResponse) {
-  
-          } else {
-            console.log('User cancelled login or did not fully authorize.');
-          }
-    })
+$scope.authObj.$onAuthStateChanged(function(firebaseUser) {
+  if (firebaseUser) {
+    console.log("Signed in as:", firebaseUser.uid);
+  } else {
+    console.log("Signed out");
+  }
+});
 
-    }
-   
+var offAuth = $scope.authObj.$onAuthStateChanged(callback);
+
+// ... sometime later, unregister the callback
+// offAuth();
 
 
-    statusChangeCallback = function(response) {
-      console.log('Checking facebook status');
-      console.log(response);
-      if (response.status === 'connected') {
-        facebookLogin();
-      } else if (response.status === 'not_authorized') {
-        document.getElementById('status').innerHTML = 'Please log ' +
-          'into this app.';
-      } else {
-        document.getElementById('status').innerHTML = 'Please log ' +
-          'into Facebook.';
-      }
-    }
+// Create an instance of the Facebook provider object
+var provider = new firebase.auth.FacebookAuthProvider();
 
-      checkLoginState = function() {
-          FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-          });
-        }
- 
 
+
+firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
+    
 }]);
 
 
