@@ -72,13 +72,6 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
 
 
 
-// $scope.signOut = function(){
-//     $firebaseAuth().unAuth().then(function() {
-//             console.log('Sign-out successful.');
-//         }, function(error) {
-//             console.log('An error happened.');
-//         });
-//     };
 
 }]);
 
