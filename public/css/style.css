@@ -149,7 +149,6 @@ body {
   position:relative;
 }
 
-
 .card-location .location1 {
   background-image: url("img/D.png");
   background-repeat: no-repeat ;
@@ -185,7 +184,6 @@ body {
 .card-location .location3 li {
   font-size: .55em;
 }
-
 
 @media only screen and (max-width: 470px) {.card-location .location1 li {font-size: .7em}}
 @media only screen and (max-width: 470px) {.card-location .location2 li {font-size: .7em}}
@@ -350,7 +348,6 @@ body {
   clear: both;
 }
 
-
 .about {
   width: 100%;
   padding-top: 1rem;
@@ -368,16 +365,16 @@ body {
   background-color: rgba(0,0,0,.80);
   background-repeat: no-repeat;
 }
+
 .about .center {
   width: 40%;
   margin-left: 30%
 }
+
 @media only screen and (max-width: 470px) {.about{
-  padding-bottom: 180px;
+  padding-bottom: 210px;
   background-size: 45%;
-
 }}
-
 
 .about .center p {
   text-align: left;
@@ -385,26 +382,27 @@ body {
   font-weight: 700;
   font-size: .7em;
 }
+
 @media only screen and (max-width: 470px) {.about .center {
   width:80%;
   margin-left:10%;
-
 }}
 
 .about h1 {
   font-size: 1.2em;
   color: white;
-  font-family: "Cooper Std";
-}
-.background{
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -1;
+  font-family: "Noteworthy";
+  font-weight: 700;
 }
 
+.background{
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noteworthy";
@@ -426,7 +424,6 @@ h1 {
   margin-bottom: 10px;
   padding-top: 10px;
   font-family: 'Lato', sans-serif;
-
 }
 
 .formInput {
@@ -499,7 +496,6 @@ nav {
   opacity: .92;
 }
 
-
 .btnA:hover::before {
   box-shadow: none;
   left: 0;
@@ -541,10 +537,6 @@ nav .nav2 li a:hover {
   color: red;
 }
 
-nav li a:hover {
-  color: white;
-}
-
 nav .nav2 li a:active {
   color: #E76C5A;
 }
@@ -573,40 +565,40 @@ footer {
   background-repeat: no-repeat;
   background-position: bottom 45% right 5%;
   background-size: 28%;
- 
 }
 
+/*Adjust footer logo to scale properly*/
 @media only screen and (max-width: 800px) {footer { 
-    background-position: bottom 50% right 5%;
-    background-size: 40%;
-  }}
+background-position: bottom 50% right 5%;
+background-size: 40%;
+}}
 
 
-
+/*Removes overlap of logo */
 footer .footer-locations .loc:last-child {
-   margin-right: 300px;
-
+  margin-right: 300px;
 }
+
 footer .footer-locations li {
-   font-size: .6em;
-
+  font-size: .6em;
 }
+
 footer .footer-locations h1 {
-   font-size: 1em;
-   font-weight: 700;
-
+  font-size: 1em;
+  font-weight: 700;
 }
+
 footer .footer-locations .loc {
-    float: left;
-    display: inline-block;
-    padding-top: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
+  float: left;
+  display: inline-block;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 footer p{
-clear: both;
-text-align: center;
+  clear: both;
+  text-align: center;
 }
 
 .userinfo {
@@ -624,11 +616,11 @@ text-align: center;
 }
 
 input.ng-invalid.ng-touched {
-  border: 2px solid #DA3637;
+  border: 1px solid #DA3637;
 }
 
 input.ng-valid.ng-touched {
-  border: 2px solid #509D12;
+  border: 1px solid #509D12;
 }
 
 .error {
@@ -792,26 +784,33 @@ textarea{
     top: 0px;
     left: 0px;
     color: transparent;
-        animation: fadeslidshow 36s ease-in-out infinite;
-    -webkit-animation: fadeslidshow 36s ease-in-out infinite;
-    -moz-animation: fadeslidshow 36s ease-in-out infinite;
-    -o-animation: fadeslidshow 36s ease-in-out infinite;
-    -ms-animation: fadeslidshow 36s ease-in-out infinite;
+        animation: fadeslidshow 42s ease-in-out infinite;
+    -webkit-animation: fadeslidshow 42s ease-in-out infinite;
+    -moz-animation: fadeslidshow 42s ease-in-out infinite;
+    -o-animation: fadeslidshow 42s ease-in-out infinite;
+    -ms-animation: fadeslidshow 42s ease-in-out infinite;
 }   
+
+.slideshow li p {
+  position
+}
 .slideshow li div {
     z-index: 100;
-    position: relative;
+    position: absolute;
+    font-size: 3em;
+    font-weight: 700;
+    font-family: "Noteworthy";
     bottom: 30px;
     left: 0px;
     width: 100%;
     text-align: center;
     opacity: 0;
     color: #fff;
-    animation: fadeslidshow 36s ease-in-out infinite;
-    -webkit-animation: fadeslidshow 36s ease-in-out infinite;
-    -moz-animation: fadeslidshow 36s ease-in-out infinite;
-    -o-animation: fadeslidshow 36s ease-in-out infinite;
-    -ms-animation: fadeslidshow 36s ease-in-out infinite;
+    animation: fadeslidshow 42s ease-in-out infinite;
+    -webkit-animation: fadeslidshow 42s ease-in-out infinite;
+    -moz-animation: fadeslidshow 42s ease-in-out infinite;
+    -o-animation: fadeslidshow 42s ease-in-out infinite;
+    -ms-animation: fadeslidshow 42s ease-in-out infinite;
 }      
 .slideshow li:nth-child(1) span {
     background-image: url("img/Slide1.JPG");
@@ -856,6 +855,14 @@ textarea{
     -moz-animation-delay: 30s;
     -ms-animation-delay: 30s; 
 }
+.slideshow li:nth-child(7) span { 
+    background-image: url("img/Slide7.JPG");
+    animation-delay: 36s;
+    -webkit-animation-delay: 36s;
+    -o-animation-delay: 36s;
+    -moz-animation-delay: 36s;
+    -ms-animation-delay: 36s; 
+}
 .slideshow li:nth-child(2) div { 
     animation-delay: 6s;
     -webkit-animation-delay: 6s;
@@ -890,6 +897,13 @@ textarea{
     -o-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -ms-animation-delay: 30s;
+}
+.slideshow li:nth-child(7) div { 
+    animation-delay: 36s;
+    -webkit-animation-delay: 36s;
+    -o-animation-delay: 36s;
+    -moz-animation-delay: 36s;
+    -ms-animation-delay: 36s;
 }
 
   /*fadeslidshow*/  
