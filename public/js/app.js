@@ -35,22 +35,6 @@ myApp.config(["$routeProvider", function($routeProvider) {
         return Auth.$waitForSignIn();
       }]
     }
-    }).when("/orlando", {
-    controller: "HomeCtrl",
-    templateUrl: "views/orlando.html",
-    resolve: {
-      "currentAuth": ["Auth", function(Auth) {
-        return Auth.$waitForSignIn();
-      }]
-    }
-    }).when("/miami", {
-    controller: "HomeCtrl",
-    templateUrl: "views/miami.html",
-    resolve: {
-      "currentAuth": ["Auth", function(Auth) {
-        return Auth.$waitForSignIn();
-      }]
-    }
   }).when("/faqs", {
     controller: "HomeCtrl",
     templateUrl: "views/faqs.html",
@@ -69,6 +53,14 @@ myApp.config(["$routeProvider", function($routeProvider) {
     }
   }).when("/nav", {
     controller: "AuthCtrl",
+    resolve: {
+      "currentAuth": ["Auth", function(Auth) {
+        return Auth.$waitForSignIn();
+      }]
+    }
+  }).when("/logout", {
+    controller: "AuthCtrl",
+    templateUrl: "views/logout.html",
     resolve: {
       "currentAuth": ["Auth", function(Auth) {
         return Auth.$waitForSignIn();
