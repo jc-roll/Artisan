@@ -1,6 +1,5 @@
 <section class="card">
   <form ng-submit="submit()" name="myform" >
-    <a ng-show="currentUser" ng-click="authObj.$signOut()" class="animate-btn zoomout-btn">Logout</a>
     <div class="pure-control-group">
       <h1>Registration Form</h1>
     </div>
@@ -35,7 +34,7 @@
         ng-show="myform.password.$valid && myform.passwordVal.$error.pattern">Passwords Must Match</p>
       </div>
       <div class="pure-control-group">
-        <button class="button-error" ng-hide="myform.$valid">Finish Registration</button>
+        <button class="button-error" ng-hide="myform.$valid">Complete Registration Form</button>
         <button type="submit" class="button-success" ng-show="myform.$valid">Create User</button>
       </div>
        <button class="loginBtn loginBtn--facebook" ng-click="signinWithFacebook()">Login with Facebook</button>

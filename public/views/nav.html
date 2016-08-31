@@ -1,23 +1,15 @@
-<!-- The class branding is in my css and attaches the font and styles to my logo -->
 <div class="skew">
 	<div class="container">
-		<div class="logo">
-		  <span class="wave1"></span>
-          <span class="wave2"></span>
-          <span class="wave3"></span>
-		  <div class="branding"  ng-href="#/home"></div>
-		</div>
 		<div class="nav1">
 			<ul> 
 				<li ng-hide="currentUser"><a ng-href="#/login">Login</a></li>
 				<li ng-hide="currentUser"><a ng-href="#/register">Register</a></li>
-				<li ng-show="currentUser"><a ng-href="#/register"> {{ currentUser.first }} {{currentUser.username}}</li> 
-				<li ng-show="currentUser"><a ng-href=""></a></li>
+				<li ng-show="currentUser"><a ng-click="authObj.$signOut()" class="animate-btn zoomout-btn">Logout</a></li>
+				<li class="userinfo" ng-show="currentUser"><a ng-href="#/register"> {{ currentUser.first }} {{currentUser.username}}</li> 
 			</ul>	
 		</div>
 	</div>
 </div>
-
 <div class="nav2">
 	<ul> 
 		<li><a ng-href="#/locations">Locations</a></li>

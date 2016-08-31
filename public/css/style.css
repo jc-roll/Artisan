@@ -431,6 +431,7 @@ h1 {
         .button-secondary {
             color: white;
             border-radius: 4px;
+            border: black;
             text-shadow: 0 1px 1px rgba(0, 0, 0,);
             width: 40%;
             max-width: 400px;
@@ -440,13 +441,14 @@ h1 {
         }
 
         .button-success {
-            background: rgb(10, 184, 10); /* this is a green */
+            background: rgb(50, 184, 50); /* this is a green */
               box-shadow: 3px 3px 2px #292;
         }
 
         .button-error {
-            background: rgb(202, 120, 120); /* this is a maroon */
-              box-shadow: 3px 3px 2px #922;
+          color: #666;
+            background: rgb(202, 120, 120,8); /* this is a maroon */
+              box-shadow: 3px 3px 2px #944;
         }
 
         .button-warning {
@@ -500,17 +502,17 @@ nav {
   letter-spacing: 0.1rem;
   padding: .25rem;
   margin-top: 1rem;
-  max-width: 120px;
+  max-width: 160px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  width: 20%;
+  width: 40%;
 }
 
 
 .btnA::before {
   content: "";
-  background-color: rgba(0,0,0,.8);
+  background-color: purple;
   box-shadow: 5px 5px 2px #fff, 
               10px 10px #000,
               15px 15px 2px #fff, 
@@ -684,7 +686,7 @@ text-align: center;
   mix-blend-mode: multiply;
   will-change: opacity;
 
-  background: linear-gradient(to bottom, 
+ /* background: linear-gradient(to bottom, 
     rgba(0,0,0,1),
       rgba(0,0,0,.9), 
         rgba(0,0,0,.8),
@@ -692,7 +694,7 @@ text-align: center;
             rgba(0,0,0,.6), 
               rgba(0,0,0,.5), 
          
-    rgba(0,0,0,0));
+    rgba(0,0,0,1));*/
 }
 @media only screen and (max-width: 670px) {.cta p {
 font-size: 1.6em;
@@ -706,11 +708,12 @@ font-size: 1em;
 
 .userinfo {
   text-align: center;
+  margin-right: 6em;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
 .userinfo a {
-  color: #2D8BCF;
+  color: white;
 }
 
 .userinfo input {
@@ -783,9 +786,28 @@ textarea{
   background-image: linear-gradient(#5B7BD5, #4864B1);
 }
 
-.animate-btn {
+.animate-btn-login{
   position: relative;
-  float: right;
+  display: block;
+  width: 80px;
+  margin: 4px 4px;
+  padding: 8px 8px;
+  border: 2px solid #fff;
+  background: rgba(20, 220, 20,.8);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: .08em;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  transition: all .3s ease;
+}
+
+.animate-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
   clear: both;
   display: block;
   width: 80px;
