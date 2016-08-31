@@ -1,4 +1,5 @@
 <section class="card-logout">
 	<h1> Are you sure you want to Logout?</h1>
+		<!-- This is a temp fix, having issues testing because of the function not wanting to fire while set in nav. Possible a issue dealing with child element inside of li/ul still not sure on issue but this will work. -->
 		<a ng-href="#/home" ng-show="currentUser" ng-click="authObj.$signOut()" class="animate-btn zoomout-btn">Yes I would like to log out</a>
 </section>

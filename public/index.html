@@ -1,61 +1,55 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Artisan Furniture</title>
-  <meta name="viewport" content="width=device-width">
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Oswald:400' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-  <link rel="stylesheet" href="css/style.css"> 
+  <head>
+    <meta charset="UTF-8">
+    <title>Artisan Furniture</title>
+    <meta name="viewport" content="width=device-width">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="css/style.css"> 
 
-  <script src="js/lib/angular.min.js"></script>
-  <script src="js/lib/angular-route.min.js"></script>
+    <!-- Angular scripts -->
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
 
-  <!-- firebase script -->
-<script src="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.js"></script>
-<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.css" />
+    <!-- firebase script -->
+    <script src="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 
-
-
-<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCQP-s1paWem1BPq9htEveSuZof0abx0oM",
-    authDomain: "finalproject-57f8c.firebaseapp.com",
-    databaseURL: "https://finalproject-57f8c.firebaseio.com",
-    storageBucket: "finalproject-57f8c.appspot.com",
-  };
-  firebase.initializeApp(config);
-</script>
-
-
-  <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
-
-  <script>
-        (function(d, s, id){
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) {return;}
-             js = d.createElement(s); js.id = id;
-             js.src = "//connect.facebook.net/en_US/sdk.js";
-             fjs.parentNode.insertBefore(js, fjs);
-           }(document, 'script', 'facebook-jssdk'));
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCQP-s1paWem1BPq9htEveSuZof0abx0oM",
+        authDomain: "finalproject-57f8c.firebaseapp.com",
+        databaseURL: "https://finalproject-57f8c.firebaseio.com",
+        storageBucket: "finalproject-57f8c.appspot.com",
+      };
+      firebase.initializeApp(config);
     </script>
 
-  <script src="js/app.js"></script>
-  <script src="js/controllers/AuthCtrl.js"></script>
-  <script src="js/controllers/HomeCtrl.js"></script>
+    <script>
+          (function(d, s, id){
+               var js, fjs = d.getElementsByTagName(s)[0];
+               if (d.getElementById(id)) {return;}
+               js = d.createElement(s); js.id = id;
+               js.src = "//connect.facebook.net/en_US/sdk.js";
+               fjs.parentNode.insertBefore(js, fjs);
+             }(document, 'script', 'facebook-jssdk'));
+      </script>
 
+    <script src="js/app.js"></script>
+    <script src="js/controllers/AuthCtrl.js"></script>
+    <script src="js/controllers/HomeCtrl.js"></script>
 
-
-</head>
-  <body class="position" ng-app = "myApp">
-      <nav class="cf" ng-include="'views/nav.html'"></nav>
-      <div class="line"></div>
-            
-      </div>
-      <div ng-view></div>
+  </head>
+    <body class="position" ng-app = "myApp">
+        <nav class="cf" ng-include="'views/nav.html'"></nav>
+        <div class="line"></div>
+        </div>
+        <div ng-view></div>
+        <footer class="footer" ng-include="'views/footer.html'"></footer>
   </body>
-  <footer class="footer" ng-include="'views/footer.html'"></footer>
 </html>

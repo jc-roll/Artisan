@@ -3,38 +3,42 @@
       <h1>Registration Form</h1>
       <div class="Form-Input">
         <label>Enter First Name:</label>
-        <input type="text" name="first" ng-model="user.first" placeholder="First Name" ng-required="true">
-        <p class="error validationerror"
+          <input type="text" name="first" ng-model="user.first" placeholder="First Name" ng-required="true">
+          <p class="error validationerror"
         ng-show="myform.first.$invalid && myform.first.$touched">Last name required</p>
       </div>
       <div class="Form-Input">
         <label>Enter Last Name:</label>
-        <input type="text" name="last" ng-model="user.last" placeholder="Last Name" ng-required="true">
-        <p class="error validationerror"
+          <input type="text" name="last" ng-model="user.last" placeholder="Last Name" ng-required="true">
+          <p class="error validationerror"
         ng-show="myform.last.$invalid && myform.last.$touched">Last name required</p>
       </div>
       <div class="Form-Input">
         <label>Enter Email:</label>
-        <input type="email" name="email" ng-model="user.email" placeholder="YourEmail@email.com" ng-required="true">
-        <p class="error validationerror"
+          <input type="email" name="email" ng-model="user.email" placeholder="YourEmail@email.com" ng-required="true">
+          <p class="error validationerror"
         ng-show="myform.email.$invalid && myform.email.$touched">Email is required</p>
       </div>
       <div class="Form-Input">
         <label>Password:</label>
-        <input type="password" name="password" ng-model="user.password" placeholder="Enter Password" ng-required="true" ng-minlength="6" ng-maxlength="12">
-        <p class="error validationerror"
+        <!-- Reference login.html for form notes, this line also shows some options for setting standards for valid fields. -->
+          <input type="password" name="password" ng-model="user.password" placeholder="Enter Password" ng-required="true" ng-minlength="6" ng-maxlength="12">
+          <p class="error validationerror"
         ng-show="myform.password.$invalid && myform.password.$touched">Must be atleast 6 charcters in length</p>
       </div>
       <div class="Form-Input">
         <label>Confirm Password:</label>
-        <input type="password" name="passwordVal" ng-model="user.passwordVal" placeholder="Enter Password" ng-pattern="(password)" ng-required="true" ng-minlength="6" ng-maxlength="12">
-        <p class="error validationerror"
+          <input type="password" name="passwordVal" ng-model="user.passwordVal" placeholder="Enter Password" ng-pattern="(password)" ng-required="true" ng-minlength="6" ng-maxlength="12">
+          <p class="error validationerror"
         ng-show="myform.password.$valid && myform.passwordVal.$error.pattern">Passwords Must Match</p>
       </div>
       <div class="Form-Input">
+        <!-- The error button communicates with the user and shows that the form is not complete -->
         <button class="button-error" ng-hide="myform.$valid">Complete Registration Form</button>
+        <!-- The success button only appears on a valid complete form being true -->
         <button type="submit" class="button-success" ng-show="myform.$valid">Create User</button>
       </div>
+      <!-- Another chance to loggin to facebook like in login.html -->
        <button class="loginBtn loginBtn--facebook" ng-click="signinWithFacebook()">Login with Facebook</button>
     </form>
 </section>

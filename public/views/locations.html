@@ -1,4 +1,5 @@
   <section class="card-location">
+    <!-- The location classes for the divs may not be defined using best practices but the locations are defined directly bellow. -->
     <div class="location1">
       <h1>Doral/Miami Store:<h1>
       <ol>
@@ -9,9 +10,12 @@
         <li>Tue-Sat (11am – 6pm)</li>
         <li>Sun-Mon (Closed)</li> 
       </ol>
+      <!-- I debated what kind of assisting applications I would use for users. I decided that focusing my time on a navigation based Api would be not in the best interest of the project. I decided to redirect the user to GoogleMaps url that is pre populated with the address. It came out working better then I expected and actually looks visualy like it is built into the app. -->
       <a ng-href="https://www.google.com/maps/place/2190+NW+87th+Ave,+Doral,+FL+33172/@25.7946336,-80.3397905,17z/data=!4m5!3m4!1s0x88d9b96c0cb76701:0x6e4f20c88f632f3b!8m2!3d25.7946336!4d-80.3376018">
+     <!--  Coral is an animated button I decided to use because of its not invasive animations. The goal is get the attention of the user without distracting or annoying them -->
       <div class="btn Coral">
         <button href="#">Need Directions?
+            <!-- The animations are created by multiple spheres oscillating the overlaping of the edges of the spheres that have a curve gives the effect of waves. By adjusting the alignment of the spheres with hover we get a nice animation that is then contained inside the buttons background. -->
             <span class="Coralwave1"></span>
             <span class="Coralwave2"></span>
             <span class="Coralwave3"></span>
@@ -22,6 +26,7 @@
   </section>
 
   <section class="card-location">
+
     <div class="location2">
       <h1>Orlando Store:<h1>
       <ol>
