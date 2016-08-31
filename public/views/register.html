@@ -1,5 +1,6 @@
 <section class="card">
-  <form ng-submit="submit()" name="myform" class="pure-form pure-form-aligned">
+  <form ng-submit="submit()" name="myform" >
+    <a ng-show="currentUser" ng-click="authObj.$signOut()" class="animate-btn zoomout-btn">Logout</a>
     <div class="pure-control-group">
       <h1>Registration Form</h1>
     </div>
@@ -37,7 +38,7 @@
         <button class="button-error" ng-hide="myform.$valid">Finish Registration</button>
         <button type="submit" class="button-success" ng-show="myform.$valid">Create User</button>
       </div>
-       <button class"pure-success" ng-click="signinWithFacebook()">Login with facebook</button>
+       <button class="loginBtn loginBtn--facebook" ng-click="signinWithFacebook()">Login with Facebook</button>
     </form>
 </section>
 

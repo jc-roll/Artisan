@@ -3,6 +3,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
     
 
   $scope.authObj = $firebaseAuth();
+
   $scope.authObj.$onAuthStateChanged(function(firebaseUser) {
     if (firebaseUser) {
       console.log("Signed in as:", firebaseUser.uid);
@@ -12,15 +13,17 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
         $rootScope.currentUser = getData;
     } else {
       console.log(" Signed out ");
+      $rootScope.currentUser = '';
     }
   });
 
-    var auth = $firebaseAuth();
-    $scope.signinWithFacebook = function(){
-      signinWithFacebook.login();
-    };
+  
 
-  $scope.login = function() {
+  $scope.signinWithFacebook = function(){
+        signinWithFacebook.login();
+      };
+
+  $scope.loginUser = function() {
     $scope.authObj.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
       console.log("Signed in as:", firebaseUser.uid);
     }).catch(function(error) {
@@ -49,17 +52,40 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
         }).catch(function(error) {
           console.error("UserData Failed to add");
         });
+
     }).catch(function(error) {
       console.error("Error: ", error);
     }); 
   }
 
-  $scope.signOut = function() {
-    $scope.authObj.$signOut().then(function() {
-        // Sign-out successful.
-      }, function(error) {
-        // An error happened.
-      });
+    $scope.logMeOut = function(){
+      $scope.authObj.$onAuthStateChanged(function(currentUser) {
+  if (currentUser) {
+    var offAuth = $scope.authObj.$onAuthStateChanged(callback);
+    console.log("Signed in as:", firebaseUser.uid);
+  } else {
+    console.log("Well that should have worked");
   }
+});
+    }
+
+
+
+
+// $scope.signOut = function(){
+//     $firebaseAuth().unAuth().then(function() {
+//             console.log('Sign-out successful.');
+//         }, function(error) {
+//             console.log('An error happened.');
+//         });
+//     };
 
 }]);
+
+
+
+
+
+
+
+

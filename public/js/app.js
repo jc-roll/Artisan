@@ -97,8 +97,6 @@ myApp.factory("signinWithFacebook", function() {
 
   facebookService.login = function() {
       var facebookProvider = new firebase.auth.FacebookAuthProvider();
-        // facebookProvider.addScope('public_profile');
-        // facebookProvider.addScope('email');
 
           firebase.auth().signInWithPopup(facebookProvider);
           firebase.auth().onAuthStateChanged(function(user) {
