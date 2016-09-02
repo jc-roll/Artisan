@@ -43,13 +43,14 @@
     <script src="js/app.js"></script>
     <script src="js/controllers/AuthCtrl.js"></script>
     <script src="js/controllers/HomeCtrl.js"></script>
+    <script src="js/services/facebookService.js"></script>
 
   </head>
-    <body class="position" ng-app = "myApp">
-        <nav class="cf" ng-include="'views/nav.html'"></nav>
+    <body class="" ng-app = "myApp">
+        <nav ng-include="'views/userNav.html'"></nav>
+        <nav ng-include="'views/siteNav.html'"></nav>
         <div class="line"></div>
-        </div>
         <div ng-view></div>
         <footer class="footer" ng-include="'views/footer.html'"></footer>
-  </body>
+    </body>
 </html>

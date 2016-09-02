@@ -12,63 +12,56 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
+menu, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
   font: inherit;
   font-size: 100%;
-  vertical-align: baseline; }
+}
 
 html {
 } 
 
 ol, ul {
-  list-style: none; }
+  list-style: none; 
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0; 
+}
 
 caption, th, td {
   text-align: left;
   font-weight: normal;
-  vertical-align: middle; }
+  vertical-align: middle; 
+}
 
 q, blockquote {
-  quotes: none; }
+  quotes: none; 
+}
 
-  q:before, q:after, blockquote:before, blockquote:after {
-    content: "";
-    content: none; }
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; 
+}
 
 a img {
-  border: none; }
-
-
-/* Base Styles */
-
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+  border: none; 
 }
 
-.cf:after {
-    clear: both;
-}
+
 
 html {
   background: url("img/Color.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
-  -moz-background-size: cover;
+  
   -o-background-size: cover;
   background-size: cover;
 }
 
-body {
-}
 
 @media only screen and (max-width: 670px) {.card{width: 100%}}
 .card { 
@@ -100,7 +93,7 @@ body {
   margin-right: auto;
   border-radius: 4px;
   border: 1px solid #e8e8e8;
-  box-shadow: 0 1px 0 rgba(.25,0,0,.25);
+  box-shadow: 0 1px 0 rgba(1,0,0,1);
 }
 
 .card h1 {
@@ -111,7 +104,7 @@ body {
   text-align: center;
   width:85%;
   margin: auto;
-  }}
+}}
 
 .card-faq {
   background: rgba(255, 255, 255, .95);
@@ -125,6 +118,7 @@ body {
   max-width: 1850px;
   font-size: .8em;
   margin-left: auto;
+  clear: both;
   margin-right: auto;
   border-radius: 4px;
   border: 1px solid #e8e8e8;
@@ -133,11 +127,13 @@ body {
 
 .card-faq li {
   font-size: .5em;
+
 }
 
 .card-location {
   background: rgba(0, 0, 0, .92);
   width: 80%;
+  clear: both;
   color: white;
   margin-bottom: 3em;
   margin-top: 3em;
@@ -145,7 +141,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   border-radius: 4px;
-  box-shadow: 0 1px 0 rgba(.25,0,0,.25);
+  box-shadow: 0 1px 0 rgba(1,0,0,1);
   position:relative;
 }
 
@@ -173,28 +169,20 @@ body {
   background-size: 60%;
 }
 
-.card-location .location1 li {
+.card-location  li {
   font-size: .55em;
 }
+@media only screen and (max-width: 470px) {.card-location  li {
+  font-size: .7em
+}}
 
-.card-location .location2 li {
-  font-size: .55em;
-}
-
-.card-location .location3 li {
-  font-size: .55em;
-}
-
-@media only screen and (max-width: 470px) {.card-location .location1 li {font-size: .7em}}
-@media only screen and (max-width: 470px) {.card-location .location2 li {font-size: .7em}}
-@media only screen and (max-width: 470px) {.card-location .location3 li {font-size: .7em}}
 
 .card-location h1 {
   padding-left: 1em;
   padding-right: 1em;
 }
 
- body .card-location .Coral button {
+body .card-location .Coral button {
   color: #fff;
   overflow: hidden;
   font-size: .6em;
@@ -355,7 +343,7 @@ body {
   margin-top: 1rem;
   font-size: 1.2em;
   margin-bottom: 3rem;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   background-color: white;
   background-image: url("img/About1.jpg"), url("img/About2.jpg");
@@ -368,7 +356,7 @@ body {
 
 .about .center {
   width: 40%;
-  margin-left: 30%
+  margin-left: 30%;
 }
 
 @media only screen and (max-width: 470px) {.about{
@@ -395,26 +383,13 @@ body {
   font-weight: 700;
 }
 
-.background{
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: -1;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noteworthy";
   font-weight: 200;
-  text-shadow: 1px 1px rgb(255,255,255, 1);
 }
 
-
-a {
-  color: white;
-  font-weight: 700;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+.card-location a {
+  color: #E76C5A;
 }
 
 h1 { 
@@ -436,7 +411,6 @@ h1 {
             color: white;
             border-radius: 4px;
             border: black;
-            text-shadow: 0 1px 1px rgba(0, 0, 0,);
             width: 40%;
             max-width: 400px;
             min-width: 200px;
@@ -451,7 +425,7 @@ h1 {
 
         .button-error {
           color: #666;
-            background: rgb(202, 120, 120,8); /* this is a maroon */
+            background: rgb(202,120,120); /* this is a maroon */
               box-shadow: 3px 3px 2px #944;
         }
 
@@ -462,28 +436,6 @@ h1 {
         .button-secondary {
             background: rgb(66, 184, 221); /* this is a light blue */
         }
-
-nav {
-  position: relative;
-  width: 100%;
-  opacity: .92;
-  background-color: #000;
-  background-image: url("img/LogoWebSVG.png");
-  background-repeat: no-repeat;
-  background-position: top 5px left 5px;
-  background-size: 15%; 
-  height: 90px;
-  mix-blend-mode: multiply;
-}
-
-@media only screen and (max-width: 470px) {nav{
-  height:75px;
-  }}
-
-.logo {
-  text-align: center;
-  float: left;
-}
 
 .line {
   clear: both;
@@ -504,50 +456,75 @@ nav {
   height: 100%;
 }
 
-.nav1 a:hover {
+nav .userNav {
+  position: relative;
+  width: 100%;
+  opacity: .92;
+  background-color: #000;
+  background-image: url("img/LogoWebSVG.png");
+  background-repeat: no-repeat;
+  background-position: bottom: 5%;
+  background-size: 15%; 
+  height: 90px;
+  mix-blend-mode: multiply;
+}
+
+@media only screen and (max-width: 470px) {nav .userNav{
+  height:75px;
+  background-size: 35%;
+}}
+
+.userNav a:hover {
   color: gold;
 }
 
-nav ul li {
+nav div a {
+  text-align: center;
+  text-decoration: none;
   float: right;
-  margin-top: 1.5em;
-  color: white;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
   font-size: 1.1rem;
 }
-@media only screen and (max-width: 470px) {nav ul li{
+
+@media only screen and (max-width: 470px) {nav div a{
   margin-top: 1.5em;
   font-size: .9em;
-  }}
+}}
 
+.userNav a {
+  color: white;
+  margin: 10px 0px;
+  padding: 5px 15px;
+  margin-top: 1.2em;
+  font-size: 1.5em;
+  font-weight: 700;
+  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+}
+@media only screen and (max-width: 470px) {.userNav a {
+  font-size: 1em;
+}}
 
-nav .nav1 ul li .user{
-  font-size: .5em;
+.siteNav a {
+  color: black;
+  margin: 10px 0px;
+  padding: 0px 15px;
+  font-size: 1em;
+  font-weight: 700;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
-nav ul li a{
-  text-align: center;
-  margin: 10px 0px;
-  padding: 10px 15px;
-  text-decoration: none;
-}
-
-nav .nav2 li a:hover {
-  color: red;
-}
-
-nav .nav2 li a:active {
+.siteNav a:hover {
   color: #E76C5A;
 }
 
-nav .nav2 li a {
-  color: #000;
-  font-size: .9em;
-  font-weight: bolder;
+.siteNav a:active {
+  color: #E76C5A;
 }
 
-nav .nav2 {
+.siteNav a{
+  color: black;
+  font-size: .9em;
+  font-weight: bolder;
   float: right;
   clear: right;
   margin-top:16px;
@@ -581,6 +558,7 @@ footer .footer-locations .loc:last-child {
 
 footer .footer-locations li {
   font-size: .6em;
+  text-decoration: none;
 }
 
 footer .footer-locations h1 {
@@ -596,23 +574,9 @@ footer .footer-locations .loc {
   padding-right: 1em;
 }
 
-footer p{
+footer p {
   clear: both;
   text-align: center;
-}
-
-.userinfo {
-  text-align: center;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
-}
-
-.userinfo a {
-  color: white;
-  opacity: .8;
-}
-
-.userinfo input {
-    width: auto;
 }
 
 input.ng-invalid.ng-touched {
@@ -636,7 +600,6 @@ textarea{
 .loginBtn {
   box-sizing: border-box;
   position: relative;
-  /* width: 13em;  - apply for fixed size */
   margin: 0.2em;
   padding: 0 15px 0 46px;
   border: none;
@@ -660,7 +623,7 @@ textarea{
   outline: none;
 }
 .loginBtn:active {
-  box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 0 32px rgba(0,0,0);
 }
 
 
@@ -669,7 +632,6 @@ textarea{
 .loginBtn--facebook {
   background-color: #4C69BA;
   background-image: linear-gradient(#4C69BA, #3B55A0);
-  text-shadow: 0 -1px 0 #354C8C;
 }
 .loginBtn--facebook:before {
   border-right: #364e92 1px solid;
@@ -685,7 +647,6 @@ textarea{
 /*Animated Logout Button*/
 
 .animate-btn {
-  position: relative;
   float: right;
   clear: both;
   display: block;
@@ -699,21 +660,20 @@ textarea{
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
-  letter-spacing: .08em;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
   transition: all .3s ease;
 }
+
 .animate-btn::after {
   content: "";
   position: absolute;
   background: none repeat scroll 0 0 #900;
-  height: 0%;
   left: 50%;
   top: 50%;
   width: 100%;
   z-index: -1;
   transition: all .3s ease 0s;
 }
+
 .zoomout-btn::after {
   content: " ";
   display: block;
@@ -722,25 +682,26 @@ textarea{
   opacity: .5;
   transform: translateX(-50%) translateY(-50%);
 }
+
 .zoomout-btn:hover::after {
+  position: relative;
   height: 450%;
   width: 110%;
-  opacity: 1;
+  opacity: .9;
 }
-.Form-Input {
-  vertical-align: center;
-  margin: 0 auto;
-}
-
 
 /*Slide Show*/
 
 .slideshow , .slideshow:after {
     position: relative;
-    min-height: 600px;
+    min-height: 550px;
     height: 100%;
     width: 100%;
 }
+
+@media only screen and (max-width: 600px) {.slideshow, .slideshow:after{ 
+  min-height: 380px;
+}}
 
 .slideshow:after {
   content: '';
@@ -764,9 +725,8 @@ textarea{
         linear-gradient(-45deg, #666 25%, transparent 25%), 
         linear-gradient(45deg, transparent 75%, #666 75%), 
         linear-gradient(-45deg, transparent 75%, #666 75%);
-    -moz-background-size: 2px 2px;
     background-size: 2px 2px;
-    -webkit-background-size: 2px 2.1px; /* override value for webkit */
+    -webkit-background-size: 2px 2px;
     background-position: 0 0, 1px 0, 1px -1px, 0px 1px;
 }
     
@@ -784,18 +744,18 @@ textarea{
     top: 0px;
     left: 0px;
     color: transparent;
-        animation: fadeslidshow 42s ease-in-out infinite;
-    -webkit-animation: fadeslidshow 42s ease-in-out infinite;
-    -moz-animation: fadeslidshow 42s ease-in-out infinite;
-    -o-animation: fadeslidshow 42s ease-in-out infinite;
-    -ms-animation: fadeslidshow 42s ease-in-out infinite;
+    animation: fadeslidshow 36s ease-in-out infinite;
+    -webkit-animation: fadeslidshow 36s ease-in-out infinite;
+    -moz-animation: fadeslidshow 36s ease-in-out infinite;
+    -o-animation: fadeslidshow 36s ease-in-out infinite;
+    -ms-animation: fadeslidshow 36s ease-in-out infinite;
 }   
 
 .slideshow li p {
-  position
 }
+
 .slideshow li div {
-    z-index: 100;
+    z-index: 1000;
     position: absolute;
     font-size: 3em;
     font-weight: 700;
@@ -806,11 +766,11 @@ textarea{
     text-align: center;
     opacity: 0;
     color: #fff;
-    animation: fadeslidshow 42s ease-in-out infinite;
-    -webkit-animation: fadeslidshow 42s ease-in-out infinite;
-    -moz-animation: fadeslidshow 42s ease-in-out infinite;
-    -o-animation: fadeslidshow 42s ease-in-out infinite;
-    -ms-animation: fadeslidshow 42s ease-in-out infinite;
+    animation: fadeslidshow 36s ease-in-out infinite;
+    -webkit-animation: fadeslidshow 36s ease-in-out infinite;
+    -moz-animation: fadeslidshow 36s ease-in-out infinite;
+    -o-animation: fadeslidshow 36s ease-in-out infinite;
+    -ms-animation: fadeslidshow 36s ease-in-out infinite;
 }      
 .slideshow li:nth-child(1) span {
     background-image: url("img/Slide1.JPG");

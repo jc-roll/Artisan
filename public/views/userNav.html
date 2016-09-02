@@ -1,0 +1,13 @@
+<div class="skew">
+	<div class="container">
+		<div class="userNav" ng-controller="AuthCtrl">
+				<!-- Calang authObj.$signOut() should sign the user out. It works in several areas of site but not in nav. So I have it redirecting to a seperate view that then prompts user of choice to log then allows them to logout. -->
+				<a ng-show="currentUser"ng-href="#/home" ng-click="authObj.$signOut()" class="animate-btn zoomout-btn">Logout</a>
+				<!-- ng-hide="currentUser" hides the given routes while user is signed in. This helps with confusing and reasurance that they are logged in. -->
+				<a ng-hide="currentUser" ng-href="#/login">Login</a>
+				<a ng-hide="currentUser" ng-href="#/register">Register</a>
+				<!-- Depending on what sign in method they use we will need to call diferent firebase fields held in the seperate authObj targeted -->
+				<a ng-show="currentUser" ng-href="#/register"> {{ currentUser.first }} {{currentUser.username}}</a>
+		</div>
+	</div>
+</div>
