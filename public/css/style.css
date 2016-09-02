@@ -57,13 +57,10 @@ a img {
 html {
   background: url("img/Color.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
-  
   -o-background-size: cover;
   background-size: cover;
 }
 
-
-@media only screen and (max-width: 670px) {.card{width: 100%}}
 .card { 
   background: rgba(255, 255, 255, .95);
   width: 70%;
@@ -79,8 +76,8 @@ html {
   border: 1px solid #e8e8e8;
   box-shadow: 0 1px 0 rgba(.25,0,0,.25);
 }
-
 @media only screen and (max-width: 670px) {.card{width: 100%}}
+
 .card-logout { 
   background: rgba(255, 255, 255, .95);
   width: 70%;
@@ -135,16 +132,18 @@ html {
   width: 80%;
   clear: both;
   color: white;
-  margin-bottom: 3em;
-  margin-top: 3em;
+  margin-bottom: 2em;
+  margin-top: 2em;
   max-width: 1850px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 4px;
   box-shadow: 0 1px 0 rgba(1,0,0,1);
-  position:relative;
+  position: relative;
 }
-
+@media only screen and (max-width: 470px) {.card-location {
+  width: 100%;
+}}
 .card-location .location1 {
   background-image: url("img/D.png");
   background-repeat: no-repeat ;
@@ -175,7 +174,6 @@ html {
 @media only screen and (max-width: 470px) {.card-location  li {
   font-size: .7em
 }}
-
 
 .card-location h1 {
   padding-left: 1em;
@@ -342,46 +340,50 @@ body .card-location .Coral button {
   padding-bottom: 1rem;
   margin-top: 1rem;
   font-size: 1.2em;
-  margin-bottom: 3rem;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
+  margin-bottom: 2rem;
+  font-family: "Lato", 'Helvetica Nueue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   background-color: white;
   background-image: url("img/About1.jpg"), url("img/About2.jpg");
   background-repeat: no-repeat, no-repeat, repeat-y;
   background-position: left 0px bottom 0px, right 0px bottom 0px;
   background-size: 25%;
-  background-color: rgba(0,0,0,.80);
+  background-color: rgba(0,0,0,.8);
   background-repeat: no-repeat;
 }
-
-.about .center {
-  width: 40%;
-  margin-left: 30%;
-}
-
 @media only screen and (max-width: 470px) {.about{
   padding-bottom: 210px;
   background-size: 45%;
 }}
 
-.about .center p {
-  text-align: left;
-  color: white;
-  font-weight: 700;
-  font-size: .7em;
+.about .center {
+  width: 40%;
+  margin-left: 30%;
 }
-
 @media only screen and (max-width: 470px) {.about .center {
   width:80%;
   margin-left:10%;
 }}
 
-.about h1 {
+.about p {
+  text-align: left;
+  color: white;
+  font-weight: 700;
+  font-size: .7em;
+}
+@media only screen and (max-width: 570px) {.about p{
   font-size: 1.2em;
+}}
+
+.about h1 {
+  font-size: 1.5em;
   color: white;
   font-family: "Noteworthy";
   font-weight: 700;
 }
+@media only screen and (max-width: 570px) {.about h1{
+  font-size: 1.2em;
+}}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noteworthy";
@@ -440,7 +442,6 @@ h1 {
 .line {
   clear: both;
   margin-top: 4px;
-  margin-bottom: 1em;
   height: 5px;
   width: 100%;
   float: right;
@@ -463,7 +464,7 @@ nav .userNav {
   background-color: #000;
   background-image: url("img/LogoWebSVG.png");
   background-repeat: no-repeat;
-  background-position: bottom: 5%;
+  background-position: top 5px left 5px;
   background-size: 15%; 
   height: 90px;
   mix-blend-mode: multiply;
@@ -474,7 +475,7 @@ nav .userNav {
   background-size: 35%;
 }}
 
-.userNav a:hover {
+nav .userNav a:hover {
   color: gold;
 }
 
@@ -491,7 +492,7 @@ nav div a {
   font-size: .9em;
 }}
 
-.userNav a {
+nav .userNav a {
   color: white;
   margin: 10px 0px;
   padding: 5px 15px;
@@ -500,11 +501,11 @@ nav div a {
   font-weight: 700;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
-@media only screen and (max-width: 470px) {.userNav a {
+@media only screen and (max-width: 470px) {nav .userNav a {
   font-size: 1em;
 }}
 
-.siteNav a {
+nav .siteNav a {
   color: black;
   margin: 10px 0px;
   padding: 0px 15px;
@@ -513,20 +514,19 @@ nav div a {
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
-.siteNav a:hover {
+nav .siteNav a:hover {
   color: #E76C5A;
 }
 
-.siteNav a:active {
+nav .siteNav a:active {
   color: #E76C5A;
 }
 
-.siteNav a{
+nav .siteNav a{
   color: black;
   font-size: .9em;
   font-weight: bolder;
   float: right;
-  clear: right;
   margin-top:16px;
   text-decoration: none;
 }
@@ -559,6 +559,10 @@ footer .footer-locations .loc:last-child {
 footer .footer-locations li {
   font-size: .6em;
   text-decoration: none;
+}
+
+footer .footer-locations li a{
+  color: #E76C5A;
 }
 
 footer .footer-locations h1 {
@@ -610,6 +614,7 @@ textarea{
   font-size: 16px;
   color: #FFF;
 }
+
 .loginBtn:before {
   content: "";
   box-sizing: border-box;
@@ -619,9 +624,11 @@ textarea{
   width: 34px;
   height: 100%;
 }
+
 .loginBtn:focus {
   outline: none;
 }
+
 .loginBtn:active {
   box-shadow: inset 0 0 0 32px rgba(0,0,0);
 }
@@ -693,14 +700,17 @@ textarea{
 /*Slide Show*/
 
 .slideshow , .slideshow:after {
-    position: relative;
-    min-height: 550px;
-    height: 100%;
-    width: 100%;
-}
+  position: relative;
+  min-height: 550px;
+  height: 100%;
+  width: 100%;
+}   
 
 @media only screen and (max-width: 600px) {.slideshow, .slideshow:after{ 
   min-height: 380px;
+}}
+@media only screen and (max-height: 300px) {.slideshow, .slideshow:after{ 
+  min-height: 280px;
 }}
 
 .slideshow:after {
@@ -751,11 +761,10 @@ textarea{
     -ms-animation: fadeslidshow 36s ease-in-out infinite;
 }   
 
-.slideshow li p {
-}
+.slideshow li p {}
 
 .slideshow li div {
-    z-index: 1000;
+    z-index: 100;
     position: absolute;
     font-size: 3em;
     font-weight: 700;
