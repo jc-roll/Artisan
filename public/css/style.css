@@ -52,8 +52,6 @@ a img {
   border: none; 
 }
 
-
-
 html {
   background: url("img/Color.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -67,14 +65,12 @@ html {
   color: #222;
   text-align: center;
   padding-bottom: 1em;
-  max-width: 1850px;
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: 5em;
+  margin-bottom: 5em;
   margin-left: auto;
   margin-right: auto;
   border-radius: 4px;
   border: 1px solid #e8e8e8;
-  box-shadow: 0 1px 0 rgba(.25,0,0,.25);
 }
 @media only screen and (max-width: 670px) {.card{width: 100%}}
 
@@ -94,6 +90,7 @@ html {
 }
 
 .card h1 {
+  margin-top: 20px;
   font-size: 2em;
 }
 
@@ -403,42 +400,6 @@ h1 {
   font-family: 'Lato', sans-serif;
 }
 
-.formInput {
-  padding: 10px;
-}
-        .button-success,
-        .button-error,
-        .button-warning,
-        .button-secondary {
-            color: white;
-            border-radius: 4px;
-            border: black;
-            width: 40%;
-            max-width: 400px;
-            min-width: 200px;
-            margin: .4em;
-            height: 2em;
-        }
-
-        .button-success {
-            background: rgb(50, 184, 50); /* this is a green */
-              box-shadow: 3px 3px 2px #292;
-        }
-
-        .button-error {
-          color: #666;
-            background: rgb(202,120,120); /* this is a maroon */
-              box-shadow: 3px 3px 2px #944;
-        }
-
-        .button-warning {
-            background: rgb(223, 117, 20); /* this is an orange */
-        }
-
-        .button-secondary {
-            background: rgb(66, 184, 221); /* this is a light blue */
-        }
-
 .line {
   clear: both;
   margin-top: 4px;
@@ -473,6 +434,7 @@ nav .userNav {
 @media only screen and (max-width: 470px) {nav .userNav{
   height:75px;
   background-size: 35%;
+  background-position: top 12px left 5px;
 }}
 
 nav .userNav a:hover {
@@ -496,13 +458,12 @@ nav .userNav a {
   color: white;
   margin: 10px 0px;
   padding: 5px 15px;
-  margin-top: 1.2em;
   font-size: 1.5em;
   font-weight: 700;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 @media only screen and (max-width: 470px) {nav .userNav a {
-  font-size: 1em;
+  font-size: .8em;
 }}
 
 nav .siteNav a {
@@ -653,13 +614,13 @@ textarea{
 
 /*Animated Logout Button*/
 
-.animate-btn {
+nav .userNav .animate-btn {
   float: right;
   clear: both;
   display: block;
-  width: 80px;
-  margin: 4px 4px;
-  padding: 8px 8px;
+  margin-right: .2em;
+  font-size: .9em;
+  padding: 5px 5px;
   border: 2px solid #fff;
   background: rgba(255, 220, 220, 0.5);
   color: #fff;
@@ -701,16 +662,13 @@ textarea{
 
 .slideshow , .slideshow:after {
   position: relative;
-  min-height: 550px;
-  height: 100%;
+  height: 600px;
   width: 100%;
-}   
-
-@media only screen and (max-width: 600px) {.slideshow, .slideshow:after{ 
-  min-height: 380px;
-}}
-@media only screen and (max-height: 300px) {.slideshow, .slideshow:after{ 
-  min-height: 280px;
+}
+@media only screen and (max-width: 470px) {.slideshow , .slideshow:after {
+  position: relative;
+  height: 300px;
+  width: 100%; 
 }}
 
 .slideshow:after {
@@ -743,8 +701,6 @@ textarea{
 .slideshow li span{
     width: 100%;
     height: 100%;
-    min-height: 400px;
-    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -909,5 +865,76 @@ textarea{
  /*end fadeslidshow*/
 
  
- 
+.card .signup_form a,
+[type="submit"] {
+  -webkit-transition: all .25s ease-in;
+  transition: all .25s ease-in;
+}
+
+label {
+  font-size: .85rem;
+  text-transform: uppercase;
+  color: #444;
+  vertical-align: center;
+}
+
+.form-model {
+  margin: 10px;
+}
+
+.form-body {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.form-control {
+/*  background-color: transparent;*/
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+
+.form-control:focus {
+  border-color: #111;
+}
+
+.btn--form {
+  font-family: sans-serif;
+  padding: .5rem 2.5rem;
+  font-size: .95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: -1px -1px 2px #777777;
+  background: -webkit-linear-gradient(#CFE782 0%, #9BCB2A 2%, #5DA331 97%, #659635 100%);
+  background: -o-linear-gradient(#CFE782 0%, #9BCB2A 2%, #5DA331 97%, #659635 100%);
+  background: linear-gradient(#CFE782 0%, #9BCB2A 2%, #5DA331 97%, #659635 100%);
+  border-radius: 2.1875rem;
+}
+
+.btn--formInVal {
+  font-family: sans-serif;
+  padding: .5rem 2.5rem;
+  font-size: .95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid #659635;
+  color: white;
+  background: -moz-linear-gradient(45deg, 
+    rgba(226,226,226,1) 0%, 
+    rgba(219,219,219,1) 0%, 
+    rgba(209,209,209,1) 51%, 
+    rgba(254,254,254,1) 100%);
+  border-radius: 2.1875rem;
+}
+
+.signup__link {
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #999;
+}
+.signup__link:focus, .signup__link:hover {
+  color: #787878;
+}
 
