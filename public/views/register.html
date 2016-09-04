@@ -1,6 +1,6 @@
 <section class="card">
     <div class="signup__form">
-      <form ng-submit="submit()" name="myform">
+      <form name="myform" ng-submit="submit()" novalidate>
         <h1>Registration Form</h1>
           <div class="form-body">
             <div class="form-model">
@@ -11,7 +11,7 @@
             <div class="form-model">
               <label>Email</label><br>
                 <input class="form-control" type="text" name="email" ng-model="user.email" placeholder="Your@email.com" ng-required="true" >
-                <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">Email is required</p>
+                <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">Must be a valid email</p>
             </div>
             <div class="form-model">
               <label>Password</label><br>

@@ -1,23 +1,21 @@
 <section class="card">
   <form ng-submit="login()" name="myform" class="pure-form pure-form-aligned">
-    <div class="pure-control-group">
       <h1>Sign In</h1>
-    </div>
-      <div class="pure-control-group">
-        <label> Enter Email:</label>
-          <input type="email" id="email" name="email" ng-model="user.email" placeholder="YourEmail@email.com" ng-required="true">
-          <!-- Custom validations checks for valid form data if not found it will highlight via CSS in red and Prompt user the Error Msg I set. -->
-          <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">Email is required</p>
-      </div>
-      <div class="pure-control-group">
-        <label>Password:</label>
-          <input type="password" id="password" name="password" ng-model="user.password" placeholder="Enter Password" ng-required="true" ng-minlength="6" ng-maxlength="12">
-          <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Length Requirments 6-12</p>
-      </div>
-      <div class="pure-control-group">
-        <button type="submit" class="button-success" ng-show="myform.$valid">Log-In</button>
-      </div>
-      <!-- Using a login button to initiate the signinWithFacebook function held inside authCtrl that directs fires my factory to sign user in/Token/Auth/and populate firebase. -->
-      <button class="loginBtn loginBtn--facebook" ng-click="signinWithFacebook()">Login with Facebook</button>
+        <div class="pure-control-group">
+          <label> Enter Email:</label>
+            <input type="email" id="email" name="email" ng-model="user.email" placeholder="YourEmail@email.com" ng-required="true">
+            <!-- Custom validations checks for valid form data if not found it will highlight via CSS in red and Prompt user the Error Msg I set. -->
+            <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">Email is required</p>
+        </div>
+        <div class="pure-control-group">
+          <label>Password:</label>
+            <input type="password" id="password" name="password" ng-model="user.password" placeholder="Enter Password" ng-required="true" ng-minlength="6" ng-maxlength="12">
+            <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Length Requirments 6-12</p>
+        </div>
+        <div class="pure-control-group">
+          <button type="submit" class="button-success" ng-show="myform.$valid">Log-In</button>
+        </div>
+        <!-- Using a login button to initiate the signinWithFacebook function held inside authCtrl that directs fires my factory to sign user in/Token/Auth/and populate firebase. -->
+        <button class="loginBtn loginBtn--facebook" ng-click="signinWithFacebook()">Login with Facebook</button>
   </form>
 </section>
