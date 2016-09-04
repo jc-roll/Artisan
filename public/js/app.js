@@ -18,58 +18,58 @@ myApp.config(["$routeProvider", function($routeProvider) {
         "currentAuth": ["Auth", function(Auth) {
           return Auth.$waitForSignIn();
         }]
-    }
-  }).when("/register", {
-    controller: "AuthCtrl",
-    templateUrl: "views/register.html",
-    resolve: {
-      "currentAuth": ["Auth", function(Auth) {
-        return Auth.$waitForSignIn();
-      }]
-    }
-  }).when("/locations", {
-    controller: "HomeCtrl",
-    templateUrl: "views/locations.html",
-    resolve: {
-      "currentAuth": ["Auth", function(Auth) {
-        return Auth.$waitForSignIn();
-      }]
-    }
-  }).when("/faqs", {
-    controller: "HomeCtrl",
-    templateUrl: "views/faqs.html",
-    resolve: {
-      "currentAuth": ["Auth", function(Auth) {
-        return Auth.$waitForSignIn();
-      }]
-    }
-  }).when("/home", {
-    controller: "AuthCtrl",
-    templateUrl: "views/home.html",
-    resolve: {
-      "currentAuth": ["Auth", function(Auth) {
-        return Auth.$waitForSignIn();
-      }]
-    }
-  }).when("/userNav", {
-    controller: "AuthCtrl",
-    templateUrl: "views/userNav.html",
-    resolve: {
-      "currentAuth": ["Auth", function(Auth) {
-        return Auth.$waitForSignIn();
-      }]
-    }
-  }).when("/siteNav", {
-    controller: "AuthCtrl",
-    templateUrl: "views/siteNav.html",
-    resolve: {
-      "currentAuth": ["Auth", function(Auth) {
-        return Auth.$waitForSignIn();
-      }]
-    }
-  }).otherwise({ 
-        redirectTo: '/home' 
-      }); 
+      }
+    }).when("/register", {
+      controller: "AuthCtrl",
+      templateUrl: "views/register.html",
+      resolve: {
+        "currentAuth": ["Auth", function(Auth) {
+          return Auth.$waitForSignIn();
+        }]
+      }
+    }).when("/locations", {
+      controller: "HomeCtrl",
+      templateUrl: "views/locations.html",
+      resolve: {
+        "currentAuth": ["Auth", function(Auth) {
+          return Auth.$waitForSignIn();
+        }]
+      }
+    }).when("/faqs", {
+      controller: "HomeCtrl",
+      templateUrl: "views/faqs.html",
+      resolve: {
+        "currentAuth": ["Auth", function(Auth) {
+          return Auth.$waitForSignIn();
+        }]
+      }
+    }).when("/home", {
+      controller: "AuthCtrl",
+      templateUrl: "views/home.html",
+      resolve: {
+        "currentAuth": ["Auth", function(Auth) {
+          return Auth.$waitForSignIn();
+        }]
+      }
+    }).when("/userNav", {
+      controller: "AuthCtrl",
+      templateUrl: "views/userNav.html",
+      resolve: {
+        "currentAuth": ["Auth", function(Auth) {
+          return Auth.$waitForSignIn();
+        }]
+      }
+    }).when("/siteNav", {
+      controller: "AuthCtrl",
+      templateUrl: "views/siteNav.html",
+      resolve: {
+        "currentAuth": ["Auth", function(Auth) {
+          return Auth.$waitForSignIn();
+        }]
+      }
+    }).otherwise({ 
+          redirectTo: '/home' 
+    }); 
 }]);
 
 myApp.factory("Auth", ["$firebaseAuth",
