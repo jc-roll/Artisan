@@ -1,10 +1,11 @@
 myApp.factory("signinWithFacebook", function() {
   var facebookService = [];
-  function writeUserData(userId, name, email) {
+  function writeUserData(userId, name, email, photoURL) {
     firebase.database().ref('users/' + userId)
     .set({
       username: name,
-      email: email
+      email: email,
+      photoURL: photoURL
     });
 }
 
@@ -17,9 +18,8 @@ myApp.factory("signinWithFacebook", function() {
       var user = firebase.auth().currentUser;
       if (user) {
       //Now we can call the write function to create and set the scope into the fb
-      writeUserData(user.uid, user.displayName, user.email);
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL);
         console.log(firebase.auth().currentUser.displayName);
-        $location.path('/home');
       } else {
         console.log("Login Failed");
       }

@@ -17,9 +17,9 @@
             </div>
             <div class="form-model">
               <label>Phone Number</label><br>
-                <input class="form-control" type="tel" name="phone" ng-model="user.phone" placeholder="(xxxx-xxx-xxxx)" ng-required="true" pattern="^\d{}-\d{3}-\d{4}$ || \d{11}$" >
+                <input class="form-control" type="tel" name="phone" ng-model="user.phone" placeholder="(xxx-xxx-xxxx)" ng-required="true" pattern="^\d{3}-\d{3}-\d{4}$"  >
                 <p class="error validationerror" 
-                ng-show="myform.email.$invalid && myform.email.$touched">Not a valid phone number</p>
+                ng-show="myform.phone.$invalid && myform.phone.$touched">Make sure " - "  are used and is valid</p>
             </div>
             <div class="form-model">
               <label>Password</label><br>
@@ -56,6 +56,3 @@
     </div>
 </section>
 
-
-  <label for="phonenum">Phone Number (format: xxxx-xxx-xxxx):</label><br/>
-  <input id="phonenum" type="tel" pattern="^\d{4}-\d{3}-\d{4}$" required >

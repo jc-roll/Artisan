@@ -2,9 +2,10 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
   function($scope, $rootScope, $timeout, $window, $location, $firebaseObject, $firebaseArray, $firebaseAuth, signinWithFacebook) {
     
   $scope.authObj = $firebaseAuth();
-  $scope.authObj.$onAuthStateChanged(function(firebaseUser) {
+  $scope.authObj.$onAuthStateChanged(function(firebaseUser, result) {
     if (firebaseUser) {
       console.log("Signed in as:", firebaseUser.uid);
+      console.log(firebaseUser);
         var ref = firebase.database().ref();
         var userData = ref.child('users/' + firebaseUser.uid);
         var getData = $firebaseObject(userData);
@@ -63,34 +64,6 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
       }
     });
   }
-
-  myApp.factory("signinWithFacebook", function() {
-    var facebookService = [];
-    function writeUserData(userId, name, email) {
-      irebase.database().ref('users/' + userId)
-      .set({
-        username: name,
-        email: email
-      });
-  }
-
-  facebookService.login = function() {
-    var facebookProvider = new firebase.auth.FacebookAuthProvider();
-      firebase.auth().signInWithPopup(facebookProvider);
-      firebase.auth().onAuthStateChanged(function(user) {
-        var user = firebase.auth().currentUser;
-        if (user) {
-          //Now we can call the write function to create and set the scope into the fb
-          writeUserData(user.uid, user.displayName, user.email);
-          console.log(firebase.auth().currentUser.displayName);
-        } else {
-          console.log("Login Failed");
-        }
-      });
-    };
-      return facebookService;
-    });
-
   
 }]);
 

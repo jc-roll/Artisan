@@ -35,6 +35,14 @@ myApp.config(["$routeProvider", function($routeProvider) {
           return Auth.$waitForSignIn();
         }]
       }
+    }).when("/profile", {
+      controller: "AuthCtrl",
+      templateUrl: "views/profile.html",
+      resolve: {
+        "currentAuth": ["Auth", function(Auth) {
+          return Auth.$waitForSignIn();
+        }]
+      }
     }).when("/faqs", {
       controller: "HomeCtrl",
       templateUrl: "views/faqs.html",
