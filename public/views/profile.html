@@ -1,6 +1,6 @@
 <section class="card">
     <div class="profile__form">
-      <form name="myform" ng-submit="update()">
+      <form name="myform">
         <h1>User Profile</h1>
         <img class="profile-img-center" ng-src="{{currentUser.photoURL}}" ng-href="#/profile" />
           <fieldset class="form-body">
@@ -19,9 +19,10 @@
                 <input class="form-control" type="tel" name="phone" ng-model="user.phone" placeholder="{{currentUser.phone}}" ng-required="true" pattern="^\d{3}-\d{3}-\d{4}$">
                 <button ng-click="updatePhone()" ng-show="myform.phone.$valid">Save</button>
             </div>
-            <a ng-show="currentUser" ng-href="#/home" ng-click="authObj.$signOut()" class="animate-btn zoomout-btn">Logout</a>
           </fieldset>
       </form>  
+                  <button class="btn--form" ng-click="sendPasswordResetEmail()">Change Password</button>
+            <a ng-show="currentUser" ng-href="#/home" ng-click="authObj.$signOut()" class="animate-btn zoomout-btn">Logout</a>
     </div>
 </section>
 

@@ -36,7 +36,7 @@ myApp.config(["$routeProvider", function($routeProvider) {
         }]
       }
     }).when("/profile", {
-      controller: "AuthCtrl",
+      controller: "ProfileCtrl",
       templateUrl: "views/profile.html",
       resolve: {
         "currentAuth": ["Auth", function(Auth) {
