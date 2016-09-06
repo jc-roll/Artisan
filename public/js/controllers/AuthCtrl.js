@@ -39,7 +39,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
         var newUser = $firebaseObject(userData);
         newUser.email = $scope.user.email;
         newUser.username = $scope.user.username;
-        newUser.password = $scope.user.password;
+        newUser.phone = $scope.user.phone;
         newUser.$save()
         .then(function(data) {
           console.log("UserData Added to users in firebase", newUser);
