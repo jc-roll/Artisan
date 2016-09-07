@@ -7,21 +7,21 @@
             <div class="form-model">
               <label>Username</label><br>
                 <input class="form-control" type="text" name="username" ng-model="user.username" placeholder="{{currentUser.username}}" ng-required="true">
-                <button ng-click="update()" ng-show="myform.username.$valid">Save</button>
+                <button ng-click="updateName()" ng-show="myform.username.$valid">Save</button>
             </div>
             <div class="form-model">
               <label>Email</label><br>
                 <input class="form-control" type="email" name="email" ng-model="user.email" placeholder="{{currentUser.email}}" ng-required="true">
-                <button ng-click="update()" ng-show="myform.email.$valid">Save</button>
+                <button ng-click="updateEmail()" ng-show="myform.email.$valid">Save</button>
             </div>
             <div class="form-model">
               <label>Phone Number</label><br>
                 <input class="form-control" type="tel" name="phone" ng-model="user.phone" placeholder="{{currentUser.phone}}" ng-required="true" pattern="^\d{3}-\d{3}-\d{4}$">
-                <button ng-click="update()" ng-show="myform.phone.$valid">Save</button>
+                <button ng-show="myform.phone.$valid">Save</button>
             </div>
           </fieldset>
       </form>  
-                  <button class="btn--form" ng-click="sendPasswordResetEmail()">Change Password</button>
+            <button class="btn--form" ng-click="sendPasswordResetEmail()">Change Password</button>
             <a ng-show="currentUser" ng-href="#/home" ng-click="authObj.$signOut()" class="animate-btn zoomout-btn">Logout</a>
     </div>
 </section>

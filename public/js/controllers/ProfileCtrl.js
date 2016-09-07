@@ -33,12 +33,10 @@ $scope.updateName = function() {
       var user = firebase.auth().currentUser;
 
         user.updateProfile({
-        displayName: $scope.user.username,
-        email: $scope.user.email,
-        phone: $scope.user.phone
+        displayName: $scope.user.username
 }).then(function() {
-
-        firebase.auth().$onAuthStateChanged(callback);
+        alert("update Successfull Please Login")
+        firebase.auth().signOut().$onAuthStateChanged(callback);
 
 
 
