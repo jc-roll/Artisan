@@ -21,6 +21,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
     signinWithFacebook.login();
   };
 
+ 
   $scope.loginUser = function() {
     $scope.authObj.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
       console.log("Signed in as:", firebaseUser.uid);
@@ -64,7 +65,9 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
       }
     });
   }
-  
+
+
+
 }]);
 
 

@@ -1,8 +1,8 @@
-myApp.controller('ProfileCtrl', ['$scope', '$rootScope', '$location', '$firebaseObject', '$firebaseArray', '$firebaseAuth', 'Auth', 
+myApp.controller('ProfileCtrl', ['$scope', '$rootScope', '$location', '$firebaseObject', '$firebaseArray', '$firebaseAuth', 'Auth',
   function($scope, $rootScope, $location, $firebaseObject, $firebaseArray, $firebaseAuth, Auth) {
     
 
-	$scope.authObj = $firebaseAuth();
+  $scope.authObj = $firebaseAuth();
   $scope.authObj.$onAuthStateChanged(function(firebaseUser, result) {
     if (firebaseUser) {
       console.log("Signed in as:", firebaseUser.uid);
@@ -29,18 +29,25 @@ myApp.controller('ProfileCtrl', ['$scope', '$rootScope', '$location', '$firebase
 	}
 
 
+$scope.updateName = function() {
+      var user = firebase.auth().currentUser;
+
+        user.updateProfile({
+        displayName: $scope.user.username,
+        email: $scope.user.email,
+        phone: $scope.user.phone
+}).then(function() {
+
+        firebase.auth().$onAuthStateChanged(callback);
 
 
 
-    // UPDATE
-    $scope.updateName = function() {
-			firebase.database().ref.child('users/' + $firebaseUser.uid + "/username").update(username);
-    };
 
-    // DELETE
-   $scope.deleteUser = function(user) {
-      firebase.database().ref('users/'+ $scope.uid +"/" + user.$id).remove();
-   };
+})
+}
+
+
+
 
 
 
