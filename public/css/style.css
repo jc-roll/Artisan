@@ -913,3 +913,25 @@ label {
   background-color: #5B7BD5;
   background-image: linear-gradient(#5B7BD5, #4864B1);
 }
+
+/*image upload gallery css*/
+
+.cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    width:500px;
+    height:350px;
+}
+form .progress {
+    line-height: 15px;
+}
+.progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+.progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+}

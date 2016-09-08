@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'firebase']);
+var myApp = angular.module('myApp', ['ngRoute', 'firebase', 'ngFileUpload', 'ngImgCrop']);
 
 myApp.run(["$rootScope", "$location", function($rootScope, $location) {
   $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
@@ -54,6 +54,14 @@ myApp.config(["$routeProvider", function($routeProvider) {
     }).when("/information", {
       controller: "HomeCtrl",
       templateUrl: "views/information.html",
+      resolve: {
+        "currentAuth": ["Auth", function(Auth) {
+          return Auth.$waitForSignIn();
+        }]
+      }
+    }).when("/gallery", {
+      controller: "GalleryCtrl",
+      templateUrl: "views/gallery.html",
       resolve: {
         "currentAuth": ["Auth", function(Auth) {
           return Auth.$waitForSignIn();
