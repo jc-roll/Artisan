@@ -1,8 +1,8 @@
-<body ng-app="myApp" ng-controller="GalleryCtrl">
-    <form name="myForm">
-        <div>Crop Image and Upload</div>
+<div class="card">
+    <form name="myForm" ng-controller="GalleryCtrl">
+        <h1>Crop Image and Upload</h1>
         <button ngf-select ng-model="picFile" accept="image/*">
-            Select Picture</button>
+            Select Product Picture</button>
         <div ngf-drop ng-model="picFile" ngf-pattern="image/*"
              class="cropArea">
             <img-crop image="picFile  | ngfDataUrl"                 
@@ -18,6 +18,5 @@
           <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
         </span>
         <span ng-show="result">Upload Successful</span>
-        <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
     </form>
-</body>
+</div>
