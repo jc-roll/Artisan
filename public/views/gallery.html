@@ -1,8 +1,24 @@
 <div class="card">
     <form name="myForm" ng-controller="GalleryCtrl">
         <h1>Crop Image and Upload</h1>
-        <button ngf-select ng-model="picFile" accept="image/*">
-            Select Product Picture</button>
+
+        <button ngf-select ng-model="picFile" accept="image/*">Select Product</button>
+
+            <label>Product ID</label><br>
+                <input class="form-control" type="number" name="productID" ng-model="productID" placeholder="ID #" ng-required="true">
+                 <p class="error validationerror" 
+                ng-show="myForm.productID.$invalid && myForm.productID.$touched">ID #</p>
+            </div>
+            <div class="form-model">
+              <label>Product Description</label><br>
+                <input class="form-control" type="text" name="productInfo" ng-model="productInfo" placeholder="Description" ng-required="true">
+                 <p class="error validationerror" 
+                ng-show="myForm.productInfo.$invalid && myForm.productInfo.$touched">Product info</p>
+            </div>
+            <div class="form-model">
+              <label>Price</label><br>
+                <input class="form-control" type="number" name="productPrice" ng-model="productPrice" placeholder="Price" ng-required="true">
+            </div>
         <div ngf-drop ng-model="picFile" ngf-pattern="image/*"
              class="cropArea">
             <img-crop image="picFile  | ngfDataUrl"                 
@@ -12,7 +28,7 @@
         <div>
             <img ng-src="{{croppedDataUrl}}" />
         </div>
-        <button ng-click="upload(croppedDataUrl, picFile.name)">Submit</button> 
+        <button ng-click="upload(croppedDataUrl, picFile.name)">Add Product</button> 
             
         <span class="progress" ng-show="progress >= 0">
           <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
