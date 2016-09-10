@@ -923,9 +923,6 @@ label {
   height:350px;
   display: block;
   margin: 0 Auto;
-
-
-
 }
 form .progress {
     line-height: 15px;
@@ -957,3 +954,32 @@ form .progress {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   /* mobile webkit */
 }
+
+.gallery {
+  width:800px;
+  text-align: center; 
+  list-style-position:inside;
+}
+.product:hover {
+
+}
+
+
+.product {
+  text-align: center; 
+  list-style-position:inside;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  border-style: solid;
+  width: 250px;
+  height: 300px;
+  padding: 20px;
+  background-color: rgba(25, 25, 25, .90);
+  border-width: 1px;
+  border-color: #999;
+}
+
+
+

@@ -8,10 +8,10 @@ var ref = firebase.database().ref("products" );
   
   $scope.addProduct = function() {
     $scope.data.$add({
-      productId: $scope.productID,
+      dimensions: $scope.dimensions,
       productInfo: $scope.productInfo,
       image: $scope.croppedDataUrl,
-      price: $scope.price 
+      price: "$" + $scope.price 
 
     }).then(function() {
       console.log("Successfully pushed data!");
@@ -21,5 +21,6 @@ var ref = firebase.database().ref("products" );
       $scope.result = "Failure: " + error.toString();
     });
   }
+
 
 }]);

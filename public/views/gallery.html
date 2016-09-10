@@ -3,7 +3,7 @@
         <h1>Crop Image and Upload</h1>
 
         <button ngf-select ng-model="picFile" accept="image/*">Select Product</button><br><br>
-        <input type="number" name="productID" ng-model="productID" placeholder="ID #" ng-required="true">
+        <input type="text" name="dimensions" ng-model="dimensions" placeholder="Dimensions">
         <input type="text" name="productInfo" ng-model="productInfo" placeholder="Description" ng-required="true">
         <input type="number" name="price" ng-model="price" placeholder="Price" ng-required="true">
         <div ngf-drop ng-model="picFile" ngf-pattern="image/*" class="cropArea">
@@ -18,13 +18,14 @@
         </span>
         <span ng-show="result">Upload Successful</span>
     </form>
-
-    <ol class="gallery" ng-repeat="p in data">
-      <img ng-src="{{p.image}}"/>
-      <li>{{p.productId}}</li>
+</section>
+</section class="gallery">
+  <div class="product" ng-repeat="p in data">
+    <img class="image" ng-src="{{p.image}}"/>
+    <ol class="product-info">
+      <li>{{p.dimensions}}</li>
       <li>{{p.productInfo}}</li>
-      <li>${{p.price}}</li>
-
+      <li>{{p.price}}</li>
     </ol>
-  </table>
+  </div>
 </section>
