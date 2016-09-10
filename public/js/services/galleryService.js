@@ -1,29 +1,27 @@
-// myApp.factory("productGalleryAdd", function() {
-//   var productService = [];
-//   function writeProductData(userId, name, email, photoURL) {
-//     firebase.database().ref('users/' + userId)
-//     .set({
-//       username: name,
-//       email: email,
-//       photoURL: photoURL
-//     });
-// }
+myApp.factory("productGalleryAdd", function() {
+  var productService = [];
+  function writeProductData(croppedDataUrl, picFile, productID, productInfo, price) {
+    firebase.database().ref('products/' + productID)
+      .add({
+          URL : croppedDataUrl,
+          fileName : picFile,
+          productID : productID,
+          productInfo : productInfo,
+          price : price
+        });
+    }
+    
+  productService.addProduct = function() {
 
-//   productService.upload = function() {
+    if (data = !null) {
+      writeProductData(data.croppedDataUrl, data.picFile, data.productID, data.productInfo, data.price);
+        console.log(firebase.auth().currentUser.uid);
+      } else {
+        console.log("Login Failed");
+      }
+  };
+    return productService;
+});
 
-//     var facebookProvider = new firebase.auth.FacebookAuthProvider();
 
-//     firebase.auth().signInWithPopup(facebookProvider);
-//     firebase.auth().onAuthStateChanged(function(user) {
-//       var user = firebase.auth().currentUser;
-//       if (user) {
-//       //Now we can call the write function to create and set the scope into the fb
-//       writeProductData(user.uid, user.displayName, user.email, user.photoURL);
-//         console.log(firebase.auth().currentUser.displayName);
-//       } else {
-//         console.log("Login Failed");
-//       }
-//     });
-//   };
-//     return productService;
-// });
+

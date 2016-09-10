@@ -1,15 +1,25 @@
-myApp.controller('GalleryCtrl', ['$scope', '$timeout', '$firebaseArray', function ($scope, $timeout, $firebaseArray) {
+myApp.controller('GalleryCtrl', ['$scope', '$rootScope', '$timeout', '$firebaseArray', '$firebaseObject', 'Auth', 
+  function ($scope, $rootScope, $timeout, $firebaseArray, $firebaseObject) {
 
 
-    // $scope.productGalleryAdd = function(){
-    //   productGalleryAdd.upload();
-    // }
+var ref = firebase.database().ref("products" );
+  
+  $scope.data = $firebaseArray(ref);
+  
+  $scope.addProduct = function() {
+    $scope.data.$add({
+      productId: $scope.productID,
+      productInfo: $scope.productInfo,
+      image: $scope.croppedDataUrl,
+      price: $scope.price 
 
-    var list = $firebaseArray(ref);
-      list.$add({ foo: "bar" }).then(function(ref) {
-        var id = ref.key;
-        console.log("added record with id " + id);
-        list.$indexFor(id); // returns location in the array
-      });
+    }).then(function() {
+      console.log("Successfully pushed data!");
+      $scope.result = "Success!";
+    }).catch(function(error) {
+      console.log("Error pushing data:", error);
+      $scope.result = "Failure: " + error.toString();
+    });
+  }
 
 }]);

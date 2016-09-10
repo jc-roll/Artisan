@@ -101,3 +101,7 @@ myApp.factory("Auth", ["$firebaseAuth",
     return $firebaseAuth();
 
 }]);
+
+
+
+
