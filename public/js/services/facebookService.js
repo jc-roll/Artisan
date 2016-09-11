@@ -20,6 +20,7 @@ myApp.factory("signinWithFacebook", function() {
       //Now we can call the write function to create and set the scope into the fb
       writeUserData(user.uid, user.displayName, user.email, user.photoURL);
         console.log(firebase.auth().currentUser.displayName);
+        window.location = "#/home.html";
       } else {
         console.log("Login Failed");
       }

@@ -25,6 +25,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
   $scope.login = function() {
     $scope.authObj.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
       console.log("Signed in as:", firebaseUser.uid);
+      window.location = "#/home.html";
     }).catch(function(error) {
       console.error("Authentication failed:", error);
     });
@@ -48,6 +49,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
           console.log("UserData Added to users in firebase", newUser);
           $rootScope.currentUser = newUser;
           console.log($rootScope.currentUser);
+          window.location = "#/home.html";
         }).catch(function(error) {
           console.error("UserData Failed to add");
         });
@@ -55,14 +57,13 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
         console.error("Error: ", error);
     }); 
   }
-$scope.redirect = function(){
-  window.location = "#/home.html";
-}
+
   $scope.signOut = function(){
     firebase.auth().$onAuthStateChanged(function(currentUser) {
       if (currentUser) {
         firebase.auth().signOut().$onAuthStateChanged(callback);
         console.log("Signed in as:", firebaseUser.uid);
+        window.location = "#/home.html";
       } else {
         console.log("Well that should have worked");
       }
