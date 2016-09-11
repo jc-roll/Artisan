@@ -22,7 +22,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
   };
 
  
-  $scope.loginUser = function() {
+  $scope.login = function() {
     $scope.authObj.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
       console.log("Signed in as:", firebaseUser.uid);
     }).catch(function(error) {
