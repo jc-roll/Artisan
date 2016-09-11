@@ -1,6 +1,7 @@
 myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$location', '$firebaseObject', '$firebaseArray', '$firebaseAuth', 'signinWithFacebook', 
   function($scope, $rootScope, $timeout, $window, $location, $firebaseObject, $firebaseArray, $firebaseAuth, signinWithFacebook) {
     
+// Auths user data in changes
   $scope.authObj = $firebaseAuth();
   $scope.authObj.$onAuthStateChanged(function(firebaseUser, result) {
     if (firebaseUser) {
@@ -16,15 +17,15 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
     }
   });
 
-
+// signinWithFacebook triggers the factory in facebookservice
   $scope.signinWithFacebook = function(){
     signinWithFacebook.login();
   };
-
  
   $scope.login = function() {
     $scope.authObj.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
       console.log("Signed in as:", firebaseUser.uid);
+// window.location redirects the user back to the home page after function runs
       window.location = "#/home.html";
     }).catch(function(error) {
       console.error("Authentication failed:", error);
@@ -37,8 +38,11 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
    
         console.log("User " + firebaseUser.uid + " created successfully!");
         var ref = firebase.database().ref();
+// userData holds the loaction that I would like to refrence in the creation of a user
         var userData = ref.child('users/' + firebaseUser.uid);
 
+//newUser set to an object at loaction userdata
+//Then define scoped model data to pass to the object to be stores in the db
         var newUser = $firebaseObject(userData);
         newUser.email = $scope.user.email;
         newUser.username = $scope.user.username;
@@ -47,7 +51,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
         newUser.$save()
         .then(function(data) {
           console.log("UserData Added to users in firebase", newUser);
-          $rootScope.currentUser = newUser;
+//Then we set the newUser to = currentUser for auth 
           console.log($rootScope.currentUser);
           window.location = "#/home.html";
         }).catch(function(error) {
@@ -61,6 +65,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
   $scope.signOut = function(){
     firebase.auth().$onAuthStateChanged(function(currentUser) {
       if (currentUser) {
+//Grabs the currentUser checks authentication andlogs them out callsback to the auth checker function and resets 
         firebase.auth().signOut().$onAuthStateChanged(callback);
         console.log("Signed in as:", firebaseUser.uid);
         window.location = "#/home.html";

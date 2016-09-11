@@ -165,7 +165,6 @@ html {
   background-size: 60%;
 }
 
-
 body .card-location .Coral button {
   color: #fff;
   overflow: hidden;
@@ -372,8 +371,6 @@ body .card-location .Coral button {
   font-weight: 700;
 }
 
-
-
 h1, h2, h3, h4 {
   margin: .5em;
 }
@@ -381,15 +378,6 @@ h1, h2, h3, h4 {
 .card-location a {
   color: #E76C5A;
 }
-
-/*h1 { 
-  font-size: 3vw;
-  font-weight: 400;
-  line-height: 100%;
-  margin-bottom: 10px;
-  padding-top: 10px;
-  font-family: 'Lato', sans-serif;
-}*/
 
 .line {
   clear: both;
@@ -892,6 +880,7 @@ label {
   text-decoration: underline;
   color: #999;
 }
+
 .signup__link:focus, .signup__link:hover {
   color: #787878;
 }
@@ -904,10 +893,12 @@ label {
   margin: 1em;
   margin-bottom: 2em;
 }
+
 .loginBtn--facebook:before {
   border-right: #364e92 1px solid;
   background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 6px 6px no-repeat;
 }
+
 .loginBtn--facebook:hover,
 .loginBtn--facebook:focus {
   background-color: #5B7BD5;
@@ -924,20 +915,24 @@ label {
   display: block;
   margin: 0 Auto;
 }
+
 form .progress {
-    line-height: 15px;
+  ine-height: 15px;
 }
+
 .progress {
-    display: inline-block;
-    width: 100px;
-    height: 30px;
-    border: 3px groove #CCC;
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  border: 3px groove #CCC;
 }
+
 .progress div {
-    font-size: smaller;
-    background: orange;
-    width: 0;
+  font-size: smaller;
+  background: orange;
+  width: 0;
 }
+
 .cropArea img-crop {
   width: 100%;
   height: 100%;
@@ -945,7 +940,7 @@ form .progress {
   position: relative;
   overflow: hidden;
 }
-/* line 7, ../../source/scss/ng-img-crop.scss */
+
 .cropArea img-crop canvas {
   display: block;
   position: absolute;
@@ -953,18 +948,15 @@ form .progress {
   left: 50%;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  /* mobile webkit */
 }
 
 .gallery {
-  width:800px;
   text-align: center; 
   list-style-position:inside;
 }
-.product:hover {
 
-}
-
+/*may add additional effects for final release*/
+.product:hover {}
 
 .product {
   text-align: center; 
@@ -975,7 +967,7 @@ form .progress {
   display: inline-block;
   border-style: solid;
   width: 250px;
-  height: 300px;
+  height: 275px;
   padding: 20px;
   background-color: rgba(25, 25, 25, .90);
   border-width: 1px;

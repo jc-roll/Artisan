@@ -3,36 +3,36 @@
       <form name="myform" ng-submit="login()">
         <h1>Sign In</h1>
           <fieldset class="form-body">
-            <div class="form-model">
+
             <div class="form-model">
               <label>Email</label><br>
                 <input class="form-control" type="email" name="email" ng-model="user.email" placeholder="Your@email.com" ng-required="true" >
-                <p class="error validationerror" 
-                ng-show="myform.email.$invalid && myform.email.$touched">Must be a valid email</p>
+                  <p class="error validationerror" 
+                  ng-show="myform.email.$invalid && myform.email.$touched">Must be a valid email</p>
             </div>
+
             <div class="form-model">
               <label>Password</label><br>
                 <input class="form-control" type="password" name="password" ng-model="user.password" placeholder="********" ng-required="true" ng-minlength="6" ng-maxlength="12" >
-                <p class="error validationerror" 
-                ng-show="myform.password.$invalid && myform.password.$touched">Password does not meet requirments</p>
+                  <p class="error validationerror" 
+                  ng-show="myform.password.$invalid && myform.password.$touched">Password does not meet requirments</p>
             </div>
+
           </fieldset>
           <div>
             <ul>
               <li>
               <!-- The error button communicates with the user and shows that the form is not finished -->    
                 <button class="btn--formInVal" ng-hide="myform.$valid">Finish Form</button>
+              <!-- The success button only appears on a valid complete form being true -->   
+                <button class="btn--form" type="submit" value="Register" ng-show="myform.$valid">Enter</button>
               </li>
               <li>
-                <!-- The success button only appears on a valid complete form being true -->   
-                  <button class="btn--form" type="submit" value="Register" ng-show="myform.$valid">Enter</button>
-              </li>
-              <li>
-                <a class="signup__link" href="#/register">Create New Account</a>
+                <a class="signup__link" href="#/register">Need to create an account?</a>
               </li>
             </ul>
             <!-- Another chance to loggin to facebook like in login.html -->
-              <button class="loginBtn loginBtn--facebook" ng-click="signinWithFacebook()">Login with Facebook</button>
+            <button class="loginBtn loginBtn--facebook" ng-click="signinWithFacebook()">Login with Facebook</button>
           </div>
       </form>  
     </div>
