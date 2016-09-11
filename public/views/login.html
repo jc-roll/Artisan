@@ -25,18 +25,14 @@
               </li>
               <li>
                 <!-- The success button only appears on a valid complete form being true -->   
-                <a ng-href="#/home"> 
                   <button class="btn--form" type="submit" value="Register" ng-show="myform.$valid">Enter</button>
-                </a>
               </li>
               <li>
                 <a class="signup__link" href="#/login">Create New Account</a>
               </li>
             </ul>
             <!-- Another chance to loggin to facebook like in login.html -->
-            <a ng-href="#/home"> 
               <button class="loginBtn loginBtn--facebook" ng-click="signinWithFacebook()" ng-href="#/home">Login with Facebook</button>
-            </a>
           </div>
       </form>  
     </div>

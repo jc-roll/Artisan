@@ -6,7 +6,7 @@
 				<a ng-hide="currentUser" ng-href="#/login">Login</a>
 				<a ng-hide="currentUser" ng-href="#/register">Register</a>
 				<!-- Depending on what sign in method they use we will need to call diferent firebase fields held in the seperate authObj targeted -->
-				<a ng-show="currentUser" ng-href="#/profile"> {{ currentUser.first }} {{currentUser.username}}<br> Profile</a>
+				<a ng-show="currentUser" ng-href="#/profile">{{currentUser.username}}<br> Profile</a>
 		</div>
 	</div>
 </div>
