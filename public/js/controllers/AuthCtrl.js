@@ -42,6 +42,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
         newUser.email = $scope.user.email;
         newUser.username = $scope.user.username;
         newUser.phone = $scope.user.phone;
+        newUser.password = $scope.user.password;
         newUser.$save()
         .then(function(data) {
           console.log("UserData Added to users in firebase", newUser);
@@ -54,7 +55,9 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
         console.error("Error: ", error);
     }); 
   }
-
+$scope.redirect = function(){
+  window.location = "#/home.html";
+}
   $scope.signOut = function(){
     firebase.auth().$onAuthStateChanged(function(currentUser) {
       if (currentUser) {
