@@ -1,5 +1,5 @@
-myApp.controller('ProfileCtrl', ['$scope', '$rootScope', '$location', '$firebaseObject', '$firebaseArray', '$firebaseAuth', 'Auth',
-  function($scope, $rootScope, $location, $firebaseObject, $firebaseArray, $firebaseAuth, Auth) {
+myApp.controller('ProfileCtrl', ['$scope', '$rootScope', '$location', '$firebaseObject', '$firebaseArray', '$firebaseAuth', 'Auth', 'signinWithFacebook',
+  function($scope, $rootScope, $location, $firebaseObject, $firebaseArray, $firebaseAuth, Auth, signinWithFacebook) {
     
   $scope.authObj = $firebaseAuth();
   $scope.authObj.$onAuthStateChanged(function(firebaseUser, result) {
@@ -35,8 +35,8 @@ myApp.controller('ProfileCtrl', ['$scope', '$rootScope', '$location', '$firebase
 // After placing new data into the input a save button will appear and they can save the new username.
         displayName: $scope.user.username
         }).then(function() {
-          alert("update Successfull Please Login")
-          firebase.auth().signOut().$onAuthStateChanged(callback);
+          firebase.auth().signOut();
+          signinWithFacebook.login();
         })
   }
   

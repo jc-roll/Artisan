@@ -61,7 +61,7 @@ a img {
 
 html {
   font-family: "Lato", 'Helvetica Nueue', Helvetica, Arial, sans-serif;
-  background: url("img/Color.jpg") no-repeat center center fixed; 
+  background: url("img/color.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
@@ -322,8 +322,9 @@ body .card-location .Coral button {
 .about {
   width: 100%;
   padding-top: 1rem;
+  line-height: 1.5rem;
   padding-bottom: 6rem;
-  font-size: 1.2em;
+  font-size: 1.4em;
   margin-top: 5em;
   margin-bottom: 5em;
   margin-right: auto;
@@ -352,7 +353,7 @@ body .card-location .Coral button {
   text-align: left;
   color: white;
   font-weight: 700;
-  font-size: .7em;
+  font-size: .9em;
 }
 @media only screen and (max-width: 570px) {.about p{
   font-size: .7em;
@@ -363,6 +364,9 @@ body .card-location .Coral button {
   color: white;
   font-weight: 700;
 }
+@media only screen and (max-width: 570px) {.about h1{
+  font-size: 1.4em;
+}}
 
 .home .about .center a {
   position: relative;
@@ -389,7 +393,7 @@ h1, h2, h3, h4 {
   opacity: .92;
 }
 
-.btnA:hover::before {
+A:hover::before {
   box-shadow: none;
   left: 0;
   top: 0;
@@ -399,25 +403,55 @@ h1, h2, h3, h4 {
 
 nav .userNav {
   position: relative;
+}
+@media only screen and (max-width: 470px) {nav .userNav{
+  height:75px;
+  font-size: 1.4em;
+  background-size: 35%;
+  background-position: top 12px left 5px;
+}}
+
+nav .logo{
+  position: relative;
   width: 100%;
   opacity: .92;
+  height: 90px;
+  z-index: -1;
   background-color: #000;
   background-image: url("img/LogoWebSVG.png");
   background-repeat: no-repeat;
   background-position: top 5px left 5px;
-  background-size: 15%; 
-  height: 90px;
+  background-size: 10%; 
   mix-blend-mode: multiply;
 }
-
-@media only screen and (max-width: 470px) {nav .userNav{
+@media only screen and (max-width: 1070px) {nav .logo{
+  height:75px;
+  background-size: 14%;
+  background-position: top 12px left 5px;
+}}
+@media only screen and (max-width: 870px) {nav .logo{
+  height:75px;
+  background-size: 18%;
+  background-position: top 12px left 5px;
+}}
+@media only screen and (max-width: 670px) {nav .logo{
+  height:75px;
+  background-size: 22%;
+  background-position: top 12px left 5px;
+}}
+@media only screen and (max-width: 570px) {nav .logo{
+  height:75px;
+  background-size: 25%;
+  background-position: top 12px left 5px;
+}}
+@media only screen and (max-width: 470px) {nav .logo{
   height:75px;
   background-size: 35%;
   background-position: top 12px left 5px;
 }}
 
 nav .userNav a:hover {
-  color: gold;
+  color: #E76C5A;
 }
 
 nav div a {
@@ -435,6 +469,7 @@ nav div a {
 
 nav .userNav a {
   color: white;
+  opacity: .85;
   margin: 10px 0px;
   padding: 5px 15px;
   font-size: 1.5em;
@@ -445,25 +480,45 @@ nav .userNav a {
   font-size: .8em;
 }}
 
+.fb-img {
+  position: relative;
+  float: right;
+  height: 90px;
+}
+@media only screen and (max-width: 1070px) {.fb-img{
+  height:75px;
+}}
+
 nav .siteNav a {
-  color: black;
+  color: white;
+  opacity: .95;
   margin: 10px 0px;
   padding: 0px 15px;
   font-size: 1em;
+  text-shadow: 1.5px 2px black;
   font-weight: 700;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
+@media only screen and (max-width: 570px) {nav .siteNav a {
+  color: black;
+  text-shadow: 1.5px 1px white;
+}}
 
 nav .siteNav a:hover {
-  color: #E76C5A;
+  text-shadow: 1.5px 1px black;
+  font-size: 1.2em;
 }
+@media only screen and (max-width: 470px) {nav .siteNav a:hover {
+  text-shadow: 1.5px 1px white;
+  font-size: 1em;
+}}
 
 nav .siteNav a:active {
   color: #E76C5A;
 }
 
 nav .siteNav a{
-  color: black;
+
   font-size: .9em;
   font-weight: bolder;
   float: right;
@@ -497,7 +552,7 @@ footer .footer-locations .loc:last-child {
 }
 
 footer .footer-locations li {
-  font-size: .6em;
+  font-size: .9em;
   text-decoration: none;
 }
 
@@ -576,26 +631,21 @@ textarea{
 /*Animated Logout Button*/
 
 .animate-btn {
-  margin-right: .2em;
+  position: relative;
+  float: right;
   font-size: .9em;
   padding: 5px 5px;
-  border: 2px solid #fff;
-  background: rgba(255, 220, 220, 0.5);
-  color: #fff;
+  border: 2px solid #000;
+  background: rgba(255, 220, 220, .9);
+  color: #000;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  overflow: hidden;
-  transition: all .3s ease;
 }
 
 .animate-btn::after {
   content: "";
-  position: absolute;
   background: none repeat scroll 0 0 #900;
-  left: 50%;
-  top: 50%;
-  width: 100%;
   z-index: -1;
   transition: all .3s ease 0s;
 }
@@ -846,7 +896,7 @@ label {
 
 .btn--form {
   font-family: sans-serif;
-  padding: .5rem 3rem;
+  padding: .4rem 4.8rem;
   font-size: .95rem;
   font-weight: 600;
   text-transform: uppercase;

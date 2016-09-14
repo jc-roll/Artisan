@@ -1,12 +1,13 @@
 <div class="skew">
 	<div class="container">
 		<div class="userNav" ng-controller="AuthCtrl">
-				<img ng-show="currentUser" class="profile-img" ng-src="{{currentUser.photoURL}}" ng-href="#/profile" />
-				<!-- ng-hide="currentUser" hides the given routes while user is signed in. This helps with confusing and reasurance that they are logged in. -->
-				<a ng-hide="currentUser" ng-href="#/login">Login</a>
-				<a ng-hide="currentUser" ng-href="#/register">Register</a>
-				<!-- Depending on what sign in method they use we will need to call diferent firebase fields held in the seperate authObj targeted -->
-				<a ng-show="currentUser" ng-href="#/profile">{{currentUser.username}}<br>Profile</a>
+			<img class="fb-img" ng-show="currentUser" ng-src="{{currentUser.photoURL}}" ng-href="#/profile" />
+			<!-- ng-hide="currentUser" hides the given routes while user is signed in. This helps with confusing and reasurance that they are logged in. -->
+			<a ng-hide="currentUser" ng-href="#/login">Login</a>
+			<a ng-hide="currentUser" ng-href="#/register">Register</a>
+			<!-- Depending on what sign in method they use we will need to call diferent firebase fields held in the seperate authObj targeted -->
+			<a ng-show="currentUser" ng-href="#/profile">{{currentUser.username}}<br></a>
+			<div class="logo"></div>
 		</div>
 	</div>
 </div>
