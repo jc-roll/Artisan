@@ -910,17 +910,17 @@ label {
 
 .btn--formInVal {
   font-family: sans-serif;
-  padding: .5rem 3rem;
+  padding: .5rem 1.3rem;
   font-size: .95rem;
   font-weight: 600;
   text-transform: uppercase;
-  border: 1px solid #888;
+  border: 1px solid #000;
   color: white;
   text-shadow: -1px -1px 2px #777777;
   background: -moz-linear-gradient(90deg, 
-    rgba(226,226,226,1) 0%, 
-    rgba(209,209,209,1) 51%, 
-    rgba(254,254,254,1) 100%);
+    rgba(226,100,100,1) 0%, 
+    rgba(209,120,120,1) 51%, 
+    rgba(254,140,140,1) 100%);
   border-radius: .2rem;
 }
 
