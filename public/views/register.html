@@ -17,22 +17,22 @@
             </div>
             <div class="form-model">
               <label>Phone Number</label><br>
-                <input class="form-control" type="tel" name="phone" ng-model="user.phone" placeholder="(xxx-xxx-xxxx)" ng-required="true" pattern="^\d{7}$"  >
+                <input class="form-control" type="tel" name="phone" ng-model="user.phone" placeholder="(xxx-xxx-xxxx)" pattern="^\d{7}$"  >
                 <p class="error validationerror" 
-                ng-show="myform.phone.$invalid && myform.phone.$touched">Make sure " - "  are used and is valid</p>
+                ng-show="myform.phone.$invalid && myform.phone.$touched">Requires seven numeric characters</p>
             </div>
             <div class="form-model">
               <label>Password</label><br>
                 <!-- Reference login.html for form notes, this line also shows some options for setting standards for valid fields. -->
                 <input class="form-control" type="password" name="password" ng-model="user.password" placeholder="********" ng-required="true" ng-minlength="6" ng-maxlength="12" >
                 <p class="error validationerror" 
-                ng-show="myform.password.$invalid && myform.password.$touched">Password does not meet requirments</p>
+                ng-show="myform.password.$invalid && myform.password.$touched">Password 6-12 characters in length</p>
             </div>
             <div class="form-model">
                 <label>Confirm Password:</label><br>
-                <input class="form-control"  type="password" name="passwordVal" ng-model="user.passwordVal" placeholder="Enter Password" ng-pattern="(password)" ng-required="true">
+                <input class="form-control"  type="password" name="passwordVal" ng-model="user.passwordVal" placeholder="Confirm Password" ng-pattern="(password)" ng-required="true">
                 <p class="error validationerror"
-                ng-show="myform.password.$valid && myform.passwordVal.$error.pattern">Passwords Must Match</p>
+                ng-show="myform.passwordVal.$valid && myform.passwordVal.$error.pattern">Password must match above</p>
             </div>
           </fieldset>
         <div>
