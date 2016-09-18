@@ -16,12 +16,13 @@
             </div>
           </fieldset>
       </form>  
-      <button class="btn--form" ng-click="sendPasswordResetEmail()">Change Password</button>
+      <button class="btn--form" ng-click="sendPasswordResetEmail()">Change Password</button><br><br>
+      <button class="navlink" ng-controller="ProfileCtrl" ng-click="showIt()">Admin Edit</button>
     </div>
 </section>
-<section class="card">
-    <form name="myForm" ng-controller="GalleryCtrl">
-        <h1>Crop Image and Upload</h1>
+<section class="card" ng-show="showMe">
+    <form name="myForm">
+        <h1 >Crop Image and Upload</h1>
 
         <button ngf-select ng-model="picFile" accept="image/*">Select Product</button><br><br>
         <input type="text" name="dimensions" ng-model="dimensions" placeholder="Dimensions">

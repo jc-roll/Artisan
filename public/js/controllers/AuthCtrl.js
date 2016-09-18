@@ -37,6 +37,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
     .then(function(firebaseUser) {
    
         console.log("User " + firebaseUser.uid + " created successfully!");
+        window.location = "#/home.html";
         var ref = firebase.database().ref();
 // userData holds the loaction that I would like to refrence in the creation of a user
         var userData = ref.child('users/' + firebaseUser.uid);
@@ -46,14 +47,12 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
         var newUser = $firebaseObject(userData);
         newUser.email = $scope.user.email;
         newUser.username = $scope.user.username;
-        newUser.phone = $scope.user.phone;
         newUser.password = $scope.user.password;
         newUser.$save()
         .then(function(data) {
           console.log("UserData Added to users in firebase", newUser);
 //Then we set the newUser to = currentUser for auth 
           console.log($rootScope.currentUser);
-          window.location = "#/home.html";
         }).catch(function(error) {
           console.error("UserData Failed to add");
         });

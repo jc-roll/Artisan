@@ -1,7 +1,7 @@
 <div class="skew">
 	<div class="container">
 		<div class="userNav" ng-controller="AuthCtrl">
-			<img class="fb-img" ng-show="currentUser" ng-src="{{currentUser.photoURL}}" ng-href="#/profile" />
+			<img class="fb-img" ng-show="currentUser" ng-src="{{currentUser.photoURL}}"/>
 			<!-- ng-hide="currentUser" hides the given routes while user is signed in. This helps with confusing and reasurance that they are logged in. -->
 			<a ng-hide="currentUser" ng-href="#/login">Login</a>
 			<a ng-hide="currentUser" ng-href="#/register">Register</a>
