@@ -20,7 +20,7 @@
       <button class="navlink" ng-controller="ProfileCtrl" ng-click="showIt()">Admin Edit</button>
     </div>
 </section>
-<section class="card" ng-show="showMe">
+<section class="card" ng-controller="ProfileCtrl"  ng-show="showMe">
     <form name="myForm">
         <h1 >Crop Image and Upload</h1>
 
