@@ -91,8 +91,8 @@ myApp.config(["$routeProvider", function($routeProvider) {
           return Auth.$waitForSignIn();
         }]
       }
-    }).otherwise({ 
-          redirectTo: '/home' 
+    // }).otherwise({ 
+    //       redirectTo: '' 
     }); 
 }]);
 

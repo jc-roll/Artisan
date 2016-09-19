@@ -1,21 +1,6 @@
 myApp.controller('GalleryCtrl', ['$scope', '$rootScope', '$timeout', '$firebaseArray', '$firebaseObject', 'Auth', 
   function ($scope, $rootScope, $timeout, $firebaseArray, $firebaseObject, Auth) {
 
-  $scope.authObj = $firebaseAuth();
-  $scope.authObj.$onAuthStateChanged(function(firebaseUser, result) {
-    if (firebaseUser) {
-      console.log("Signed in as:", firebaseUser.uid);
-      console.log(firebaseUser);
-        var ref = firebase.database().ref();
-        var userData = ref.child('users/' + firebaseUser.uid);
-        var getData = $firebaseObject(userData);
-        $rootScope.currentUser = getData;
-        $rootScope.currentUser.role = getData.role;
-    } else {
-      console.log(" Signed out ");
-      $rootScope.currentUser = '';
-    }
-  });
 
 var ref = firebase.database().ref("products" );
   $scope.data = $firebaseArray(ref);
