@@ -980,7 +980,7 @@ label {
 }
 
 form .progress {
-  ine-height: 15px;
+  line-height: 15px;
 }
 
 .progress {
@@ -993,7 +993,6 @@ form .progress {
 .progress div {
   font-size: smaller;
   background: orange;
-  width: 0;
 }
 
 .cropArea img-crop {
@@ -1015,7 +1014,7 @@ form .progress {
 
 .gallery {
   text-align: center; 
-  list-style-position:inside;
+  list-style-position: inside;
 }
 
 /*may add additional effects for final release*/
@@ -1023,7 +1022,7 @@ form .progress {
 
 .product {
   text-align: center; 
-  list-style-position:inside;
+  list-style-position: inside;
   color: white;
   position: relative;
   overflow: hidden;

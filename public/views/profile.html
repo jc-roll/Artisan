@@ -23,8 +23,8 @@
 <section class="card" ng-controller="ProfileCtrl"  ng-show="showMe">
     <form name="myForm">
         <h1 >Crop Image and Upload</h1>
-
-        <button ngf-select ng-model="picFile" accept="image/*">Select Product</button><br><br>
+        <button ngf-select ng-model="picFile" accept="image/*">Select Product</button>
+        <p> You may also drag and drop the image file </p><br><br>
         <input type="text" name="dimensions" ng-model="dimensions" placeholder="Dimensions">
         <input type="text" name="productInfo" ng-model="productInfo" placeholder="Description" ng-required="true">
         <input type="number" name="price" ng-model="price" placeholder="Price" ng-required="true">
@@ -39,7 +39,7 @@
           <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
         </span>
         <span ng-show="result">Upload Successful</span>
-    </form>
+    </form> <!-- Close of form -->
 </section>
 
 
