@@ -27,7 +27,7 @@ myApp.factory("signinWithFacebook", function() {
 //This triggers that function
         writeUserData(user.uid, user.displayName, user.email, user.photoURL);
           console.log(firebase.auth().currentUser.displayName);
-          window.location = "#/home.html";
+          window.location = "#/home";
         } else {
           console.log("Login Failed");
         }

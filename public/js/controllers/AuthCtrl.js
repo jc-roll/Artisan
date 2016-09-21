@@ -26,7 +26,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
     $scope.authObj.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
       console.log("Signed in as:", firebaseUser.uid);
 // window.location redirects the user back to the home page after function runs
-      window.location = "#/home.html";
+      window.location = "#/home";
     }).catch(function(error) {
       console.error("Authentication failed:", error);
     });
@@ -37,7 +37,7 @@ myApp.controller('AuthCtrl', ['$scope', '$rootScope', '$timeout', '$window', '$l
     .then(function(firebaseUser) {
    
         console.log("User " + firebaseUser.uid + " created successfully!");
-        window.location = "#/home.html";
+        window.location = "#/home";
         var ref = firebase.database().ref();
 // userData holds the loaction that I would like to refrence in the creation of a user
         var userData = ref.child('users/' + firebaseUser.uid);
