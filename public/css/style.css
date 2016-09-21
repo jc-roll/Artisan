@@ -406,7 +406,7 @@ h1, h2, h3, h4 {
   opacity: .92;
 }
 
-A:hover::before {
+:hover::before {
   box-shadow: none;
   left: 0;
   top: 0;
@@ -520,6 +520,7 @@ nav .siteNav a {
 nav .siteNav a:hover {
   text-shadow: 1.5px 1px black;
   font-size: 1.2em;
+  margin-top:9px;
 }
 @media only screen and (max-width: 470px) {nav .siteNav a:hover {
   text-shadow: 1.5px 1px white;
@@ -538,6 +539,7 @@ nav .siteNav a{
   margin-top:16px;
   text-decoration: none;
 }
+
 
 footer {
   position: relative;
@@ -609,7 +611,7 @@ textarea{
   background: #f2f2f2;
 }
 
-.loginBtn {
+.userNav .loginBtn {
   box-sizing: border-box;
   position: relative;
   margin: 0.2em;
@@ -972,12 +974,15 @@ label {
 
 .cropArea {
   background: #E4E4E4;
-  overflow: hidden;
-  width:500px;
-  height:350px;
-  display: block;
-  margin: 0 Auto;
+ /* overflow: hidden;*/
+  margin: 0 auto;
+  width:600px;
+  height:600px;
 }
+@media only screen and (max-width: 850px) {.cropArea {
+  width: 100%;
+  height: 500px;
+}}
 
 form .progress {
   line-height: 15px;
@@ -995,45 +1000,34 @@ form .progress {
   background: orange;
 }
 
-.cropArea img-crop {
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: relative;
-  overflow: hidden;
-}
-
-.cropArea img-crop canvas {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  outline: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-}
-
 .gallery {
-  text-align: center; 
-  list-style-position: inside;
+  margin:0;
+  padding:0;
 }
 
 /*may add additional effects for final release*/
-.product:hover {}
+.product:hover{
+  padding-bottom: 110px;
+  margin-top: -110px;
+  z-index: 2;
+  transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
 
 .product {
   text-align: center; 
-  list-style-position: inside;
+  z-index: 1;
   color: white;
   position: relative;
   overflow: hidden;
   display: inline-block;
-  border-style: solid;
-  width: 250px;
-  height: 275px;
-  padding: 20px;
+  width: 300px;
+  height: 300px;
   background-color: rgba(25, 25, 25, .90);
-  border-width: 1px;
-  border-color: #999;
+  transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -webkit-transition: all  1s ease;
 }
 
 

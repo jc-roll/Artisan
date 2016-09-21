@@ -3,8 +3,9 @@
 		<div class="userNav" ng-controller="AuthCtrl">
 			<img class="fb-img" ng-show="currentUser" ng-src="{{currentUser.photoURL}}"/>
 			<!-- ng-hide="currentUser" hides the given routes while user is signed in. This helps with confusing and reasurance that they are logged in. -->
-			<a ng-hide="currentUser" ng-href="#/login">Login</a>
-			<a ng-hide="currentUser" ng-href="#/register">Register</a>
+			<a>
+				<button ng-hide="currentUser" class="loginBtn loginBtn--facebook" ng-click="signinWithFacebook()">Login with Facebook</button>
+			</a>
 			<!-- Depending on what sign in method they use we will need to call diferent firebase fields held in the seperate authObj targeted -->
 			<a ng-show="currentUser" ng-href="#/profile">{{currentUser.username}}</a>
 			<div class="logo"></div>

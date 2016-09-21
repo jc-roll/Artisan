@@ -8,7 +8,7 @@
  * Generated at Wednesday, December 3rd, 2014, 3:54:12 PM
  */
 (function() {
-'use strict';
+
 
 var crop = angular.module('ngImgCrop', []);
 

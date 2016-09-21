@@ -1,7 +1,9 @@
 <section class="gallery">
-  <div class="product" ng-repeat="p in data">
+  <div class="product" ng-repeat="p in data" autofocus="autofocus">
     <img class="image" ng-src="{{p.image}}"/>
     <ol class="product-info">
+      <li>{{p.item_Number}}</li>
+      <li>{{p.store}}</li>
       <li>{{p.dimensions}}</li>
       <li>{{p.productInfo}}</li>
       <li>{{p.price}}</li>

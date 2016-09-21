@@ -11,9 +11,9 @@ myApp.run(["$rootScope", "$location", function($rootScope, $location) {
 
 myApp.config(["$routeProvider", function($routeProvider) {
   $routeProvider.
-    when("/login", {
+    when("/admin", {
       controller: "AuthCtrl",
-      templateUrl: "views/login.html",
+      templateUrl: "views/admin.html",
       resolve: {
         "currentAuth": ["Auth", function(Auth) {
           return Auth.$waitForSignIn();
